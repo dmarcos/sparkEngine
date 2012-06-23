@@ -1,4 +1,4 @@
-bubbleViewer
+SparkEngine
 ============
 
-It illustrates a panorama viewer using a sphere as geometry.
+3d engine written in Objective-C and using GLKit
