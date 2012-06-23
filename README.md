@@ -1,4 +1,4 @@
-sparkEngine
-===========
+bubbleViewer
+============
 
-3d engine written in Objective-C
+It illustrates a panorama viewer using a sphere as geometry.
