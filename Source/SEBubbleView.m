@@ -15,6 +15,8 @@
 
 #import "SEBubbleView.h"
 #import "SERenderer.h"
+#import "SEScene.h"
+#import "SESphere.h"
 
 @interface SEBubbleView(){
     UIWindow		*window;
@@ -29,6 +31,7 @@
     float fov;
     
     SERenderer* renderer;
+    SEScene* scene;
     
     CMMotionManager* _motionManager;
     CMAttitude* _referenceAttitude;
@@ -62,6 +65,11 @@
         self->fov = 45.0;
         self->rotationX = 0.0;
         self->rotationY = 0.0;
+        
+        self->scene = [[SEScene alloc] init]; 
+        self->scene.rotation = GLKVector3Make(self->rotationX, self->rotationY, 0.0);
+        SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
+        [self->scene.objects addObject:sphere];
     }
 	
     return self;
@@ -69,7 +77,8 @@
 
 - (void) renderFrame
 {
-    [self->renderer renderWithRotationX:self->rotationX withRotationY:self->rotationY withFov:self->fov withZoom:self->zoom];
+    self->scene.rotation = GLKVector3Make(self->rotationX, self->rotationY, 0.0);
+    [self->renderer renderScene: scene fov:self->fov zoom:self->zoom];
 }
 
 + (void) presentColorbuffer
@@ -245,11 +254,6 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-}
-
-- (void)dealloc
-{
-	NSLog(@"YEAH BABY");
 }
 
 @end

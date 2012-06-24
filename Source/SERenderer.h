@@ -10,11 +10,12 @@
 #import "SETexture.h"
 
 @class CAEAGLLayer;
+@class SEScene;
 
 @interface SERenderer : NSObject
 
 - (id) initWithViewport: (CGRect) viewport withGLContext: (EAGLContext*) glContext withEAGLLayer: (CAEAGLLayer*) eaglLayer;
--(void) renderWithRotationX: (float) rotationX withRotationY: (float) rotationY withFov: (float) fov withZoom: (float) zoom;
+- (void) renderScene: (SEScene*) scene fov: (float) fov zoom: (float) zoom;
 - (void) setTexture: (SETexture*) texture;
 
 @property (nonatomic, readonly) CGRect viewport;

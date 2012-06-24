@@ -15,6 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "SESphere.h"
+#import "SEScene.h"
 
 @interface SERenderer(){
     CGRect _viewport;
@@ -50,6 +51,7 @@
 -(void) clearOpenGL;
 -(void) showBuffers;
 -(void) drawSceneWithRotationX: (float) rotationX withRotationY: (float) rotationY withFov: (float) fov withZoom: (float) zoom;
+-(void) drawScene: (SEScene*) scene fov: (float) fov zoom: (float) zoom;
 -(GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data;
 -(GLuint) initShaderWithType: (GLenum) type withSource: (const char **) source;
 -(GLuint) compileProgramWithVertexShader: (GLuint) vertexShader withFragmentShader: (GLuint) fragmentShader;
@@ -72,21 +74,20 @@
     return self;
 }
 
--(void) renderWithRotationX: (float) rotationX withRotationY: (float) rotationY withFov: (float) fov withZoom: (float) zoom
+-(void) renderScene: (SEScene*) scene fov: (float) fov zoom: (float) zoom
 {
     [EAGLContext setCurrentContext: self->_glContext];
 	[self clearBuffers];
-	[self drawSceneWithRotationX: rotationX withRotationY: rotationY withFov: fov withZoom: zoom];
+	[self drawScene: scene fov: fov zoom: zoom];
 	[self showBuffers];
 }
 
--(void) drawSceneWithRotationX: (float) rotationX withRotationY: (float) rotationY withFov: (float) fov withZoom: (float) zoom
+-(void) drawScene: (SEScene*) scene fov: (float) fov zoom: (float) zoom
 {
-    
     // Creates matrix rotations to X and Y.
     GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0, 0.0, zoom*-4.0);
-    modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, GLKMathDegreesToRadians(rotationX));
-    modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, GLKMathDegreesToRadians(rotationY));
+    modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, GLKMathDegreesToRadians(scene.rotation.x));
+    modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, GLKMathDegreesToRadians(scene.rotation.y));
     GLKMatrix4 projectionMatrix;
     GLKMatrix4 modelViewProjectionMatrix;
     

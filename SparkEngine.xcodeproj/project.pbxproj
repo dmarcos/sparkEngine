@@ -12,7 +12,6 @@
 		60119D2613198BC100146334 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2513198BC100146334 /* CoreGraphics.framework */; };
 		60119D2813198BC100146334 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2713198BC100146334 /* QuartzCore.framework */; };
 		60119D2A13198BC100146334 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2913198BC100146334 /* OpenGLES.framework */; };
-		B2227E391582B6EB008509D8 /* ricohPano.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2227E381582B6EB008509D8 /* ricohPano.jpg */; };
 		B26EA37C1586B523000EB015 /* SERendererOld.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA37B1586B523000EB015 /* SERendererOld.m */; };
 		B26EA38315890CCF000EB015 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
 		B272552915865F4C00C1F1D1 /* SETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = B272552815865F4C00C1F1D1 /* SETexture.m */; };
@@ -41,7 +40,7 @@
 		B26EA38215890CCF000EB015 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B272552715865F4C00C1F1D1 /* SETexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETexture.h; sourceTree = "<group>"; };
 		B272552815865F4C00C1F1D1 /* SETexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETexture.m; sourceTree = "<group>"; };
-		B29079A6158BE2A600174AA9 /* SEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SEScene.h; sourceTree = "<group>"; };
+		B29079A6158BE2A600174AA9 /* SEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEScene.h; sourceTree = "<group>"; };
 		B29079A7158BE2A700174AA9 /* SEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEScene.m; sourceTree = "<group>"; };
 		B29079AA158BF8AB00174AA9 /* SEVertexData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEVertexData.h; sourceTree = "<group>"; };
 		B29079B1158E67DA00174AA9 /* SESphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESphere.h; sourceTree = "<group>"; };
@@ -53,7 +52,7 @@
 		B2D48762158325CB0051053F /* SEBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEBubbleView.m; sourceTree = "<group>"; };
 		B2D48763158325CB0051053F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2D4876C158326280051053F /* SparkEngine-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SparkEngine-Info.plist"; sourceTree = "<group>"; };
-		B2D4876D158326280051053F /* SparkEngine-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; path = "SparkEngine-Prefix.pch"; sourceTree = "<group>"; };
+		B2D4876D158326280051053F /* SparkEngine-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SparkEngine-Prefix.pch"; sourceTree = "<group>"; };
 		B2F29B42158A7D8900837A72 /* SEObject3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEObject3D.h; sourceTree = "<group>"; };
 		B2F29B43158A7D8900837A72 /* SEObject3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEObject3D.m; sourceTree = "<group>"; };
 		B2F29B46158A85B800837A72 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -206,7 +205,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2227E391582B6EB008509D8 /* ricohPano.jpg in Resources */,
 				B2D4876E158326280051053F /* SparkEngine-Info.plist in Resources */,
 				B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */,
 			);

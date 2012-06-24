@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SEObject3D.h"
 
-@class SEObject3D;
+@interface SEScene : SEObject3D
 
-@interface SEScene : NSObject
-
--(void) addObject: (SEObject3D* ) object;
+@property NSMutableArray* objects;
 
 @end

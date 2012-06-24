@@ -7,9 +7,9 @@
 //
 
 #import "SEScene.h"
-#import "SEObject3D.h"
 
 @implementation SEScene
 
+@synthesize objects = _objects;
 
 @end
