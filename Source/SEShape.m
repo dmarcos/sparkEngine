@@ -22,6 +22,18 @@
 @synthesize facesIndices = _facesIndices;
 @synthesize numFacesIndices = _numFacesIndices;
 
+@synthesize vertexBuffer = _vertexBuffer;
+@synthesize facesIndicesBuffer = _facesIndicesBuffer;
+
+-(id)init
+{   self = [super init];
+    if (self) {
+        self->_vertexBuffer = -1;
+        self->_facesIndicesBuffer = -1;
+    }
+    return self;
+}
+
 -(int)numVertices {
     return self->_numVertices;
 }

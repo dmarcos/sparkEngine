@@ -14,8 +14,9 @@
 #import <GLKit/GLKMath.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "SESphere.h"
 #import "SEScene.h"
+#import "SEShape.h"
+#import "SEPerspectiveCamera.h"
 
 @interface SERenderer(){
     CGRect _viewport;
@@ -29,9 +30,7 @@
     
     // Program Object name/id.
     GLuint		_program;
-    
-    SESphere* sphere;
-    
+        
     // Texture Object name/id.
     GLuint		_texture;
     
@@ -39,9 +38,9 @@
     GLuint		_uniforms[2];
     GLuint		_attributes[2];
     
-    // Buffer Objects names/ids.
-    GLuint		_boVertices;
-    GLuint		_boFacesIndices;
+    NSMutableArray* _bufferObjectIndices;
+    
+    bool _updateObjects;
 }
 
 -(void) initOpenGL;
@@ -50,8 +49,8 @@
 -(void) clearBuffers;
 -(void) clearOpenGL;
 -(void) showBuffers;
--(void) drawSceneWithRotationX: (float) rotationX withRotationY: (float) rotationY withFov: (float) fov withZoom: (float) zoom;
--(void) drawScene: (SEScene*) scene fov: (float) fov zoom: (float) zoom;
+-(void) drawScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera;
+-(void) updateBufferObjectsInScene: (SEScene*) scene;
 -(GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data;
 -(GLuint) initShaderWithType: (GLenum) type withSource: (const char **) source;
 -(GLuint) compileProgramWithVertexShader: (GLuint) vertexShader withFragmentShader: (GLuint) fragmentShader;
@@ -68,34 +67,34 @@
     self->_viewport = viewport;
     self->_glContext = glContext;
     self->_eaglLayer = eaglLayer;
-    self->sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
+    self->_updateObjects = true;
     
     [self initOpenGL];
     return self;
 }
 
--(void) renderScene: (SEScene*) scene fov: (float) fov zoom: (float) zoom
+-(void) renderScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera
 {
     [EAGLContext setCurrentContext: self->_glContext];
 	[self clearBuffers];
-	[self drawScene: scene fov: fov zoom: zoom];
+    if(self->_updateObjects){
+        [self updateBufferObjectsInScene: scene];
+        self->_updateObjects = false;
+    }
+	[self drawScene: scene camera: camera];
 	[self showBuffers];
 }
 
--(void) drawScene: (SEScene*) scene fov: (float) fov zoom: (float) zoom
+-(void) drawScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera
 {
     // Creates matrix rotations to X and Y.
-    GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0, 0.0, zoom*-4.0);
+    GLKMatrix4 modelViewMatrix = GLKMatrix4TranslateWithVector3(GLKMatrix4Identity, scene.position);
     modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, GLKMathDegreesToRadians(scene.rotation.x));
     modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, GLKMathDegreesToRadians(scene.rotation.y));
-    GLKMatrix4 projectionMatrix;
-    GLKMatrix4 modelViewProjectionMatrix;
-    
-    // Creates Projection Matrix.
-    projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(fov), self->_viewport.size.width / self->_viewport.size.height, 0.1, 100.0);
+    modelViewMatrix = GLKMatrix4RotateZ(modelViewMatrix, GLKMathDegreesToRadians(scene.rotation.z));
     
     // Multiplies the Projection by the ModelView to create the ModelViewProjection matrix.
-    modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+    GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(camera.projectionMatrix, modelViewMatrix);
     
     //***********************************************
     //  OpenGL Drawing Operations
@@ -120,17 +119,23 @@
     // As the Texture Unit used is 7, let's set this value to 7.
     glUniform1i(self->_uniforms[1], 7);
     
-    // Bind the Buffer Objects which we'll use now.
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self->_boFacesIndices);
-    // Sets the dynamic attributes in the current shaders. Each attribute will start in a different
-    // index of the ABO.
-    glBindBuffer(GL_ARRAY_BUFFER, self->_boVertices);
-    
-    glVertexAttribPointer(self->_attributes[0], 3, GL_FLOAT, GL_FALSE, sizeof(PSVertexData), (void *) 0);    
-    glVertexAttribPointer(self->_attributes[1], 2, GL_FLOAT, GL_FALSE, sizeof(PSVertexData), (void *) (sizeof(GLKVector3)));
-    
-    // Draws the triangles, starting by the index 0 in the IBO.
-    glDrawElements(GL_TRIANGLES, self->sphere.numFacesIndices * 3, GL_UNSIGNED_SHORT, (void *) 0);
+    NSEnumerator *e = [scene.objects objectEnumerator];
+    id object;
+    while (object = [e nextObject]) {
+        
+        // Bind the Buffer Objects which we'll use now.
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, [object facesIndicesBuffer]);
+        // Sets the dynamic attributes in the current shaders. Each attribute will start in a different
+        // index of the ABO.
+        glBindBuffer(GL_ARRAY_BUFFER, [object vertexBuffer]);
+        
+        glVertexAttribPointer(self->_attributes[0], 3, GL_FLOAT, GL_FALSE, sizeof(PSVertexData), (void *) 0);    
+        glVertexAttribPointer(self->_attributes[1], 2, GL_FLOAT, GL_FALSE, sizeof(PSVertexData), (void *) (sizeof(GLKVector3)));
+        
+        // Draws the triangles, starting by the index 0 in the IBO.
+        glDrawElements(GL_TRIANGLES, [object numFacesIndices] * 3, GL_UNSIGNED_SHORT, (void *) 0);
+        
+    }
     
     // Unbid all the Buffer Objects currently in use. In this application this doesn't change anything.
     // But in a application with multiple Buffer Objects, this will be crucial.
@@ -144,7 +149,7 @@
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	// Clears an amount of color in the color render buffer.
-	glClearColor(0.2, 0.3, 0.5, 1.0);
+	glClearColor(0.0, 0.0, 0.0, 1.0);
 }
 
 -(void) showBuffers
@@ -167,14 +172,20 @@
 	// Creates all the OpenGL objects necessary to an application.
 	[self initFrameAndRenderbuffers];
 	[self initProgramAndShaders];
-    
-    self->_boVertices = [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: sphere.numVertices * sizeof(PSVertexData) withData: sphere.vertices];
-	self->_boFacesIndices = [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: sphere.numFacesIndices * sizeof(PSFaceIndices) withData: sphere.facesIndices];
-    
     //[self setTexture: texture]
     [EAGLContext setCurrentContext: self.glContext];
 	// Sets the size to OpenGL view.
 	glViewport(0, 0, self.viewport.size.width, self.viewport.size.height);
+}
+
+-(void) updateBufferObjectsInScene: (SEScene*) scene
+{
+    NSEnumerator *e = [scene.objects objectEnumerator];
+    id object;
+    while (object = [e nextObject]) {
+        [object setVertexBuffer: [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: [object numVertices] * sizeof(PSVertexData) withData: [object vertices]]];
+        [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [object numFacesIndices] * sizeof(PSFaceIndices) withData: [object facesIndices]]];
+    }
 }
 
 -(void) initFrameAndRenderbuffers
@@ -372,6 +383,8 @@
 	// Generates the vertex buffer object (VBO)
 	glGenBuffers(1, &buffer);
 	
+    [self->_bufferObjectIndices addObject: [[NSNumber alloc] initWithInt: buffer]];
+    
 	// Bind the VBO so we can fill it with data
 	glBindBuffer(type, buffer);
 	glBufferData(type, size, data, GL_STATIC_DRAW);
@@ -382,10 +395,13 @@
 - (void) clearOpenGL
 {
     
-    // Delete Buffer Objects.
-    glDeleteBuffers(1, &self->_boVertices);
-    glDeleteBuffers(1, &self->_boFacesIndices);
-    
+    NSEnumerator *e = [self->_bufferObjectIndices objectEnumerator];
+    id object;
+    while (object = [e nextObject]) {
+        // Delete Buffer Objects.
+        GLuint bufferId = [object intValue];
+        glDeleteBuffers(1, &bufferId);
+    }
     // Delete Programs, remember which the shaders was already deleted before.
     glDeleteProgram(self->_program);
     

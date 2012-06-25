@@ -12,4 +12,13 @@
 
 @synthesize objects = _objects;
 
+-(id) init
+{
+    self = [super init];
+    if(self){
+        self->_objects = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 @end

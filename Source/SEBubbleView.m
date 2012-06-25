@@ -17,6 +17,7 @@
 #import "SERenderer.h"
 #import "SEScene.h"
 #import "SESphere.h"
+#import "SEPerspectiveCamera.h"
 
 @interface SEBubbleView(){
     UIWindow		*window;
@@ -25,13 +26,12 @@
     BOOL firstTouch;
     BOOL doubleTouchBegun;  
     CGPoint previousSingleTouchPosition;
-    float rotationX;
-    float rotationY;
     float zoom;
     float fov;
     
     SERenderer* renderer;
     SEScene* scene;
+    SEPerspectiveCamera* camera;
     
     CMMotionManager* _motionManager;
     CMAttitude* _referenceAttitude;
@@ -63,11 +63,10 @@
 		
         self->zoom = 1.0;
         self->fov = 45.0;
-        self->rotationX = 0.0;
-        self->rotationY = 0.0;
-        
+        self->camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self.bounds.size.width / self.bounds.size.width near: 0.1 far:100.0];
         self->scene = [[SEScene alloc] init]; 
-        self->scene.rotation = GLKVector3Make(self->rotationX, self->rotationY, 0.0);
+        self->scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        self->scene.position = GLKVector3Make(0.0, 0.0, -4.0);
         SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
         [self->scene.objects addObject:sphere];
     }
@@ -77,8 +76,7 @@
 
 - (void) renderFrame
 {
-    self->scene.rotation = GLKVector3Make(self->rotationX, self->rotationY, 0.0);
-    [self->renderer renderScene: scene fov:self->fov zoom:self->zoom];
+    [self->renderer renderScene: scene camera: camera];
 }
 
 + (void) presentColorbuffer
@@ -108,7 +106,7 @@
 	self->glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
 	[EAGLContext setCurrentContext: self->glContext];
     self->renderer = [[SERenderer alloc] initWithViewport:self.bounds withGLContext: self->glContext withEAGLLayer: (CAEAGLLayer *) self.layer];
-    
+    self->camera.aspect = self.bounds.size.width / self.bounds.size.height;
 	// Initializes the OpenGL in the CubeExample.mm
     [self loadTextures];    
     [self renderFrame];
@@ -121,7 +119,7 @@
 
 -(void) loadTextures
 {
-    self->panorama = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"mars.jpg"]];
+    self->panorama = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];
     [self->renderer setTexture:self->panorama];
 }
 
@@ -181,9 +179,11 @@
         float newFov = self->fov + 10*deltaInDistances;
         if(newFov >= 45.0 || newFov < 90) {
             self->fov = newFov;
+            self->camera.fov = GLKMathDegreesToRadians(newFov);
         }
         [self renderFrame];
     }
+    self->scene.position = GLKVector3Make(0.0, 0.0, -4.0*self->zoom);
     
 
 }
@@ -201,22 +201,20 @@
         self->firstTouch = false;
         self->previousSingleTouchPosition = [touch locationInView: view];        
     }
-    
-    const float viewportWidthOver = 0.5f * self.bounds.size.height * 0.5;
-    const float focalLength = viewportWidthOver / tanf(0.5f * self->fov);
-     
+         
     CGPoint currentLocation = [touch locationInView: view];
     float dx = currentLocation.x - self->previousSingleTouchPosition.x;
     float dy = currentLocation.y - self->previousSingleTouchPosition.y;
+    GLKVector3 newRotation = scene.rotation;
     if (self->zoom <= 0.28) {
-        self->rotationY = self->rotationY - dx;
-        self->rotationX = self->rotationX - dy;
+        newRotation.y = newRotation.y - dx;
+        newRotation.x = newRotation.x - dy;
     } else {
-        self->rotationY = self->rotationY + dx;
-        self->rotationX = self->rotationX + dy;
+        newRotation.y = newRotation.y + dx;
+        newRotation.x = newRotation.x + dy;
     }
-        
-        self->previousSingleTouchPosition = currentLocation;
+    scene.rotation = newRotation;
+    self->previousSingleTouchPosition = currentLocation;
     [self renderFrame];    
 }
 
@@ -232,8 +230,8 @@
 
     [self->_motionManager startGyroUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMGyroData *gyroData, NSError *error) {
         
-        CMDeviceMotion *deviceMotion = self->_motionManager.deviceMotion;     
-        CMAttitude *attitude = deviceMotion.attitude;
+//        CMDeviceMotion *deviceMotion = self->_motionManager.deviceMotion;     
+//        CMAttitude *attitude = deviceMotion.attitude;
 //        float rateX = self->_motionManager.gyroData.rotationRate.x;
 //        float rateY = self->_motionManager.gyroData.rotationRate.y;
 //        if (fabs(rateX) > .01) {

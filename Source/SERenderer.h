@@ -11,11 +11,12 @@
 
 @class CAEAGLLayer;
 @class SEScene;
+@class SEPerspectiveCamera;
 
 @interface SERenderer : NSObject
 
 - (id) initWithViewport: (CGRect) viewport withGLContext: (EAGLContext*) glContext withEAGLLayer: (CAEAGLLayer*) eaglLayer;
-- (void) renderScene: (SEScene*) scene fov: (float) fov zoom: (float) zoom;
+- (void) renderScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera;
 - (void) setTexture: (SETexture*) texture;
 
 @property (nonatomic, readonly) CGRect viewport;

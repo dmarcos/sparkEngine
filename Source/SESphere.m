@@ -20,9 +20,7 @@
     
     self->_numVertices = (steps+1)*(steps+1); 
     self->_numFacesIndices = steps*steps*2;
-    
-    GLKVector3* vert = (GLKVector3*) malloc(self->_numVertices*sizeof(PSVertexData));
-    
+        
     for (int latNumber = 0; latNumber <= steps; latNumber++) {
         double theta = (double) latNumber * M_PI / steps;
         double sinTheta = sin(theta);

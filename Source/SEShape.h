@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <OpenGLES/ES2/gl.h>
 #import "SEVertexData.h"
+#import "SEObject3D.h"
 
-@interface SEShape : NSObject{
+@interface SEShape : SEObject3D{
     @protected
     int _numVertices;
     int _numFacesIndices;
@@ -20,5 +22,9 @@
 
 @property(readonly) PSFaceIndices* facesIndices;
 @property(readonly) int numFacesIndices;
+
+// Buffer Objects names/ids.
+@property GLuint vertexBuffer;
+@property GLuint facesIndicesBuffer;
 
 @end
