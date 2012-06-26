@@ -11,8 +11,8 @@
 
 @interface SEObject3D : NSObject
 
-@property GLKVector3 position;
-@property GLKVector3 rotation;
+@property (nonatomic) GLKVector3 position;
+@property (nonatomic) GLKVector3 rotation;
 @property GLKVector3 up;
 
 @property GLKMatrix4 matrix;

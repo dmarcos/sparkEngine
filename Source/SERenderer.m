@@ -86,15 +86,9 @@
 }
 
 -(void) drawScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera
-{
-    // Creates matrix rotations to X and Y.
-    GLKMatrix4 modelViewMatrix = GLKMatrix4TranslateWithVector3(GLKMatrix4Identity, scene.position);
-    modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, GLKMathDegreesToRadians(scene.rotation.x));
-    modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, GLKMathDegreesToRadians(scene.rotation.y));
-    modelViewMatrix = GLKMatrix4RotateZ(modelViewMatrix, GLKMathDegreesToRadians(scene.rotation.z));
-    
+{    
     // Multiplies the Projection by the ModelView to create the ModelViewProjection matrix.
-    GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(camera.projectionMatrix, modelViewMatrix);
+    GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(camera.projectionMatrix, scene.matrix);
     
     //***********************************************
     //  OpenGL Drawing Operations
@@ -422,6 +416,4 @@
     [self clearOpenGL];
 }
 
-
 @end
-
