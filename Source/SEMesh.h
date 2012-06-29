@@ -1,5 +1,5 @@
 //
-//  SEShape.h
+//  SEMesh.h
 //  SparkEngine
 //
 //  Created by Diego Marcos on 6/19/12.
@@ -11,16 +11,16 @@
 #import "SEVertexData.h"
 #import "SEObject3D.h"
 
-@interface SEShape : SEObject3D{
+@interface SEMesh : SEObject3D{
     @protected
     int _numVertices;
     int _numFacesIndices;
 }
 
-@property(readonly) PSVertexData* vertices;
+@property(readonly) SEVertexData* vertices;
 @property(readonly) int numVertices;
 
-@property(readonly) PSFaceIndices* facesIndices;
+@property(readonly) SEFaceIndices* facesIndices;
 @property(readonly) int numFacesIndices;
 
 // Buffer Objects names/ids.

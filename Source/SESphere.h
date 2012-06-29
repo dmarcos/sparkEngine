@@ -6,9 +6,9 @@
 //  Copyright (c) 2012. All rights reserved.
 //
 
-#import "SEShape.h"
+#import "SEMesh.h"
 
-@interface SESphere : SEShape
+@interface SESphere : SEMesh
 
 -(id) initWithRadius: (float) radius withSteps: (int) steps;
 

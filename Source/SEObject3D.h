@@ -15,6 +15,6 @@
 @property (nonatomic) GLKVector3 rotation;
 @property GLKVector3 up;
 
-@property GLKMatrix4 matrix;
+@property (nonatomic) GLKMatrix4 matrix;
 
 @end

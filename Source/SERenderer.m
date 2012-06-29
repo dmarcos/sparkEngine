@@ -15,7 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "SEScene.h"
-#import "SEShape.h"
+#import "SEMesh.h"
 #import "SEPerspectiveCamera.h"
 
 @interface SERenderer(){
@@ -36,7 +36,7 @@
     
     // Attributes and Uniforms locations.
     GLuint		_uniforms[2];
-    GLuint		_attributes[2];
+    GLuint		_attributes[3];
     
     NSMutableArray* _bufferObjectIndices;
     
@@ -123,9 +123,10 @@
         // index of the ABO.
         glBindBuffer(GL_ARRAY_BUFFER, [object vertexBuffer]);
         
-        glVertexAttribPointer(self->_attributes[0], 3, GL_FLOAT, GL_FALSE, sizeof(PSVertexData), (void *) 0);    
-        glVertexAttribPointer(self->_attributes[1], 2, GL_FLOAT, GL_FALSE, sizeof(PSVertexData), (void *) (sizeof(GLKVector3)));
-        
+        glVertexAttribPointer(self->_attributes[0], 3, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) 0);    
+        glVertexAttribPointer(self->_attributes[1], 2, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)));
+        glVertexAttribPointer(self->_attributes[2], 4, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
+
         // Draws the triangles, starting by the index 0 in the IBO.
         glDrawElements(GL_TRIANGLES, [object numFacesIndices] * 3, GL_UNSIGNED_SHORT, (void *) 0);
         
@@ -177,8 +178,8 @@
     NSEnumerator *e = [scene.objects objectEnumerator];
     id object;
     while (object = [e nextObject]) {
-        [object setVertexBuffer: [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: [object numVertices] * sizeof(PSVertexData) withData: [object vertices]]];
-        [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [object numFacesIndices] * sizeof(PSFaceIndices) withData: [object facesIndices]]];
+        [object setVertexBuffer: [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: [object numVertices] * sizeof(SEVertexData) withData: [object vertices]]];
+        [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [object numFacesIndices] * sizeof(SEFaceIndices) withData: [object facesIndices]]];
     }
 }
 
@@ -207,6 +208,8 @@
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthbuffer);
 	glEnable(GL_DEPTH_TEST);
 	
+    [[EAGLContext currentContext] renderbufferStorage:GL_RENDERBUFFER
+										 fromDrawable:(CAEAGLLayer *) self->_eaglLayer];
 	// Checks for the errors in the DEBUG mode. Is very commom make some mistakes at the Frame and
 	// Render buffer creation, so is important you make this check, at least while you are learning.
 #if defined(DEBUG)
@@ -241,11 +244,16 @@
 	\
 	varying vec2			v_texCoord;\
 	\
+    varying vec4            v_vertexColor; \
+    \
+    attribute vec4 a_vertexColor;\
+    \
 	void main(void)\
 	{\
     v_texCoord = a_texCoord;\
     \
     gl_Position = u_mvpMatrix * a_vertex;\
+    v_vertexColor = a_vertexColor;\
 	}";
 	
 	const char *fragmentShaderSource = "\
@@ -256,8 +264,11 @@
 	\
 	varying vec2			v_texCoord;\
 	\
+    varying vec4            v_vertexColor; \
+    \
 	void main (void)\
 	{\
+    gl_FragColor = v_vertexColor;\
     gl_FragColor = texture2D(u_map, v_texCoord);\
 	}";
 	
@@ -283,10 +294,12 @@
 	// Gets the attributes locations.
 	self->_attributes[0] = glGetAttribLocation(self->_program, "a_vertex");
 	self->_attributes[1] = glGetAttribLocation(self->_program, "a_texCoord");
-	
+    self->_attributes[2] = glGetAttribLocation(self->_program, "a_vertexColor");
+
 	// As we'll use only those pair of shaders, let's enable the dynamic attributes to they once.
 	glEnableVertexAttribArray(self->_attributes[0]);
 	glEnableVertexAttribArray(self->_attributes[1]);
+    glEnableVertexAttribArray(self->_attributes[2]);
     
 }
 
@@ -402,7 +415,8 @@
     // Disable the previously enabled attributes to work with dynamic values.
     glDisableVertexAttribArray(self->_attributes[0]);
     glDisableVertexAttribArray(self->_attributes[1]);
-    
+    glDisableVertexAttribArray(self->_attributes[2]);
+
     // Delete the Frame and Render buffers.
     glDeleteRenderbuffers(1, &self->_colorbuffer);
     glDeleteRenderbuffers(1, &self->_depthbuffer);

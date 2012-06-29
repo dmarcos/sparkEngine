@@ -17,20 +17,20 @@ struct SEVertexData
     GLKVector2 texture;
     
     //normals
-    //GLKVector3 normal;
+    GLKVector3 normal;
     
     //color
-    //GLKVector4 color;
+    GLKVector4 color;
     
 };
-typedef struct SEVertexData PSVertexData;
+typedef struct SEVertexData SEVertexData;
 
-struct PSFaceIndices
+struct SEFaceIndices
 {
     //vertex indices
     GLushort a;
     GLushort b;
     GLushort c;
 };
-typedef struct PSFaceIndices PSFaceIndices;
+typedef struct SEFaceIndices SEFaceIndices;
 

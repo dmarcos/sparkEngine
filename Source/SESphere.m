@@ -34,14 +34,13 @@
             double y = cosTheta;
             double z = sinPhi * sinTheta;
             
-            double s = 1 - (double) longNumber / steps;
-            double t = (double) latNumber / steps;
+            double u = 1 - (double) longNumber / steps;
+            double v = (double) latNumber / steps;
             
-            self.vertices[latNumber*(steps+1) + longNumber].position = GLKVector3Make (radius * x,
-                                                                                       radius * y,
-                                                                                       radius * z);
-            self.vertices[latNumber*(steps+1) + longNumber].texture = GLKVector2Make(s, t);
-            
+            self.vertices[latNumber*(steps+1) + longNumber].position = GLKVector3Make(radius*x, radius*y, radius*z);
+            self.vertices[latNumber*(steps+1) + longNumber].normal = GLKVector3Make(x,y,z);
+            self.vertices[latNumber*(steps+1) + longNumber].texture = GLKVector2Make(u,v);
+            self.vertices[latNumber*(steps+1) + longNumber].color = GLKVector4Make(0.5, 1.0, 0.0, 0.0);
         }
     }
     
@@ -67,7 +66,5 @@
 {
    
 }
-
-
 
 @end

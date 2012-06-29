@@ -1,20 +1,20 @@
 //
-//  SEShape.m
+//  SEMEsh.m
 //  SparkEngine
 //
 //  Created by Diego Marcos on 6/19/12.
 //  Copyright (c) 2012. All rights reserved.
 //
 
-#import "SEShape.h"
+#import "SEMesh.h"
 
-@interface SEShape(){
+@interface SEMesh(){
     NSMutableData* _verticesData;
     NSMutableData* _facesIndicesData;
 }
 @end
 
-@implementation SEShape
+@implementation SEMesh
 
 @synthesize vertices = _vertices;
 @synthesize numVertices = _numVertices;
@@ -42,21 +42,20 @@
     return self->_numFacesIndices;
 }
 
-- (PSVertexData*) vertices {
+-(SEVertexData*) vertices {
     if (self->_verticesData == nil) {
-        self->_verticesData = [NSMutableData dataWithLength:sizeof(PSVertexData)*self.numVertices];
+        self->_verticesData = [NSMutableData dataWithLength:sizeof(SEVertexData)*self.numVertices];
         self->_vertices = [self->_verticesData mutableBytes];
     }
     return self->_vertices;
 }
 
--(PSFaceIndices*) facesIndices {
+-(SEFaceIndices*) facesIndices {
     if (self->_facesIndicesData == nil) {
-        self->_facesIndicesData = [NSMutableData dataWithLength:sizeof(PSFaceIndices)*self.numFacesIndices];
+        self->_facesIndicesData = [NSMutableData dataWithLength:sizeof(SEFaceIndices)*self.numFacesIndices];
         self->_facesIndices = [self->_facesIndicesData mutableBytes];
     }
     return self->_facesIndices;
 }
-
 
 @end
