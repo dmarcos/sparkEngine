@@ -14,20 +14,22 @@
 		60119D2A13198BC100146334 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2913198BC100146334 /* OpenGLES.framework */; };
 		B26EA37C1586B523000EB015 /* SERendererOld.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA37B1586B523000EB015 /* SERendererOld.m */; };
 		B26EA38315890CCF000EB015 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
-		B272552915865F4C00C1F1D1 /* SETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = B272552815865F4C00C1F1D1 /* SETexture.m */; };
-		B29079A8158BE2A700174AA9 /* SEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B29079A7158BE2A700174AA9 /* SEScene.m */; };
-		B29079B3158E67DA00174AA9 /* SESphere.m in Sources */ = {isa = PBXBuildFile; fileRef = B29079B2158E67DA00174AA9 /* SESphere.m */; };
-		B29079D9158E83F500174AA9 /* SERenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B29079D8158E83F400174AA9 /* SERenderer.m */; };
+		B286F887159E744A0052AC50 /* SECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F872159E744A0052AC50 /* SECamera.m */; };
+		B286F888159E744A0052AC50 /* SEMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F874159E744A0052AC50 /* SEMesh.m */; };
+		B286F889159E744A0052AC50 /* SEObject3D.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F876159E744A0052AC50 /* SEObject3D.m */; };
+		B286F88A159E744A0052AC50 /* SEPerspectiveCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F878159E744A0052AC50 /* SEPerspectiveCamera.m */; };
+		B286F88B159E744A0052AC50 /* SERenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F87A159E744A0052AC50 /* SERenderer.m */; };
+		B286F88C159E744A0052AC50 /* SEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F87C159E744A0052AC50 /* SEScene.m */; };
+		B286F88D159E744A0052AC50 /* SEShader.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F87E159E744A0052AC50 /* SEShader.m */; };
+		B286F88E159E744A0052AC50 /* SEShaderVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F880159E744A0052AC50 /* SEShaderVariable.m */; };
+		B286F88F159E744A0052AC50 /* SETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F882159E744A0052AC50 /* SETexture.m */; };
+		B286F890159E744A0052AC50 /* SESphere.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F886159E744A0052AC50 /* SESphere.m */; };
 		B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
 		B2D48768158325CB0051053F /* SEBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D48762158325CB0051053F /* SEBubbleView.m */; };
 		B2D48769158325CB0051053F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D48763158325CB0051053F /* main.m */; };
 		B2D4876E158326280051053F /* SparkEngine-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2D4876C158326280051053F /* SparkEngine-Info.plist */; };
-		B2F29B44158A7D8900837A72 /* SEObject3D.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F29B43158A7D8900837A72 /* SEObject3D.m */; };
 		B2F29B47158A85B800837A72 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F29B46158A85B800837A72 /* CoreMotion.framework */; };
-		B2F951B615911D3600FC4C9E /* SEShape.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F951B515911D3600FC4C9E /* SEShape.m */; };
-		B2FFDCE61598DDB600ECCF06 /* SECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FFDCE51598DDB600ECCF06 /* SECamera.m */; };
-		B2FFDCEA1598F1E600ECCF06 /* SEPerspectiveCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FFDCE91598F1E600ECCF06 /* SEPerspectiveCamera.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,15 +42,27 @@
 		B26EA37A1586B523000EB015 /* SERendererOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERendererOld.h; sourceTree = "<group>"; };
 		B26EA37B1586B523000EB015 /* SERendererOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERendererOld.m; sourceTree = "<group>"; };
 		B26EA38215890CCF000EB015 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		B272552715865F4C00C1F1D1 /* SETexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETexture.h; sourceTree = "<group>"; };
-		B272552815865F4C00C1F1D1 /* SETexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETexture.m; sourceTree = "<group>"; };
-		B29079A6158BE2A600174AA9 /* SEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEScene.h; sourceTree = "<group>"; };
-		B29079A7158BE2A700174AA9 /* SEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEScene.m; sourceTree = "<group>"; };
-		B29079AA158BF8AB00174AA9 /* SEVertexData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEVertexData.h; sourceTree = "<group>"; };
-		B29079B1158E67DA00174AA9 /* SESphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESphere.h; sourceTree = "<group>"; };
-		B29079B2158E67DA00174AA9 /* SESphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESphere.m; sourceTree = "<group>"; };
-		B29079D7158E83F400174AA9 /* SERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERenderer.h; sourceTree = "<group>"; };
-		B29079D8158E83F400174AA9 /* SERenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERenderer.m; sourceTree = "<group>"; };
+		B286F871159E744A0052AC50 /* SECamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECamera.h; sourceTree = "<group>"; };
+		B286F872159E744A0052AC50 /* SECamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SECamera.m; sourceTree = "<group>"; };
+		B286F873159E744A0052AC50 /* SEMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEMesh.h; sourceTree = "<group>"; };
+		B286F874159E744A0052AC50 /* SEMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEMesh.m; sourceTree = "<group>"; };
+		B286F875159E744A0052AC50 /* SEObject3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEObject3D.h; sourceTree = "<group>"; };
+		B286F876159E744A0052AC50 /* SEObject3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEObject3D.m; sourceTree = "<group>"; };
+		B286F877159E744A0052AC50 /* SEPerspectiveCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEPerspectiveCamera.h; sourceTree = "<group>"; };
+		B286F878159E744A0052AC50 /* SEPerspectiveCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEPerspectiveCamera.m; sourceTree = "<group>"; };
+		B286F879159E744A0052AC50 /* SERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERenderer.h; sourceTree = "<group>"; };
+		B286F87A159E744A0052AC50 /* SERenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERenderer.m; sourceTree = "<group>"; };
+		B286F87B159E744A0052AC50 /* SEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEScene.h; sourceTree = "<group>"; };
+		B286F87C159E744A0052AC50 /* SEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEScene.m; sourceTree = "<group>"; };
+		B286F87D159E744A0052AC50 /* SEShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShader.h; sourceTree = "<group>"; };
+		B286F87E159E744A0052AC50 /* SEShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShader.m; sourceTree = "<group>"; };
+		B286F87F159E744A0052AC50 /* SEShaderVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShaderVariable.h; sourceTree = "<group>"; };
+		B286F880159E744A0052AC50 /* SEShaderVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShaderVariable.m; sourceTree = "<group>"; };
+		B286F881159E744A0052AC50 /* SETexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETexture.h; sourceTree = "<group>"; };
+		B286F882159E744A0052AC50 /* SETexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETexture.m; sourceTree = "<group>"; };
+		B286F883159E744A0052AC50 /* SEVertexData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEVertexData.h; sourceTree = "<group>"; };
+		B286F885159E744A0052AC50 /* SESphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESphere.h; sourceTree = "<group>"; };
+		B286F886159E744A0052AC50 /* SESphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESphere.m; sourceTree = "<group>"; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
 		B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueMarble.jpg; sourceTree = "<group>"; };
 		B2D48761158325CB0051053F /* SEBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBubbleView.h; sourceTree = "<group>"; };
@@ -56,15 +70,7 @@
 		B2D48763158325CB0051053F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2D4876C158326280051053F /* SparkEngine-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SparkEngine-Info.plist"; sourceTree = "<group>"; };
 		B2D4876D158326280051053F /* SparkEngine-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SparkEngine-Prefix.pch"; sourceTree = "<group>"; };
-		B2F29B42158A7D8900837A72 /* SEObject3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEObject3D.h; sourceTree = "<group>"; };
-		B2F29B43158A7D8900837A72 /* SEObject3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEObject3D.m; sourceTree = "<group>"; };
 		B2F29B46158A85B800837A72 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		B2F951B415911D3600FC4C9E /* SEShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShape.h; sourceTree = "<group>"; };
-		B2F951B515911D3600FC4C9E /* SEShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShape.m; sourceTree = "<group>"; };
-		B2FFDCE41598DDB600ECCF06 /* SECamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECamera.h; sourceTree = "<group>"; };
-		B2FFDCE51598DDB600ECCF06 /* SECamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SECamera.m; sourceTree = "<group>"; };
-		B2FFDCE81598F1E500ECCF06 /* SEPerspectiveCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEPerspectiveCamera.h; sourceTree = "<group>"; };
-		B2FFDCE91598F1E600ECCF06 /* SEPerspectiveCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEPerspectiveCamera.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,31 +133,59 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		B286F86A159E72EB0052AC50 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		B286F870159E744A0052AC50 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B286F871159E744A0052AC50 /* SECamera.h */,
+				B286F872159E744A0052AC50 /* SECamera.m */,
+				B286F873159E744A0052AC50 /* SEMesh.h */,
+				B286F874159E744A0052AC50 /* SEMesh.m */,
+				B286F875159E744A0052AC50 /* SEObject3D.h */,
+				B286F876159E744A0052AC50 /* SEObject3D.m */,
+				B286F877159E744A0052AC50 /* SEPerspectiveCamera.h */,
+				B286F878159E744A0052AC50 /* SEPerspectiveCamera.m */,
+				B286F879159E744A0052AC50 /* SERenderer.h */,
+				B286F87A159E744A0052AC50 /* SERenderer.m */,
+				B286F87B159E744A0052AC50 /* SEScene.h */,
+				B286F87C159E744A0052AC50 /* SEScene.m */,
+				B286F87D159E744A0052AC50 /* SEShader.h */,
+				B286F87E159E744A0052AC50 /* SEShader.m */,
+				B286F87F159E744A0052AC50 /* SEShaderVariable.h */,
+				B286F880159E744A0052AC50 /* SEShaderVariable.m */,
+				B286F881159E744A0052AC50 /* SETexture.h */,
+				B286F882159E744A0052AC50 /* SETexture.m */,
+				B286F883159E744A0052AC50 /* SEVertexData.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B286F884159E744A0052AC50 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				B286F885159E744A0052AC50 /* SESphere.h */,
+				B286F886159E744A0052AC50 /* SESphere.m */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		B2D4875F158325CB0051053F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B2FFDCE81598F1E500ECCF06 /* SEPerspectiveCamera.h */,
-				B2FFDCE91598F1E600ECCF06 /* SEPerspectiveCamera.m */,
+				B286F870159E744A0052AC50 /* Core */,
+				B286F884159E744A0052AC50 /* Shapes */,
+				B286F86A159E72EB0052AC50 /* Loaders */,
 				B2D48761158325CB0051053F /* SEBubbleView.h */,
-				B29079A6158BE2A600174AA9 /* SEScene.h */,
-				B29079A7158BE2A700174AA9 /* SEScene.m */,
 				B2D48762158325CB0051053F /* SEBubbleView.m */,
 				B2D48763158325CB0051053F /* main.m */,
-				B272552715865F4C00C1F1D1 /* SETexture.h */,
-				B272552815865F4C00C1F1D1 /* SETexture.m */,
 				B26EA37A1586B523000EB015 /* SERendererOld.h */,
-				B29079D7158E83F400174AA9 /* SERenderer.h */,
-				B29079D8158E83F400174AA9 /* SERenderer.m */,
 				B26EA37B1586B523000EB015 /* SERendererOld.m */,
-				B29079AA158BF8AB00174AA9 /* SEVertexData.h */,
-				B2F951B415911D3600FC4C9E /* SEShape.h */,
-				B2F951B515911D3600FC4C9E /* SEShape.m */,
-				B29079B1158E67DA00174AA9 /* SESphere.h */,
-				B29079B2158E67DA00174AA9 /* SESphere.m */,
-				B2F29B42158A7D8900837A72 /* SEObject3D.h */,
-				B2F29B43158A7D8900837A72 /* SEObject3D.m */,
-				B2FFDCE41598DDB600ECCF06 /* SECamera.h */,
-				B2FFDCE51598DDB600ECCF06 /* SECamera.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -231,15 +265,17 @@
 			files = (
 				B2D48768158325CB0051053F /* SEBubbleView.m in Sources */,
 				B2D48769158325CB0051053F /* main.m in Sources */,
-				B272552915865F4C00C1F1D1 /* SETexture.m in Sources */,
 				B26EA37C1586B523000EB015 /* SERendererOld.m in Sources */,
-				B2F29B44158A7D8900837A72 /* SEObject3D.m in Sources */,
-				B29079A8158BE2A700174AA9 /* SEScene.m in Sources */,
-				B29079B3158E67DA00174AA9 /* SESphere.m in Sources */,
-				B29079D9158E83F500174AA9 /* SERenderer.m in Sources */,
-				B2F951B615911D3600FC4C9E /* SEShape.m in Sources */,
-				B2FFDCE61598DDB600ECCF06 /* SECamera.m in Sources */,
-				B2FFDCEA1598F1E600ECCF06 /* SEPerspectiveCamera.m in Sources */,
+				B286F887159E744A0052AC50 /* SECamera.m in Sources */,
+				B286F888159E744A0052AC50 /* SEMesh.m in Sources */,
+				B286F889159E744A0052AC50 /* SEObject3D.m in Sources */,
+				B286F88A159E744A0052AC50 /* SEPerspectiveCamera.m in Sources */,
+				B286F88B159E744A0052AC50 /* SERenderer.m in Sources */,
+				B286F88C159E744A0052AC50 /* SEScene.m in Sources */,
+				B286F88D159E744A0052AC50 /* SEShader.m in Sources */,
+				B286F88E159E744A0052AC50 /* SEShaderVariable.m in Sources */,
+				B286F88F159E744A0052AC50 /* SETexture.m in Sources */,
+				B286F890159E744A0052AC50 /* SESphere.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
