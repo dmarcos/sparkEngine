@@ -16,6 +16,7 @@
 
 #import "SEScene.h"
 #import "SEMesh.h"
+#import "SEShader.h"
 #import "SEPerspectiveCamera.h"
 
 @interface SERenderer(){
@@ -28,15 +29,10 @@
     GLuint		_colorbuffer;
     GLuint		_depthbuffer;
     
-    // Program Object name/id.
-    GLuint		_program;
-        
+    SEShader* _shader;
+
     // Texture Object name/id.
     GLuint		_texture;
-    
-    // Attributes and Uniforms locations.
-    GLuint		_uniforms[2];
-    GLuint		_attributes[3];
     
     NSMutableArray* _bufferObjectIndices;
     
@@ -52,8 +48,6 @@
 -(void) drawScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera;
 -(void) updateBufferObjectsInScene: (SEScene*) scene;
 -(GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data;
--(GLuint) initShaderWithType: (GLenum) type withSource: (const char **) source;
--(GLuint) compileProgramWithVertexShader: (GLuint) vertexShader withFragmentShader: (GLuint) fragmentShader;
 
 @end
 
@@ -98,10 +92,10 @@
     // But if you have many drawings in your application, then you'll need to constantly change
     // the currently program in use.
     // All the code below will affect directly the Program which is currently in use.
-    glUseProgram(self->_program);
+    glUseProgram(self->_shader.programId);
     
     // Sets the uniform to MVP Matrix.
-    glUniformMatrix4fv(self->_uniforms[0], 1, GL_FALSE, modelViewProjectionMatrix.m);
+    glUniformMatrix4fv(self->_shader.u_mvpMatrix, 1, GL_FALSE, modelViewProjectionMatrix.m);
     
     // Bind the texture to an Texture Unit.
     // Just to illustration purposes, in this case let's use the Texture Unit 7.
@@ -111,7 +105,7 @@
     
     // Sets the uniform to the desired Texture Unit.
     // As the Texture Unit used is 7, let's set this value to 7.
-    glUniform1i(self->_uniforms[1], 7);
+    glUniform1i(self->_shader.u_map, 7);
     
     NSEnumerator *e = [scene.objects objectEnumerator];
     id object;
@@ -123,9 +117,9 @@
         // index of the ABO.
         glBindBuffer(GL_ARRAY_BUFFER, [object vertexBuffer]);
         
-        glVertexAttribPointer(self->_attributes[0], 3, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) 0);    
-        glVertexAttribPointer(self->_attributes[1], 2, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)));
-        glVertexAttribPointer(self->_attributes[2], 4, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
+        glVertexAttribPointer(self->_shader.a_vertex, 3, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) 0);    
+        glVertexAttribPointer(self->_shader.a_texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)));
+        glVertexAttribPointer(self->_shader.a_vertexColor, 4, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
 
         // Draws the triangles, starting by the index 0 in the IBO.
         glDrawElements(GL_TRIANGLES, [object numFacesIndices] * 3, GL_UNSIGNED_SHORT, (void *) 0);
@@ -272,115 +266,9 @@
     gl_FragColor = texture2D(u_map, v_texCoord);\
 	}";
 	
-	GLuint vertexShader, fragmentShader;
 	
-	// Creates the pair of Shaders.
-	vertexShader = [self initShaderWithType: GL_VERTEX_SHADER withSource: &vertexShaderSource];
-	fragmentShader = [self initShaderWithType: GL_FRAGMENT_SHADER withSource: &fragmentShaderSource];
-	
-	// Creates the Program Object.
-	self->_program = [self compileProgramWithVertexShader: vertexShader withFragmentShader: fragmentShader];
-	
-	// Clears the shaders objects.
-	// In this case we can delete the shaders because we'll not use they anymore,
-	// the OpenGL stores a copy of them into the program object.
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
-	
-	// Gets the uniforms locations.
-	self->_uniforms[0] = glGetUniformLocation(self->_program, "u_mvpMatrix");
-	self->_uniforms[1] = glGetUniformLocation(self->_program, "u_map");
-	
-	// Gets the attributes locations.
-	self->_attributes[0] = glGetAttribLocation(self->_program, "a_vertex");
-	self->_attributes[1] = glGetAttribLocation(self->_program, "a_texCoord");
-    self->_attributes[2] = glGetAttribLocation(self->_program, "a_vertexColor");
-
-	// As we'll use only those pair of shaders, let's enable the dynamic attributes to they once.
-	glEnableVertexAttribArray(self->_attributes[0]);
-	glEnableVertexAttribArray(self->_attributes[1]);
-    glEnableVertexAttribArray(self->_attributes[2]);
+    self->_shader = [[SEShader alloc] initWithVertexShaderSource:&vertexShaderSource fragmentShaderSource:&fragmentShaderSource];
     
-}
-
-- (GLuint) compileProgramWithVertexShader: (GLuint) vertexShader withFragmentShader: (GLuint) fragmentShader
-{
-    // Creates the program name/index.
-	GLuint name = glCreateProgram();
-	
-	// Will attach the fragment and vertex shaders to the program object.
-	glAttachShader(name, vertexShader);
-	glAttachShader(name, fragmentShader);
-	
-	// Will link the program into OpenGL core.
-	glLinkProgram(name);
-    
-	GLint logLength;
-	
-	// Instead use GL_INFO_LOG_LENGTH we could use COMPILE_STATUS.
-	// I prefer to take the info log length, because it'll be 0 if the
-	// shader was successful compiled. If we use COMPILE_STATUS
-	// we will need to take info log length in case of a fail anyway.
-	glGetProgramiv(name, GL_INFO_LOG_LENGTH, &logLength);
-	
-	if (logLength > 0)
-	{
-		// Allocates the necessary memory to retrieve the message.
-		GLchar *log = (GLchar *)malloc(logLength);
-		
-		// Get the info log message.
-		glGetProgramInfoLog(name, logLength, &logLength, log);
-		
-		// Shows the message in console.
-		NSLog(@"Error in Program Creation:\n%s\n",log);
-		
-		// Frees the allocated memory.
-		free(log);
-	}
-	
-	return name;
-}
-
--(GLuint) initShaderWithType: (GLenum) type withSource: (const char **) source
-{
-	GLuint name = glCreateShader(type);
-	
-	// Uploads the source to the Shader Object.
-	glShaderSource(name, 1, source, NULL);
-	
-	// Compiles the Shader Object.
-	glCompileShader(name);
-	
-	// If are running in debug mode, query for info log.
-	// DEBUG is a pre-processing Macro defined to the compiler.
-	// Some languages could not has a similar to it.
-#if defined(DEBUG)
-	
-	GLint logLength;
-	
-	// Instead use GL_INFO_LOG_LENGTH we could use COMPILE_STATUS.
-	// I prefer to take the info log length, because it'll be 0 if the
-	// shader was successful compiled. If we use COMPILE_STATUS
-	// we will need to take info log length in case of a fail anyway.
-	glGetShaderiv(name, GL_INFO_LOG_LENGTH, &logLength);
-	
-	if (logLength > 0)
-	{
-		// Allocates the necessary memory to retrieve the message.
-		GLchar *log = (GLchar *)malloc(logLength);
-		
-		// Get the info log message.
-		glGetShaderInfoLog(name, logLength, &logLength, log);
-		
-		// Shows the message in console.
-		printf("Error in Shader Creation:\n%s\n",log);
-		
-		// Frees the allocated memory.
-		free(log);
-	}
-#endif
-	
-	return name;
 }
 
 - (GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data
@@ -409,13 +297,6 @@
         GLuint bufferId = [object intValue];
         glDeleteBuffers(1, &bufferId);
     }
-    // Delete Programs, remember which the shaders was already deleted before.
-    glDeleteProgram(self->_program);
-    
-    // Disable the previously enabled attributes to work with dynamic values.
-    glDisableVertexAttribArray(self->_attributes[0]);
-    glDisableVertexAttribArray(self->_attributes[1]);
-    glDisableVertexAttribArray(self->_attributes[2]);
 
     // Delete the Frame and Render buffers.
     glDeleteRenderbuffers(1, &self->_colorbuffer);
@@ -423,7 +304,6 @@
     glDeleteFramebuffers(1, &self->_framebuffer);
     
 }
-
 
 - (void) dealloc
 {

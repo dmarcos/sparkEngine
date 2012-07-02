@@ -10,9 +10,20 @@
 
 @interface SEShader : NSObject
 
--(id) initWithVertexShaderSource: (NSString*) vertexShaderSource fragmentShaderSource: (NSString*) fragmentShaderSource; 
+-(id) initWithVertexShaderSource: (const char **) vertexShaderSource fragmentShaderSource: (const char **) fragmentShaderSource; 
 
 @property (readonly) NSDictionary* attributes;
 @property (readonly) NSDictionary* uniforms;
+
+@property GLuint programId;
+
+// Uniforms
+@property GLuint u_mvpMatrix;
+@property GLuint u_map;
+
+// Attributes
+@property GLuint a_vertex;
+@property GLuint a_texCoord;
+@property GLuint a_vertexColor;
 
 @end
