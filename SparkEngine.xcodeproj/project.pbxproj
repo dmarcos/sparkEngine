@@ -60,7 +60,7 @@
 		B286F880159E744A0052AC50 /* SEShaderVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShaderVariable.m; sourceTree = "<group>"; };
 		B286F881159E744A0052AC50 /* SETexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETexture.h; sourceTree = "<group>"; };
 		B286F882159E744A0052AC50 /* SETexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETexture.m; sourceTree = "<group>"; };
-		B286F883159E744A0052AC50 /* SEVertexData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEVertexData.h; sourceTree = "<group>"; };
+		B286F883159E744A0052AC50 /* SEGeometryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGeometryData.h; sourceTree = "<group>"; };
 		B286F885159E744A0052AC50 /* SESphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESphere.h; sourceTree = "<group>"; };
 		B286F886159E744A0052AC50 /* SESphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESphere.m; sourceTree = "<group>"; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 				B286F880159E744A0052AC50 /* SEShaderVariable.m */,
 				B286F881159E744A0052AC50 /* SETexture.h */,
 				B286F882159E744A0052AC50 /* SETexture.m */,
-				B286F883159E744A0052AC50 /* SEVertexData.h */,
+				B286F883159E744A0052AC50 /* SEGeometryData.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";

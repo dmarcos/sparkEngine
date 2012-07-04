@@ -25,6 +25,16 @@
 @synthesize vertexBuffer = _vertexBuffer;
 @synthesize facesIndicesBuffer = _facesIndicesBuffer;
 
+-(id) initWithGeometry: (SEGeometryData) geometry;
+{
+    self = [self init];
+    if (self) {
+        [self setVertices: geometry.vertices numVertices: geometry.numVertices];
+        [self setFacesIndices: geometry.facesIndices numFaces: geometry.numFaces];
+    }
+    return self;
+}
+
 -(id)init
 {   self = [super init];
     if (self) {
@@ -42,12 +52,28 @@
     return self->_numFacesIndices;
 }
 
+-(void) setVertices: (SEVertexData*) vertices numVertices: (int) numVertices
+{
+    self->_numVertices = numVertices;
+    for (int i =0; i < numVertices; ++i) {
+        self.vertices[i] = vertices[i];
+    }
+}
+
 -(SEVertexData*) vertices {
-    if (self->_verticesData == nil) {
+    if (self->_vertices == nil) {
         self->_verticesData = [NSMutableData dataWithLength:sizeof(SEVertexData)*self.numVertices];
         self->_vertices = [self->_verticesData mutableBytes];
     }
     return self->_vertices;
+}
+
+-(void) setFacesIndices: (SEFaceIndices*) facesIndices numFaces: (int) numFaces
+{
+    self->_numFacesIndices = numFaces;
+    for (int i =0; i < numFaces; ++i) {
+        self.facesIndices[i] = facesIndices[i];
+    }
 }
 
 -(SEFaceIndices*) facesIndices {

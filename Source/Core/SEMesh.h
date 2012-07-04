@@ -8,20 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES2/gl.h>
-#import "SEVertexData.h"
+#import "SEGeometryData.h"
 #import "SEObject3D.h"
 
 @interface SEMesh : SEObject3D{
     @protected
-    int _numVertices;
-    int _numFacesIndices;
+        int _numVertices;
+        int _numFacesIndices;
 }
 
-@property(readonly) SEVertexData* vertices;
-@property(readonly) int numVertices;
+-(id) initWithGeometry: (SEGeometryData) geometry;
 
-@property(readonly) SEFaceIndices* facesIndices;
-@property(readonly) int numFacesIndices;
+@property (nonatomic, readonly) SEVertexData* vertices;
+@property (nonatomic, readonly) int numVertices;
+
+@property (nonatomic, readonly) SEFaceIndices* facesIndices;
+@property (nonatomic, readonly) int numFacesIndices;
 
 // Buffer Objects names/ids.
 @property GLuint vertexBuffer;

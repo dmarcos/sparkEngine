@@ -34,3 +34,13 @@ struct SEFaceIndices
 };
 typedef struct SEFaceIndices SEFaceIndices;
 
+struct SEGeometryData
+{
+    SEVertexData* vertices;
+    int numVertices;
+    SEFaceIndices* facesIndices;
+    int numFaces;
+};
+typedef struct SEGeometryData SEGeometryData;
+
+

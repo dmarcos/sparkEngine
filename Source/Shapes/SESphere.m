@@ -17,8 +17,7 @@
 {
     self->_radius = radius;
     self->_steps = steps;
-    
-    self->_numVertices = (steps+1)*(steps+1); 
+    self->_numVertices = (steps+1)*(steps+1);
     self->_numFacesIndices = steps*steps*2;
         
     for (int latNumber = 0; latNumber <= steps; latNumber++) {
@@ -48,7 +47,7 @@
         for (int longNumber = 0; longNumber < steps; longNumber++) {
             int first = (latNumber * (steps + 1)) + longNumber;
             int second = first + steps + 1;
-                        
+
             self.facesIndices[latNumber*steps*2 + longNumber*2].a = first;
             self.facesIndices[latNumber*steps*2 + longNumber*2].b = second;
             self.facesIndices[latNumber*steps*2 + longNumber*2].c = first+1;
