@@ -184,8 +184,6 @@
         [self renderFrame];
     }
     self->scene.position = GLKVector3Make(0.0, 0.0, -4.0*self->zoom);
-    
-
 }
 
 -(void) singleTouchMoved:(NSSet*)touches onView:(UIView*)view

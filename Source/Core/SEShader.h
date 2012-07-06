@@ -10,6 +10,8 @@
 
 @interface SEShader : NSObject
 
++(SEShader*) defaultShader;
+
 -(id) initWithVertexShaderSource: (const char **) vertexShaderSource fragmentShaderSource: (const char **) fragmentShaderSource; 
 
 @property (readonly) NSDictionary* attributes;

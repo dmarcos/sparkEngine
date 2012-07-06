@@ -28,8 +28,6 @@
     GLuint		_framebuffer;
     GLuint		_colorbuffer;
     GLuint		_depthbuffer;
-    
-    SEShader* _shader;
 
     // Texture Object name/id.
     GLuint		_texture;
@@ -41,7 +39,6 @@
 
 -(void) initOpenGL;
 -(void) initFrameAndRenderbuffers;
--(void) initProgramAndShaders;
 -(void) clearBuffers;
 -(void) clearOpenGL;
 -(void) showBuffers;
@@ -84,32 +81,34 @@
     // Multiplies the Projection by the ModelView to create the ModelViewProjection matrix.
     GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(camera.projectionMatrix, scene.matrix);
     
-    //***********************************************
-    //  OpenGL Drawing Operations
-    //***********************************************
-    
-    // Starts to use a specific program. In this application this doesn't change anything.
-    // But if you have many drawings in your application, then you'll need to constantly change
-    // the currently program in use.
-    // All the code below will affect directly the Program which is currently in use.
-    glUseProgram(self->_shader.programId);
-    
-    // Sets the uniform to MVP Matrix.
-    glUniformMatrix4fv(self->_shader.u_mvpMatrix, 1, GL_FALSE, modelViewProjectionMatrix.m);
-    
-    // Bind the texture to an Texture Unit.
-    // Just to illustration purposes, in this case let's use the Texture Unit 7.
-    // Remember which OpenGL gives 32 Texture Units.
-    glActiveTexture(GL_TEXTURE7);
-    glBindTexture(GL_TEXTURE_2D, self->_texture);
-    
-    // Sets the uniform to the desired Texture Unit.
-    // As the Texture Unit used is 7, let's set this value to 7.
-    glUniform1i(self->_shader.u_map, 7);
-    
     NSEnumerator *e = [scene.objects objectEnumerator];
+    SEShader* currentShader;
     id object;
     while (object = [e nextObject]) {
+        
+        currentShader = [object shader];
+        //***********************************************
+        //  OpenGL Drawing Operations
+        //***********************************************
+        
+        // Starts to use a specific program. In this application this doesn't change anything.
+        // But if you have many drawings in your application, then you'll need to constantly change
+        // the currently program in use.
+        // All the code below will affect directly the Program which is currently in use.
+        glUseProgram(currentShader.programId);
+        
+        // Sets the uniform to MVP Matrix.
+        glUniformMatrix4fv(currentShader.u_mvpMatrix, 1, GL_FALSE, modelViewProjectionMatrix.m);
+        
+        // Bind the texture to an Texture Unit.
+        // Just to illustration purposes, in this case let's use the Texture Unit 7.
+        // Remember which OpenGL gives 32 Texture Units.
+        glActiveTexture(GL_TEXTURE7);
+        glBindTexture(GL_TEXTURE_2D, self->_texture);
+        
+        // Sets the uniform to the desired Texture Unit.
+        // As the Texture Unit used is 7, let's set this value to 7.
+        glUniform1i(currentShader.u_map, 7);
         
         // Bind the Buffer Objects which we'll use now.
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, [object facesIndicesBuffer]);
@@ -117,9 +116,9 @@
         // index of the ABO.
         glBindBuffer(GL_ARRAY_BUFFER, [object vertexBuffer]);
         
-        glVertexAttribPointer(self->_shader.a_vertex, 3, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) 0);    
-        glVertexAttribPointer(self->_shader.a_texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)));
-        glVertexAttribPointer(self->_shader.a_vertexColor, 4, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
+        glVertexAttribPointer(currentShader.a_vertex, 3, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) 0);    
+        glVertexAttribPointer(currentShader.a_texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)));
+        glVertexAttribPointer(currentShader.a_vertexColor, 4, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
 
         // Draws the triangles, starting by the index 0 in the IBO.
         glDrawElements(GL_TRIANGLES, [object numFacesIndices] * 3, GL_UNSIGNED_SHORT, (void *) 0);
@@ -160,7 +159,6 @@
 {	
 	// Creates all the OpenGL objects necessary to an application.
 	[self initFrameAndRenderbuffers];
-	[self initProgramAndShaders];
     //[self setTexture: texture]
     [EAGLContext setCurrentContext: self.glContext];
 	// Sets the size to OpenGL view.
@@ -223,52 +221,6 @@
 			break;
 	}
 #endif
-}
-
--(void) initProgramAndShaders
-{
-    const char *vertexShaderSource = "\
-	precision mediump float;\
-	precision lowp int;\
-	\
-	uniform mat4			u_mvpMatrix;\
-	\
-	attribute highp vec4	a_vertex;\
-	attribute vec2			a_texCoord;\
-	\
-	varying vec2			v_texCoord;\
-	\
-    varying vec4            v_vertexColor; \
-    \
-    attribute vec4 a_vertexColor;\
-    \
-	void main(void)\
-	{\
-    v_texCoord = a_texCoord;\
-    \
-    gl_Position = u_mvpMatrix * a_vertex;\
-    v_vertexColor = a_vertexColor;\
-	}";
-	
-	const char *fragmentShaderSource = "\
-	precision mediump float;\
-	precision lowp int;\
-	\
-	uniform sampler2D		u_map;\
-	\
-	varying vec2			v_texCoord;\
-	\
-    varying vec4            v_vertexColor; \
-    \
-	void main (void)\
-	{\
-    gl_FragColor = v_vertexColor;\
-    gl_FragColor = texture2D(u_map, v_texCoord);\
-	}";
-	
-	
-    self->_shader = [[SEShader alloc] initWithVertexShaderSource:&vertexShaderSource fragmentShaderSource:&fragmentShaderSource];
-    
 }
 
 - (GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data

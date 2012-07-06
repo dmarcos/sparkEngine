@@ -25,12 +25,17 @@
 @synthesize vertexBuffer = _vertexBuffer;
 @synthesize facesIndicesBuffer = _facesIndicesBuffer;
 
--(id) initWithGeometry: (SEGeometryData) geometry;
+@synthesize shader = _shader;
+
+-(id) initWithGeometry: (SEGeometryData) geometry shader: (SEShader*) shader;
 {
     self = [self init];
     if (self) {
         [self setVertices: geometry.vertices numVertices: geometry.numVertices];
         [self setFacesIndices: geometry.facesIndices numFaces: geometry.numFaces];
+        if(shader) {
+            self->_shader = shader;
+        }
     }
     return self;
 }
@@ -76,12 +81,21 @@
     }
 }
 
--(SEFaceIndices*) facesIndices {
+-(SEFaceIndices*) facesIndices 
+{
     if (self->_facesIndicesData == nil) {
         self->_facesIndicesData = [NSMutableData dataWithLength:sizeof(SEFaceIndices)*self.numFacesIndices];
         self->_facesIndices = [self->_facesIndicesData mutableBytes];
     }
     return self->_facesIndices;
+}
+
+-(SEShader*) shader
+{
+    if(!self->_shader){
+        self->_shader = [SEShader defaultShader];
+    }
+    return self->_shader;
 }
 
 @end
