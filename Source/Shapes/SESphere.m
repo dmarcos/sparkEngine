@@ -16,13 +16,14 @@
 
 -(id) initWithRadius:(float)radius withSteps: (int)steps
 {
-    self = [super init];
+    int numVertices = (steps+1)*(steps+1);
+    int numFaces = steps*steps*2;
+    
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:numVertices numberOfFaces: numFaces] shader:NULL];
     if (self) {
     
         self->_radius = radius;
         self->_steps = steps;
-        self->_numVertices = (steps+1)*(steps+1);
-        self->_numFacesIndices = steps*steps*2;
             
         for (int latNumber = 0; latNumber <= steps; latNumber++) {
             double theta = (double) latNumber * M_PI / steps;
@@ -40,10 +41,10 @@
                 double u = 1 - (double) longNumber / steps;
                 double v = (double) latNumber / steps;
                 
-                self.vertices[latNumber*(steps+1) + longNumber].position = GLKVector3Make(radius*x, radius*y, radius*z);
-                self.vertices[latNumber*(steps+1) + longNumber].normal = GLKVector3Make(x,y,z);
-                self.vertices[latNumber*(steps+1) + longNumber].texture = GLKVector2Make(u,v);
-                self.vertices[latNumber*(steps+1) + longNumber].color = GLKVector4Make(0.5, 1.0, 0.0, 0.0);
+                self.geometry.vertices[latNumber*(steps+1) + longNumber].position = GLKVector3Make(radius*x, radius*y, radius*z);
+                self.geometry.vertices[latNumber*(steps+1) + longNumber].normal = GLKVector3Make(x,y,z);
+                self.geometry.vertices[latNumber*(steps+1) + longNumber].texture = GLKVector2Make(u,v);
+                self.geometry.vertices[latNumber*(steps+1) + longNumber].color = GLKVector4Make(0.5, 1.0, 0.0, 0.0);
             }
         }
         
@@ -52,23 +53,18 @@
                 int first = (latNumber * (steps + 1)) + longNumber;
                 int second = first + steps + 1;
 
-                self.facesIndices[latNumber*steps*2 + longNumber*2].a = first;
-                self.facesIndices[latNumber*steps*2 + longNumber*2].b = second;
-                self.facesIndices[latNumber*steps*2 + longNumber*2].c = first+1;
+                self.geometry.facesIndices[latNumber*steps*2 + longNumber*2].a = first;
+                self.geometry.facesIndices[latNumber*steps*2 + longNumber*2].b = second;
+                self.geometry.facesIndices[latNumber*steps*2 + longNumber*2].c = first+1;
                 
-                self.facesIndices[latNumber*steps*2 + longNumber*2 + 1].a = second;
-                self.facesIndices[latNumber*steps*2 + longNumber*2 + 1].b = second+1;
-                self.facesIndices[latNumber*steps*2 + longNumber*2 + 1].c = first+1;
+                self.geometry.facesIndices[latNumber*steps*2 + longNumber*2 + 1].a = second;
+                self.geometry.facesIndices[latNumber*steps*2 + longNumber*2 + 1].b = second+1;
+                self.geometry.facesIndices[latNumber*steps*2 + longNumber*2 + 1].c = first+1;
             }
         }
         
     }
     return self;
-}
-
-- (void) dealloc
-{
-   
 }
 
 @end

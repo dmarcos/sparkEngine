@@ -1,14 +1,14 @@
 //
-//  SEVerticesData.h
+//  SEVertex.h
 //  SparkEngine
 //
-//  Created by Diego Marcos on 6/15/12.
+//  Created by Diego Marcos on 6/25/12.
 //  Copyright (c) 2012. All rights reserved.
 //
 
 #import <GLKit/GLKMath.h>
 
-struct SEVertexData
+struct SEVertex
 {
     //vertices
     GLKVector3 position;
@@ -23,7 +23,7 @@ struct SEVertexData
     GLKVector4 color;
     
 };
-typedef struct SEVertexData SEVertexData;
+typedef struct SEVertex SEVertex;
 
 struct SEFaceIndices
 {
@@ -33,14 +33,3 @@ struct SEFaceIndices
     GLushort c;
 };
 typedef struct SEFaceIndices SEFaceIndices;
-
-struct SEGeometryData
-{
-    SEVertexData* vertices;
-    int numVertices;
-    SEFaceIndices* facesIndices;
-    int numFaces;
-};
-typedef struct SEGeometryData SEGeometryData;
-
-

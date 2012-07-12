@@ -116,12 +116,12 @@
         // index of the ABO.
         glBindBuffer(GL_ARRAY_BUFFER, [object vertexBuffer]);
         
-        glVertexAttribPointer(currentShader.a_vertex, 3, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) 0);    
-        glVertexAttribPointer(currentShader.a_texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)));
-        glVertexAttribPointer(currentShader.a_vertexColor, 4, GL_FLOAT, GL_FALSE, sizeof(SEVertexData), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
+        glVertexAttribPointer(currentShader.a_vertex, 3, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) 0);    
+        glVertexAttribPointer(currentShader.a_texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) (sizeof(GLKVector3)));
+        glVertexAttribPointer(currentShader.a_vertexColor, 4, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
 
         // Draws the triangles, starting by the index 0 in the IBO.
-        glDrawElements(GL_TRIANGLES, [object numFacesIndices] * 3, GL_UNSIGNED_SHORT, (void *) 0);
+        glDrawElements(GL_TRIANGLES, [[object geometry] numFaces] * 3, GL_UNSIGNED_SHORT, (void *) 0);
         
     }
     
@@ -170,8 +170,8 @@
     NSEnumerator *e = [scene.objects objectEnumerator];
     id object;
     while (object = [e nextObject]) {
-        [object setVertexBuffer: [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: [object numVertices] * sizeof(SEVertexData) withData: [object vertices]]];
-        [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [object numFacesIndices] * sizeof(SEFaceIndices) withData: [object facesIndices]]];
+        [object setVertexBuffer: [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: [[object geometry] numVertices] * sizeof(SEVertex) withData: [[object geometry] vertices]]];
+        [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [[object geometry ] numFaces] * sizeof(SEFaceIndices) withData: [[object geometry] facesIndices]]];
     }
 }
 

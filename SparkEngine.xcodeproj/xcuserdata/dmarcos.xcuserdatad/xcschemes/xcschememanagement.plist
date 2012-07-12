@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>gg.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>60119D1C13198BC100146334</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B27CE02115AE4B2800E348FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

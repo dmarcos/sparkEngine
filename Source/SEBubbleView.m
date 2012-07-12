@@ -17,6 +17,7 @@
 #import "SERenderer.h"
 #import "SEScene.h"
 #import "SESphere.h"
+#import "SETriangle.h"
 #import "SEPerspectiveCamera.h"
 
 @interface SEBubbleView(){
@@ -68,6 +69,10 @@
         self->scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
         self->scene.position = GLKVector3Make(0.0, 0.0, -4.0);
         SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
+//        GLKVector4 colors[3] = {GLKVector4Make(1.0, 1.0, 1.0, 1.0),
+//                                GLKVector4Make(1.0, 1.0, 1.0, 1.0),
+//                                GLKVector4Make(1.0, 1.0, 1.0, 1.0)};
+//        SETriangle* triangle = [[SETriangle alloc] initWithVerticesColor: colors];
         [self->scene.objects addObject:sphere];
     }
 	

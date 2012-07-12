@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES2/gl.h>
 #import "SEShader.h"
-#import "SEGeometryData.h"
+#import "SEGeometry.h"
 #import "SEObject3D.h"
 
 @interface SEMesh : SEObject3D{
@@ -18,14 +18,9 @@
         int _numFacesIndices;
 }
 
--(id) initWithGeometry: (SEGeometryData) geometry shader: (SEShader*) shader;
+-(id) initWithGeometry: (SEGeometry*) geometry shader: (SEShader*) shader;
 
-@property (nonatomic, readonly) SEVertexData* vertices;
-@property (nonatomic, readonly) int numVertices;
-
-@property (nonatomic, readonly) SEFaceIndices* facesIndices;
-@property (nonatomic, readonly) int numFacesIndices;
-
+@property (nonatomic) SEGeometry* geometry;
 @property (nonatomic) SEShader* shader;
 
 // Buffer Objects names/ids.
