@@ -26,6 +26,8 @@
 		B27CE01C15AE4A7700E348FA /* SESphere.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE01015AE4A7700E348FA /* SESphere.m */; };
 		B27CE01D15AE4A7700E348FA /* SETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE01215AE4A7700E348FA /* SETriangle.m */; };
 		B27CE04015AF2B8D00E348FA /* SEGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE03F15AF2B8D00E348FA /* SEGeometry.m */; };
+		B27CE07E15B0B2CD00E348FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE07B15B0B2CD00E348FA /* main.m */; };
+		B27CE07F15B0B2CD00E348FA /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE07D15B0B2CD00E348FA /* PolygonView.m */; };
 		B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
 		B2D48768158325CB0051053F /* SEBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D48762158325CB0051053F /* SEBubbleView.m */; };
@@ -67,12 +69,11 @@
 		B27CE01015AE4A7700E348FA /* SESphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESphere.m; sourceTree = "<group>"; };
 		B27CE01115AE4A7700E348FA /* SETriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETriangle.h; sourceTree = "<group>"; };
 		B27CE01215AE4A7700E348FA /* SETriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETriangle.m; sourceTree = "<group>"; };
-		B27CE02415AE4B2800E348FA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		B27CE02715AE4B2800E348FA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		B27CE02815AE4B2800E348FA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		B27CE02915AE4B2800E348FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B27CE03F15AF2B8D00E348FA /* SEGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGeometry.m; sourceTree = "<group>"; };
 		B27CE04115AF388100E348FA /* SEVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEVertex.h; sourceTree = "<group>"; };
+		B27CE07B15B0B2CD00E348FA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B27CE07C15B0B2CD00E348FA /* PolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonView.h; sourceTree = "<group>"; };
+		B27CE07D15B0B2CD00E348FA /* PolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonView.m; sourceTree = "<group>"; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
 		B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueMarble.jpg; sourceTree = "<group>"; };
 		B2D48761158325CB0051053F /* SEBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBubbleView.h; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		60119D1213198BC100146334 = {
 			isa = PBXGroup;
 			children = (
+				B27CE07715B0B2CD00E348FA /* Examples */,
 				B2D4876B158326280051053F /* SupportingFiles */,
 				B2D4875F158325CB0051053F /* Source */,
 				60119DA41319938100146334 /* Resources */,
@@ -130,8 +132,6 @@
 				60119D2513198BC100146334 /* CoreGraphics.framework */,
 				60119D2713198BC100146334 /* QuartzCore.framework */,
 				60119D2913198BC100146334 /* OpenGLES.framework */,
-				B27CE02415AE4B2800E348FA /* Cocoa.framework */,
-				B27CE02615AE4B2800E348FA /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,13 +173,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		B27CE00C15AE4A7700E348FA /* Examples */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Examples;
-			sourceTree = "<group>";
-		};
 		B27CE00D15AE4A7700E348FA /* Loaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,21 +191,44 @@
 			path = Shapes;
 			sourceTree = "<group>";
 		};
-		B27CE02615AE4B2800E348FA /* Other Frameworks */ = {
+		B27CE07715B0B2CD00E348FA /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				B27CE02715AE4B2800E348FA /* AppKit.framework */,
-				B27CE02815AE4B2800E348FA /* CoreData.framework */,
-				B27CE02915AE4B2800E348FA /* Foundation.framework */,
+				B27CE07815B0B2CD00E348FA /* NeheTutorials */,
 			);
-			name = "Other Frameworks";
+			path = Examples;
+			sourceTree = "<group>";
+		};
+		B27CE07815B0B2CD00E348FA /* NeheTutorials */ = {
+			isa = PBXGroup;
+			children = (
+				B27CE07915B0B2CD00E348FA /* Lesson1-OpenGLWindow */,
+				B27CE07A15B0B2CD00E348FA /* Lesson2-FirstPolygon */,
+			);
+			path = NeheTutorials;
+			sourceTree = "<group>";
+		};
+		B27CE07915B0B2CD00E348FA /* Lesson1-OpenGLWindow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Lesson1-OpenGLWindow";
+			sourceTree = "<group>";
+		};
+		B27CE07A15B0B2CD00E348FA /* Lesson2-FirstPolygon */ = {
+			isa = PBXGroup;
+			children = (
+				B27CE07B15B0B2CD00E348FA /* main.m */,
+				B27CE07C15B0B2CD00E348FA /* PolygonView.h */,
+				B27CE07D15B0B2CD00E348FA /* PolygonView.m */,
+			);
+			path = "Lesson2-FirstPolygon";
 			sourceTree = "<group>";
 		};
 		B2D4875F158325CB0051053F /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				B27CDFF815AE4A7700E348FA /* Core */,
-				B27CE00C15AE4A7700E348FA /* Examples */,
 				B27CE00D15AE4A7700E348FA /* Loaders */,
 				B27CE00E15AE4A7700E348FA /* Shapes */,
 				B2D48761158325CB0051053F /* SEBubbleView.h */,
@@ -312,6 +328,8 @@
 				B27CE01C15AE4A7700E348FA /* SESphere.m in Sources */,
 				B27CE01D15AE4A7700E348FA /* SETriangle.m in Sources */,
 				B27CE04015AF2B8D00E348FA /* SEGeometry.m in Sources */,
+				B27CE07E15B0B2CD00E348FA /* main.m in Sources */,
+				B27CE07F15B0B2CD00E348FA /* PolygonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B27CE02115AE4B2800E348FA"
-               BuildableName = "gg.app"
-               BlueprintName = "gg"
+               BlueprintIdentifier = "B27CE06215B0B20000E348FA"
+               BuildableName = "NEHELesson1.app"
+               BlueprintName = "NEHELesson1"
                ReferencedContainer = "container:SparkEngine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,9 +31,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B27CE02115AE4B2800E348FA"
-            BuildableName = "gg.app"
-            BlueprintName = "gg"
+            BlueprintIdentifier = "B27CE06215B0B20000E348FA"
+            BuildableName = "NEHELesson1.app"
+            BlueprintName = "NEHELesson1"
             ReferencedContainer = "container:SparkEngine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -50,9 +50,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B27CE02115AE4B2800E348FA"
-            BuildableName = "gg.app"
-            BlueprintName = "gg"
+            BlueprintIdentifier = "B27CE06215B0B20000E348FA"
+            BuildableName = "NEHELesson1.app"
+            BlueprintName = "NEHELesson1"
             ReferencedContainer = "container:SparkEngine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -68,9 +68,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B27CE02115AE4B2800E348FA"
-            BuildableName = "gg.app"
-            BlueprintName = "gg"
+            BlueprintIdentifier = "B27CE06215B0B20000E348FA"
+            BuildableName = "NEHELesson1.app"
+            BlueprintName = "NEHELesson1"
             ReferencedContainer = "container:SparkEngine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
