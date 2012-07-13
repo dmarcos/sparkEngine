@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "60119D1C13198BC100146334"
-               BuildableName = "SparkEngine.app"
-               BlueprintName = "SparkEngine"
+               BlueprintIdentifier = "B216FB4C15B0D1D5007B00A7"
+               BuildableName = "Earth3D.app"
+               BlueprintName = "NeHeLesson1"
                ReferencedContainer = "container:SparkEngine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,9 +31,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "60119D1C13198BC100146334"
-            BuildableName = "SparkEngine.app"
-            BlueprintName = "SparkEngine"
+            BlueprintIdentifier = "B216FB4C15B0D1D5007B00A7"
+            BuildableName = "Earth3D.app"
+            BlueprintName = "NeHeLesson1"
             ReferencedContainer = "container:SparkEngine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -50,9 +50,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "60119D1C13198BC100146334"
-            BuildableName = "SparkEngine.app"
-            BlueprintName = "SparkEngine"
+            BlueprintIdentifier = "B216FB4C15B0D1D5007B00A7"
+            BuildableName = "Earth3D.app"
+            BlueprintName = "NeHeLesson1"
             ReferencedContainer = "container:SparkEngine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -68,9 +68,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "60119D1C13198BC100146334"
-            BuildableName = "SparkEngine.app"
-            BlueprintName = "SparkEngine"
+            BlueprintIdentifier = "B216FB4C15B0D1D5007B00A7"
+            BuildableName = "Earth3D.app"
+            BlueprintName = "NeHeLesson1"
             ReferencedContainer = "container:SparkEngine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -12,75 +12,92 @@
 		60119D2613198BC100146334 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2513198BC100146334 /* CoreGraphics.framework */; };
 		60119D2813198BC100146334 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2713198BC100146334 /* QuartzCore.framework */; };
 		60119D2A13198BC100146334 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2913198BC100146334 /* OpenGLES.framework */; };
-		B26EA37C1586B523000EB015 /* SERendererOld.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA37B1586B523000EB015 /* SERendererOld.m */; };
+		B216FB0215B0CB14007B00A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FAFA15B0CB14007B00A7 /* main.m */; };
+		B216FB0315B0CB14007B00A7 /* SEBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FAFC15B0CB14007B00A7 /* SEBubbleView.m */; };
+		B216FB0415B0CB14007B00A7 /* SERendererOld.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FAFE15B0CB14007B00A7 /* SERendererOld.m */; };
+		B216FB0515B0CB14007B00A7 /* Earth3D-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B216FB0015B0CB14007B00A7 /* Earth3D-Info.plist */; };
+		B216FB4B15B0D1A7007B00A7 /* NeHeLesson1-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B216FB4615B0D1A7007B00A7 /* NeHeLesson1-Info.plist */; };
+		B216FB5D15B0D1D5007B00A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB4015B0D1A7007B00A7 /* main.m */; };
+		B216FB6115B0D1D5007B00A7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F29B46158A85B800837A72 /* CoreMotion.framework */; };
+		B216FB6215B0D1D5007B00A7 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
+		B216FB6315B0D1D5007B00A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2113198BC100146334 /* UIKit.framework */; };
+		B216FB6415B0D1D5007B00A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2313198BC100146334 /* Foundation.framework */; };
+		B216FB6515B0D1D5007B00A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2513198BC100146334 /* CoreGraphics.framework */; };
+		B216FB6615B0D1D5007B00A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2713198BC100146334 /* QuartzCore.framework */; };
+		B216FB6715B0D1D5007B00A7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2913198BC100146334 /* OpenGLES.framework */; };
+		B216FB6915B0D1D5007B00A7 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
+		B216FB6A15B0D1D5007B00A7 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
+		B216FB6B15B0D1D5007B00A7 /* Earth3D-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B216FB0015B0CB14007B00A7 /* Earth3D-Info.plist */; };
+		B216FB6C15B0D1D5007B00A7 /* NeHeLesson1-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B216FB4615B0D1A7007B00A7 /* NeHeLesson1-Info.plist */; };
+		B216FB7515B0D382007B00A7 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7415B0D382007B00A7 /* PolygonView.m */; };
+		B216FB7615B0D3F6007B00A7 /* PolygonView.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7315B0D382007B00A7 /* PolygonView.h */; };
+		B216FB7715B0D3F6007B00A7 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7415B0D382007B00A7 /* PolygonView.m */; };
+		B216FB9515B0D769007B00A7 /* SECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7B15B0D769007B00A7 /* SECamera.m */; };
+		B216FB9615B0D769007B00A7 /* SEGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7D15B0D769007B00A7 /* SEGeometry.m */; };
+		B216FB9715B0D769007B00A7 /* SEMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7F15B0D769007B00A7 /* SEMesh.m */; };
+		B216FB9815B0D769007B00A7 /* SEObject3D.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8115B0D769007B00A7 /* SEObject3D.m */; };
+		B216FB9915B0D769007B00A7 /* SEPerspectiveCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8315B0D769007B00A7 /* SEPerspectiveCamera.m */; };
+		B216FB9A15B0D769007B00A7 /* SERenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8515B0D769007B00A7 /* SERenderer.m */; };
+		B216FB9B15B0D769007B00A7 /* SEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8715B0D769007B00A7 /* SEScene.m */; };
+		B216FB9C15B0D769007B00A7 /* SEShader.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8915B0D769007B00A7 /* SEShader.m */; };
+		B216FB9D15B0D769007B00A7 /* SEShaderVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8B15B0D769007B00A7 /* SEShaderVariable.m */; };
+		B216FB9E15B0D769007B00A7 /* SETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8D15B0D769007B00A7 /* SETexture.m */; };
+		B216FB9F15B0D769007B00A7 /* SESphere.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9215B0D769007B00A7 /* SESphere.m */; };
+		B216FBA015B0D769007B00A7 /* SETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9415B0D769007B00A7 /* SETriangle.m */; };
 		B26EA38315890CCF000EB015 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
-		B27CE01315AE4A7700E348FA /* SECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CDFFA15AE4A7700E348FA /* SECamera.m */; };
-		B27CE01415AE4A7700E348FA /* SEMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CDFFD15AE4A7700E348FA /* SEMesh.m */; };
-		B27CE01515AE4A7700E348FA /* SEObject3D.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CDFFF15AE4A7700E348FA /* SEObject3D.m */; };
-		B27CE01615AE4A7700E348FA /* SEPerspectiveCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE00115AE4A7700E348FA /* SEPerspectiveCamera.m */; };
-		B27CE01715AE4A7700E348FA /* SERenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE00315AE4A7700E348FA /* SERenderer.m */; };
-		B27CE01815AE4A7700E348FA /* SEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE00515AE4A7700E348FA /* SEScene.m */; };
-		B27CE01915AE4A7700E348FA /* SEShader.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE00715AE4A7700E348FA /* SEShader.m */; };
-		B27CE01A15AE4A7700E348FA /* SEShaderVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE00915AE4A7700E348FA /* SEShaderVariable.m */; };
-		B27CE01B15AE4A7700E348FA /* SETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE00B15AE4A7700E348FA /* SETexture.m */; };
-		B27CE01C15AE4A7700E348FA /* SESphere.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE01015AE4A7700E348FA /* SESphere.m */; };
-		B27CE01D15AE4A7700E348FA /* SETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE01215AE4A7700E348FA /* SETriangle.m */; };
-		B27CE04015AF2B8D00E348FA /* SEGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE03F15AF2B8D00E348FA /* SEGeometry.m */; };
-		B27CE07E15B0B2CD00E348FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE07B15B0B2CD00E348FA /* main.m */; };
-		B27CE07F15B0B2CD00E348FA /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27CE07D15B0B2CD00E348FA /* PolygonView.m */; };
 		B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
-		B2D48768158325CB0051053F /* SEBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D48762158325CB0051053F /* SEBubbleView.m */; };
-		B2D48769158325CB0051053F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D48763158325CB0051053F /* main.m */; };
-		B2D4876E158326280051053F /* SparkEngine-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2D4876C158326280051053F /* SparkEngine-Info.plist */; };
 		B2F29B47158A85B800837A72 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F29B46158A85B800837A72 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		60119D1D13198BC100146334 /* SparkEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60119D1D13198BC100146334 /* Earth3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earth3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60119D2113198BC100146334 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60119D2313198BC100146334 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		60119D2513198BC100146334 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		60119D2713198BC100146334 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		60119D2913198BC100146334 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		B26EA37A1586B523000EB015 /* SERendererOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERendererOld.h; sourceTree = "<group>"; };
-		B26EA37B1586B523000EB015 /* SERendererOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERendererOld.m; sourceTree = "<group>"; };
+		B216FAFA15B0CB14007B00A7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B216FAFB15B0CB14007B00A7 /* SEBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBubbleView.h; sourceTree = "<group>"; };
+		B216FAFC15B0CB14007B00A7 /* SEBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEBubbleView.m; sourceTree = "<group>"; };
+		B216FAFD15B0CB14007B00A7 /* SERendererOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERendererOld.h; sourceTree = "<group>"; };
+		B216FAFE15B0CB14007B00A7 /* SERendererOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERendererOld.m; sourceTree = "<group>"; };
+		B216FB0015B0CB14007B00A7 /* Earth3D-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Earth3D-Info.plist"; sourceTree = "<group>"; };
+		B216FB0115B0CB14007B00A7 /* Earth3D-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Earth3D-Prefix.pch"; sourceTree = "<group>"; };
+		B216FB4015B0D1A7007B00A7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B216FB4615B0D1A7007B00A7 /* NeHeLesson1-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NeHeLesson1-Info.plist"; sourceTree = "<group>"; };
+		B216FB4715B0D1A7007B00A7 /* NeHeLesson1-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NeHeLesson1-Prefix.pch"; sourceTree = "<group>"; };
+		B216FB7015B0D1D5007B00A7 /* NeHeLesson1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeHeLesson1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B216FB7315B0D382007B00A7 /* PolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonView.h; sourceTree = "<group>"; };
+		B216FB7415B0D382007B00A7 /* PolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonView.m; sourceTree = "<group>"; };
+		B216FB7A15B0D769007B00A7 /* SECamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECamera.h; sourceTree = "<group>"; };
+		B216FB7B15B0D769007B00A7 /* SECamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SECamera.m; sourceTree = "<group>"; };
+		B216FB7C15B0D769007B00A7 /* SEGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGeometry.h; sourceTree = "<group>"; };
+		B216FB7D15B0D769007B00A7 /* SEGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGeometry.m; sourceTree = "<group>"; };
+		B216FB7E15B0D769007B00A7 /* SEMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEMesh.h; sourceTree = "<group>"; };
+		B216FB7F15B0D769007B00A7 /* SEMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEMesh.m; sourceTree = "<group>"; };
+		B216FB8015B0D769007B00A7 /* SEObject3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEObject3D.h; sourceTree = "<group>"; };
+		B216FB8115B0D769007B00A7 /* SEObject3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEObject3D.m; sourceTree = "<group>"; };
+		B216FB8215B0D769007B00A7 /* SEPerspectiveCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEPerspectiveCamera.h; sourceTree = "<group>"; };
+		B216FB8315B0D769007B00A7 /* SEPerspectiveCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEPerspectiveCamera.m; sourceTree = "<group>"; };
+		B216FB8415B0D769007B00A7 /* SERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERenderer.h; sourceTree = "<group>"; };
+		B216FB8515B0D769007B00A7 /* SERenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERenderer.m; sourceTree = "<group>"; };
+		B216FB8615B0D769007B00A7 /* SEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEScene.h; sourceTree = "<group>"; };
+		B216FB8715B0D769007B00A7 /* SEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEScene.m; sourceTree = "<group>"; };
+		B216FB8815B0D769007B00A7 /* SEShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShader.h; sourceTree = "<group>"; };
+		B216FB8915B0D769007B00A7 /* SEShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShader.m; sourceTree = "<group>"; };
+		B216FB8A15B0D769007B00A7 /* SEShaderVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShaderVariable.h; sourceTree = "<group>"; };
+		B216FB8B15B0D769007B00A7 /* SEShaderVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShaderVariable.m; sourceTree = "<group>"; };
+		B216FB8C15B0D769007B00A7 /* SETexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETexture.h; sourceTree = "<group>"; };
+		B216FB8D15B0D769007B00A7 /* SETexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETexture.m; sourceTree = "<group>"; };
+		B216FB8E15B0D769007B00A7 /* SEVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEVertex.h; sourceTree = "<group>"; };
+		B216FB9115B0D769007B00A7 /* SESphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESphere.h; sourceTree = "<group>"; };
+		B216FB9215B0D769007B00A7 /* SESphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESphere.m; sourceTree = "<group>"; };
+		B216FB9315B0D769007B00A7 /* SETriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETriangle.h; sourceTree = "<group>"; };
+		B216FB9415B0D769007B00A7 /* SETriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETriangle.m; sourceTree = "<group>"; };
 		B26EA38215890CCF000EB015 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		B27CDFF915AE4A7700E348FA /* SECamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECamera.h; sourceTree = "<group>"; };
-		B27CDFFA15AE4A7700E348FA /* SECamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SECamera.m; sourceTree = "<group>"; };
-		B27CDFFB15AE4A7700E348FA /* SEGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGeometry.h; sourceTree = "<group>"; };
-		B27CDFFC15AE4A7700E348FA /* SEMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEMesh.h; sourceTree = "<group>"; };
-		B27CDFFD15AE4A7700E348FA /* SEMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEMesh.m; sourceTree = "<group>"; };
-		B27CDFFE15AE4A7700E348FA /* SEObject3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEObject3D.h; sourceTree = "<group>"; };
-		B27CDFFF15AE4A7700E348FA /* SEObject3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEObject3D.m; sourceTree = "<group>"; };
-		B27CE00015AE4A7700E348FA /* SEPerspectiveCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEPerspectiveCamera.h; sourceTree = "<group>"; };
-		B27CE00115AE4A7700E348FA /* SEPerspectiveCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEPerspectiveCamera.m; sourceTree = "<group>"; };
-		B27CE00215AE4A7700E348FA /* SERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERenderer.h; sourceTree = "<group>"; };
-		B27CE00315AE4A7700E348FA /* SERenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERenderer.m; sourceTree = "<group>"; };
-		B27CE00415AE4A7700E348FA /* SEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEScene.h; sourceTree = "<group>"; };
-		B27CE00515AE4A7700E348FA /* SEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEScene.m; sourceTree = "<group>"; };
-		B27CE00615AE4A7700E348FA /* SEShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShader.h; sourceTree = "<group>"; };
-		B27CE00715AE4A7700E348FA /* SEShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShader.m; sourceTree = "<group>"; };
-		B27CE00815AE4A7700E348FA /* SEShaderVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShaderVariable.h; sourceTree = "<group>"; };
-		B27CE00915AE4A7700E348FA /* SEShaderVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShaderVariable.m; sourceTree = "<group>"; };
-		B27CE00A15AE4A7700E348FA /* SETexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETexture.h; sourceTree = "<group>"; };
-		B27CE00B15AE4A7700E348FA /* SETexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETexture.m; sourceTree = "<group>"; };
-		B27CE00F15AE4A7700E348FA /* SESphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESphere.h; sourceTree = "<group>"; };
-		B27CE01015AE4A7700E348FA /* SESphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESphere.m; sourceTree = "<group>"; };
-		B27CE01115AE4A7700E348FA /* SETriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETriangle.h; sourceTree = "<group>"; };
-		B27CE01215AE4A7700E348FA /* SETriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETriangle.m; sourceTree = "<group>"; };
-		B27CE03F15AF2B8D00E348FA /* SEGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGeometry.m; sourceTree = "<group>"; };
-		B27CE04115AF388100E348FA /* SEVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEVertex.h; sourceTree = "<group>"; };
-		B27CE07B15B0B2CD00E348FA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B27CE07C15B0B2CD00E348FA /* PolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonView.h; sourceTree = "<group>"; };
-		B27CE07D15B0B2CD00E348FA /* PolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonView.m; sourceTree = "<group>"; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
 		B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueMarble.jpg; sourceTree = "<group>"; };
-		B2D48761158325CB0051053F /* SEBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBubbleView.h; sourceTree = "<group>"; };
-		B2D48762158325CB0051053F /* SEBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEBubbleView.m; sourceTree = "<group>"; };
-		B2D48763158325CB0051053F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B2D4876C158326280051053F /* SparkEngine-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SparkEngine-Info.plist"; sourceTree = "<group>"; };
-		B2D4876D158326280051053F /* SparkEngine-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SparkEngine-Prefix.pch"; sourceTree = "<group>"; };
 		B2F29B46158A85B800837A72 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -99,15 +116,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B216FB6015B0D1D5007B00A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B216FB6115B0D1D5007B00A7 /* CoreMotion.framework in Frameworks */,
+				B216FB6215B0D1D5007B00A7 /* GLKit.framework in Frameworks */,
+				B216FB6315B0D1D5007B00A7 /* UIKit.framework in Frameworks */,
+				B216FB6415B0D1D5007B00A7 /* Foundation.framework in Frameworks */,
+				B216FB6515B0D1D5007B00A7 /* CoreGraphics.framework in Frameworks */,
+				B216FB6615B0D1D5007B00A7 /* QuartzCore.framework in Frameworks */,
+				B216FB6715B0D1D5007B00A7 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		60119D1213198BC100146334 = {
 			isa = PBXGroup;
 			children = (
-				B27CE07715B0B2CD00E348FA /* Examples */,
-				B2D4876B158326280051053F /* SupportingFiles */,
-				B2D4875F158325CB0051053F /* Source */,
+				B216FB7815B0D769007B00A7 /* SparkEngine */,
+				B27CE09815B0B9AB00E348FA /* Examples */,
 				60119DA41319938100146334 /* Resources */,
 				60119D2013198BC100146334 /* Frameworks */,
 				60119D1E13198BC100146334 /* Products */,
@@ -117,7 +147,8 @@
 		60119D1E13198BC100146334 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60119D1D13198BC100146334 /* SparkEngine.app */,
+				60119D1D13198BC100146334 /* Earth3D.app */,
+				B216FB7015B0D1D5007B00A7 /* NeHeLesson1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,116 +176,127 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B27CDFF815AE4A7700E348FA /* Core */ = {
+		B216FAF915B0CB14007B00A7 /* Earth3D */ = {
 			isa = PBXGroup;
 			children = (
-				B27CE04115AF388100E348FA /* SEVertex.h */,
-				B27CDFF915AE4A7700E348FA /* SECamera.h */,
-				B27CDFFA15AE4A7700E348FA /* SECamera.m */,
-				B27CDFFB15AE4A7700E348FA /* SEGeometry.h */,
-				B27CE03F15AF2B8D00E348FA /* SEGeometry.m */,
-				B27CDFFC15AE4A7700E348FA /* SEMesh.h */,
-				B27CDFFD15AE4A7700E348FA /* SEMesh.m */,
-				B27CDFFE15AE4A7700E348FA /* SEObject3D.h */,
-				B27CDFFF15AE4A7700E348FA /* SEObject3D.m */,
-				B27CE00015AE4A7700E348FA /* SEPerspectiveCamera.h */,
-				B27CE00115AE4A7700E348FA /* SEPerspectiveCamera.m */,
-				B27CE00215AE4A7700E348FA /* SERenderer.h */,
-				B27CE00315AE4A7700E348FA /* SERenderer.m */,
-				B27CE00415AE4A7700E348FA /* SEScene.h */,
-				B27CE00515AE4A7700E348FA /* SEScene.m */,
-				B27CE00615AE4A7700E348FA /* SEShader.h */,
-				B27CE00715AE4A7700E348FA /* SEShader.m */,
-				B27CE00815AE4A7700E348FA /* SEShaderVariable.h */,
-				B27CE00915AE4A7700E348FA /* SEShaderVariable.m */,
-				B27CE00A15AE4A7700E348FA /* SETexture.h */,
-				B27CE00B15AE4A7700E348FA /* SETexture.m */,
+				B216FAFA15B0CB14007B00A7 /* main.m */,
+				B216FAFB15B0CB14007B00A7 /* SEBubbleView.h */,
+				B216FAFC15B0CB14007B00A7 /* SEBubbleView.m */,
+				B216FAFD15B0CB14007B00A7 /* SERendererOld.h */,
+				B216FAFE15B0CB14007B00A7 /* SERendererOld.m */,
+				B216FAFF15B0CB14007B00A7 /* SupportingFiles */,
+			);
+			path = Earth3D;
+			sourceTree = "<group>";
+		};
+		B216FAFF15B0CB14007B00A7 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B216FB0015B0CB14007B00A7 /* Earth3D-Info.plist */,
+				B216FB0115B0CB14007B00A7 /* Earth3D-Prefix.pch */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B216FB3F15B0D1A7007B00A7 /* NeHeLesson1 */ = {
+			isa = PBXGroup;
+			children = (
+				B216FB7315B0D382007B00A7 /* PolygonView.h */,
+				B216FB7415B0D382007B00A7 /* PolygonView.m */,
+				B216FB4015B0D1A7007B00A7 /* main.m */,
+				B216FB4515B0D1A7007B00A7 /* SupportingFiles */,
+			);
+			path = NeHeLesson1;
+			sourceTree = "<group>";
+		};
+		B216FB4515B0D1A7007B00A7 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B216FB4615B0D1A7007B00A7 /* NeHeLesson1-Info.plist */,
+				B216FB4715B0D1A7007B00A7 /* NeHeLesson1-Prefix.pch */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B216FB7815B0D769007B00A7 /* SparkEngine */ = {
+			isa = PBXGroup;
+			children = (
+				B216FB7915B0D769007B00A7 /* Core */,
+				B216FB8F15B0D769007B00A7 /* Loaders */,
+				B216FB9015B0D769007B00A7 /* Shapes */,
+			);
+			path = SparkEngine;
+			sourceTree = "<group>";
+		};
+		B216FB7915B0D769007B00A7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B216FB7A15B0D769007B00A7 /* SECamera.h */,
+				B216FB7B15B0D769007B00A7 /* SECamera.m */,
+				B216FB7C15B0D769007B00A7 /* SEGeometry.h */,
+				B216FB7D15B0D769007B00A7 /* SEGeometry.m */,
+				B216FB7E15B0D769007B00A7 /* SEMesh.h */,
+				B216FB7F15B0D769007B00A7 /* SEMesh.m */,
+				B216FB8015B0D769007B00A7 /* SEObject3D.h */,
+				B216FB8115B0D769007B00A7 /* SEObject3D.m */,
+				B216FB8215B0D769007B00A7 /* SEPerspectiveCamera.h */,
+				B216FB8315B0D769007B00A7 /* SEPerspectiveCamera.m */,
+				B216FB8415B0D769007B00A7 /* SERenderer.h */,
+				B216FB8515B0D769007B00A7 /* SERenderer.m */,
+				B216FB8615B0D769007B00A7 /* SEScene.h */,
+				B216FB8715B0D769007B00A7 /* SEScene.m */,
+				B216FB8815B0D769007B00A7 /* SEShader.h */,
+				B216FB8915B0D769007B00A7 /* SEShader.m */,
+				B216FB8A15B0D769007B00A7 /* SEShaderVariable.h */,
+				B216FB8B15B0D769007B00A7 /* SEShaderVariable.m */,
+				B216FB8C15B0D769007B00A7 /* SETexture.h */,
+				B216FB8D15B0D769007B00A7 /* SETexture.m */,
+				B216FB8E15B0D769007B00A7 /* SEVertex.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		B27CE00D15AE4A7700E348FA /* Loaders */ = {
+		B216FB8F15B0D769007B00A7 /* Loaders */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Loaders;
 			sourceTree = "<group>";
 		};
-		B27CE00E15AE4A7700E348FA /* Shapes */ = {
+		B216FB9015B0D769007B00A7 /* Shapes */ = {
 			isa = PBXGroup;
 			children = (
-				B27CE00F15AE4A7700E348FA /* SESphere.h */,
-				B27CE01015AE4A7700E348FA /* SESphere.m */,
-				B27CE01115AE4A7700E348FA /* SETriangle.h */,
-				B27CE01215AE4A7700E348FA /* SETriangle.m */,
+				B216FB9115B0D769007B00A7 /* SESphere.h */,
+				B216FB9215B0D769007B00A7 /* SESphere.m */,
+				B216FB9315B0D769007B00A7 /* SETriangle.h */,
+				B216FB9415B0D769007B00A7 /* SETriangle.m */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
 		};
-		B27CE07715B0B2CD00E348FA /* Examples */ = {
+		B27CE09815B0B9AB00E348FA /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				B27CE07815B0B2CD00E348FA /* NeheTutorials */,
+				B216FAF915B0CB14007B00A7 /* Earth3D */,
+				B27CE09915B0B9AB00E348FA /* Tutorials */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
 		};
-		B27CE07815B0B2CD00E348FA /* NeheTutorials */ = {
+		B27CE09915B0B9AB00E348FA /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
-				B27CE07915B0B2CD00E348FA /* Lesson1-OpenGLWindow */,
-				B27CE07A15B0B2CD00E348FA /* Lesson2-FirstPolygon */,
+				B216FB3F15B0D1A7007B00A7 /* NeHeLesson1 */,
 			);
-			path = NeheTutorials;
+			path = Tutorials;
 			sourceTree = "<group>";
-		};
-		B27CE07915B0B2CD00E348FA /* Lesson1-OpenGLWindow */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Lesson1-OpenGLWindow";
-			sourceTree = "<group>";
-		};
-		B27CE07A15B0B2CD00E348FA /* Lesson2-FirstPolygon */ = {
-			isa = PBXGroup;
-			children = (
-				B27CE07B15B0B2CD00E348FA /* main.m */,
-				B27CE07C15B0B2CD00E348FA /* PolygonView.h */,
-				B27CE07D15B0B2CD00E348FA /* PolygonView.m */,
-			);
-			path = "Lesson2-FirstPolygon";
-			sourceTree = "<group>";
-		};
-		B2D4875F158325CB0051053F /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				B27CDFF815AE4A7700E348FA /* Core */,
-				B27CE00D15AE4A7700E348FA /* Loaders */,
-				B27CE00E15AE4A7700E348FA /* Shapes */,
-				B2D48761158325CB0051053F /* SEBubbleView.h */,
-				B2D48762158325CB0051053F /* SEBubbleView.m */,
-				B2D48763158325CB0051053F /* main.m */,
-				B26EA37A1586B523000EB015 /* SERendererOld.h */,
-				B26EA37B1586B523000EB015 /* SERendererOld.m */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		B2D4876B158326280051053F /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				B2D4876C158326280051053F /* SparkEngine-Info.plist */,
-				B2D4876D158326280051053F /* SparkEngine-Prefix.pch */,
-			);
-			path = SupportingFiles;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		60119D1C13198BC100146334 /* SparkEngine */ = {
+		60119D1C13198BC100146334 /* Earth3D */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60119D4913198BC100146334 /* Build configuration list for PBXNativeTarget "SparkEngine" */;
+			buildConfigurationList = 60119D4913198BC100146334 /* Build configuration list for PBXNativeTarget "Earth3D" */;
 			buildPhases = (
 				60119D1913198BC100146334 /* Sources */,
 				60119D1A13198BC100146334 /* Frameworks */,
@@ -264,9 +306,26 @@
 			);
 			dependencies = (
 			);
-			name = SparkEngine;
+			name = Earth3D;
 			productName = CubeExample;
-			productReference = 60119D1D13198BC100146334 /* SparkEngine.app */;
+			productReference = 60119D1D13198BC100146334 /* Earth3D.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B216FB4C15B0D1D5007B00A7 /* NeHeLesson1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B216FB6D15B0D1D5007B00A7 /* Build configuration list for PBXNativeTarget "NeHeLesson1" */;
+			buildPhases = (
+				B216FB4D15B0D1D5007B00A7 /* Sources */,
+				B216FB6015B0D1D5007B00A7 /* Frameworks */,
+				B216FB6815B0D1D5007B00A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeHeLesson1;
+			productName = CubeExample;
+			productReference = B216FB7015B0D1D5007B00A7 /* NeHeLesson1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -290,7 +349,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60119D1C13198BC100146334 /* SparkEngine */,
+				60119D1C13198BC100146334 /* Earth3D */,
+				B216FB4C15B0D1D5007B00A7 /* NeHeLesson1 */,
 			);
 		};
 /* End PBXProject section */
@@ -301,8 +361,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */,
-				B2D4876E158326280051053F /* SparkEngine-Info.plist in Resources */,
 				B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */,
+				B216FB0515B0CB14007B00A7 /* Earth3D-Info.plist in Resources */,
+				B216FB4B15B0D1A7007B00A7 /* NeHeLesson1-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B216FB6815B0D1D5007B00A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B216FB6915B0D1D5007B00A7 /* blueMarble.jpg in Resources */,
+				B216FB6A15B0D1D5007B00A7 /* mars.jpg in Resources */,
+				B216FB6B15B0D1D5007B00A7 /* Earth3D-Info.plist in Resources */,
+				B216FB6C15B0D1D5007B00A7 /* NeHeLesson1-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,23 +385,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2D48768158325CB0051053F /* SEBubbleView.m in Sources */,
-				B2D48769158325CB0051053F /* main.m in Sources */,
-				B26EA37C1586B523000EB015 /* SERendererOld.m in Sources */,
-				B27CE01315AE4A7700E348FA /* SECamera.m in Sources */,
-				B27CE01415AE4A7700E348FA /* SEMesh.m in Sources */,
-				B27CE01515AE4A7700E348FA /* SEObject3D.m in Sources */,
-				B27CE01615AE4A7700E348FA /* SEPerspectiveCamera.m in Sources */,
-				B27CE01715AE4A7700E348FA /* SERenderer.m in Sources */,
-				B27CE01815AE4A7700E348FA /* SEScene.m in Sources */,
-				B27CE01915AE4A7700E348FA /* SEShader.m in Sources */,
-				B27CE01A15AE4A7700E348FA /* SEShaderVariable.m in Sources */,
-				B27CE01B15AE4A7700E348FA /* SETexture.m in Sources */,
-				B27CE01C15AE4A7700E348FA /* SESphere.m in Sources */,
-				B27CE01D15AE4A7700E348FA /* SETriangle.m in Sources */,
-				B27CE04015AF2B8D00E348FA /* SEGeometry.m in Sources */,
-				B27CE07E15B0B2CD00E348FA /* main.m in Sources */,
-				B27CE07F15B0B2CD00E348FA /* PolygonView.m in Sources */,
+				B216FB0215B0CB14007B00A7 /* main.m in Sources */,
+				B216FB0315B0CB14007B00A7 /* SEBubbleView.m in Sources */,
+				B216FB0415B0CB14007B00A7 /* SERendererOld.m in Sources */,
+				B216FB7515B0D382007B00A7 /* PolygonView.m in Sources */,
+				B216FB9515B0D769007B00A7 /* SECamera.m in Sources */,
+				B216FB9615B0D769007B00A7 /* SEGeometry.m in Sources */,
+				B216FB9715B0D769007B00A7 /* SEMesh.m in Sources */,
+				B216FB9815B0D769007B00A7 /* SEObject3D.m in Sources */,
+				B216FB9915B0D769007B00A7 /* SEPerspectiveCamera.m in Sources */,
+				B216FB9A15B0D769007B00A7 /* SERenderer.m in Sources */,
+				B216FB9B15B0D769007B00A7 /* SEScene.m in Sources */,
+				B216FB9C15B0D769007B00A7 /* SEShader.m in Sources */,
+				B216FB9D15B0D769007B00A7 /* SEShaderVariable.m in Sources */,
+				B216FB9E15B0D769007B00A7 /* SETexture.m in Sources */,
+				B216FB9F15B0D769007B00A7 /* SESphere.m in Sources */,
+				B216FBA015B0D769007B00A7 /* SETriangle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B216FB4D15B0D1D5007B00A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B216FB7615B0D3F6007B00A7 /* PolygonView.h in Sources */,
+				B216FB7715B0D3F6007B00A7 /* PolygonView.m in Sources */,
+				B216FB5D15B0D1D5007B00A7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,15 +456,15 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SupportingFiles/SparkEngine-Prefix.pch";
+				GCC_PREFIX_HEADER = "Examples/Earth3D/SupportingFiles/Earth3D-Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "SupportingFiles/SparkEngine-Info.plist";
+				INFOPLIST_FILE = "Examples/Earth3D/SupportingFiles/Earth3D-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = SparkEngine;
+				PRODUCT_NAME = Earth3D;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -396,15 +477,59 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SupportingFiles/SparkEngine-Prefix.pch";
+				GCC_PREFIX_HEADER = "Examples/Earth3D/SupportingFiles/Earth3D-Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "SupportingFiles/SparkEngine-Info.plist";
+				INFOPLIST_FILE = "Examples/Earth3D/SupportingFiles/Earth3D-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = SparkEngine;
+				PRODUCT_NAME = Earth3D;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B216FB6E15B0D1D5007B00A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Examples/Tutorials/NeHeLesson1/SupportingFiles/NeHeLesson1-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Examples/Tutorials/NeHeLesson1/SupportingFiles/NeHeLesson1-Info.plist";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = NeHeLesson1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B216FB6F15B0D1D5007B00A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Examples/Tutorials/NeHeLesson1/SupportingFiles/NeHeLesson1-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Examples/Tutorials/NeHeLesson1/SupportingFiles/NeHeLesson1-Info.plist";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = NeHeLesson1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -423,11 +548,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60119D4913198BC100146334 /* Build configuration list for PBXNativeTarget "SparkEngine" */ = {
+		60119D4913198BC100146334 /* Build configuration list for PBXNativeTarget "Earth3D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60119D4A13198BC100146334 /* Debug */,
 				60119D4B13198BC100146334 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B216FB6D15B0D1D5007B00A7 /* Build configuration list for PBXNativeTarget "NeHeLesson1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B216FB6E15B0D1D5007B00A7 /* Debug */,
+				B216FB6F15B0D1D5007B00A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
