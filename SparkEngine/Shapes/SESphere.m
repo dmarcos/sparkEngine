@@ -3,7 +3,7 @@
 //  SparkEngine
 //
 //  Created by Diego Marcos on 6/17/12.
-//  Copyright (c) 2012. All rights reserved.
+//  Copyright (c) 2012 codebeast.org. All rights reserved.
 //
 
 #import "SESphere.h"
@@ -19,7 +19,7 @@
     int numVertices = (steps+1)*(steps+1);
     int numFaces = steps*steps*2;
     
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:numVertices numberOfFaces: numFaces] shader:NULL];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:numVertices numberOfFaces: numFaces] material:NULL];
     if (self) {
     
         self->_radius = radius;

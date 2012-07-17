@@ -3,7 +3,7 @@
 //  SparkEngine
 //
 //  Created by Diego Marcos on 6/19/12.
-//  Copyright (c) 2012. All rights reserved.
+//  Copyright (c) 2012 codebeast.org. All rights reserved.
 //
 
 #import "SEMesh.h"
@@ -15,15 +15,15 @@
 @synthesize vertexBuffer = _vertexBuffer;
 @synthesize facesIndicesBuffer = _facesIndicesBuffer;
 
-@synthesize shader = _shader;
+@synthesize material = _material;
 
--(id) initWithGeometry: (SEGeometry*) geometry shader: (SEShader*) shader;
+-(id) initWithGeometry: (SEGeometry*) geometry material: (SEShaderMaterial*) material;
 {
     self = [self init];
     if (self) {
         self->_geometry = geometry;
-        if(shader) {
-            self->_shader = shader;
+        if(material) {
+            self->_material = material;
         }
     }
     return self;
@@ -38,12 +38,12 @@
     return self;
 }
 
--(SEShader*) shader
+-(SEShaderMaterial*) material
 {
-    if(!self->_shader){
-        self->_shader = [SEShader defaultShader];
+    if(!self->_material){
+        self->_material = [[SEShaderMaterial alloc] init];
     }
-    return self->_shader;
+    return self->_material;
 }
 
 @end

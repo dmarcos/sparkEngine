@@ -3,7 +3,7 @@
 //  SparkEngine
 //
 //  Created by Diego Marcos on 7/11/12.
-//  Copyright (c) 2012. All rights reserved.
+//  Copyright (c) 2012 codebeast.org. All rights reserved.
 //
 
 #import "SETriangle.h"
@@ -12,7 +12,7 @@
 
 -(id) initWithVerticesColor: (GLKVector4*) colors
 {
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 numberOfFaces:1] shader:NULL];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 numberOfFaces:1] material:NULL];
     if (self) {
                 
         self.geometry.vertices[0].position = GLKVector3Make(-0.5, -0.5, 1.0);

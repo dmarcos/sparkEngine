@@ -3,7 +3,7 @@
 //  SparkEngine
 //
 //  Created by Diego Marcos on 6/25/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 codebeast.org. All rights reserved.
 //
 
 #import "SEObject3D.h"

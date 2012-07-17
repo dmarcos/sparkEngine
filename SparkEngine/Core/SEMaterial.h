@@ -1,13 +1,13 @@
 //
-//  SEShaderVariable.h
+//  SEMaterial.h
 //  SparkEngine
 //
-//  Created by Diego Marcos on 6/29/12.
+//  Created by Diego Marcos on 7/17/12.
 //  Copyright (c) 2012 codebeast.org. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface SEShaderVariable : NSObject
+@interface SEMaterial : NSObject
 
 @end

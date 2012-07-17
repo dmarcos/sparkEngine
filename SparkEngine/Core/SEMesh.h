@@ -3,14 +3,14 @@
 //  SparkEngine
 //
 //  Created by Diego Marcos on 6/19/12.
-//  Copyright (c) 2012. All rights reserved.
+//  Copyright (c) 2012 codebeast.org. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES2/gl.h>
-#import "SEShader.h"
-#import "SEGeometry.h"
 #import "SEObject3D.h"
+#import "SEShaderMaterial.h"
+#import "SEGeometry.h"
 
 @interface SEMesh : SEObject3D{
     @protected
@@ -18,10 +18,10 @@
         int _numFacesIndices;
 }
 
--(id) initWithGeometry: (SEGeometry*) geometry shader: (SEShader*) shader;
+-(id) initWithGeometry: (SEGeometry*) geometry material: (SEShaderMaterial*) material;
 
 @property (nonatomic) SEGeometry* geometry;
-@property (nonatomic) SEShader* shader;
+@property (nonatomic) SEShaderMaterial* material;
 
 // Buffer Objects names/ids.
 @property GLuint vertexBuffer;
