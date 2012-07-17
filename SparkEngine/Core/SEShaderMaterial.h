@@ -12,6 +12,6 @@
 
 @interface SEShaderMaterial : SEMaterial
 
-@property (nonatomic) SEShader* shader;
+@property (strong, nonatomic) SEShader* shader;
 
 @end

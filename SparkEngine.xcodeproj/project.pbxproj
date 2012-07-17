@@ -44,10 +44,6 @@
 		B26EA38315890CCF000EB015 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
 		B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
-		B2D1633A15B5331B009FC1A3 /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D1633415B52717009FC1A3 /* default.vsh */; };
-		B2D1633B15B5331B009FC1A3 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D1633715B5272B009FC1A3 /* default.fsh */; };
-		B2D1633C15B53323009FC1A3 /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D1633415B52717009FC1A3 /* default.vsh */; };
-		B2D1633D15B53323009FC1A3 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D1633715B5272B009FC1A3 /* default.fsh */; };
 		B2D1636115B5C6D7009FC1A3 /* SEMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D1636015B5C6D7009FC1A3 /* SEMaterial.m */; };
 		B2D1636515B5C7DA009FC1A3 /* SEShaderMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D1636415B5C7D9009FC1A3 /* SEShaderMaterial.m */; };
 		B2D1639B15B5CCA5009FC1A3 /* SECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7B15B0D769007B00A7 /* SECamera.m */; };
@@ -63,6 +59,11 @@
 		B2D163A515B5CCA5009FC1A3 /* SEMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D1636015B5C6D7009FC1A3 /* SEMaterial.m */; };
 		B2D163A615B5CCA5009FC1A3 /* SEShaderMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D1636415B5C7D9009FC1A3 /* SEShaderMaterial.m */; };
 		B2D163A715B5CCA5009FC1A3 /* SETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9415B0D769007B00A7 /* SETriangle.m */; };
+		B2D163B215B602DD009FC1A3 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163A915B602C8009FC1A3 /* default.fsh */; };
+		B2D163B315B602DD009FC1A3 /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163AA15B602C8009FC1A3 /* default.vsh */; };
+		B2D163B515B602EC009FC1A3 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163A915B602C8009FC1A3 /* default.fsh */; };
+		B2D163B615B602EC009FC1A3 /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163AA15B602C8009FC1A3 /* default.vsh */; };
+		B2D163B715B602EC009FC1A3 /* plainColor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163AB15B602C8009FC1A3 /* plainColor.fsh */; };
 		B2F29B47158A85B800837A72 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F29B46158A85B800837A72 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,12 +115,13 @@
 		B26EA38215890CCF000EB015 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
 		B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueMarble.jpg; sourceTree = "<group>"; };
-		B2D1633415B52717009FC1A3 /* default.vsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = default.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		B2D1633715B5272B009FC1A3 /* default.fsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = default.fsh; sourceTree = "<group>"; };
 		B2D1635F15B5C6D7009FC1A3 /* SEMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEMaterial.h; sourceTree = "<group>"; };
 		B2D1636015B5C6D7009FC1A3 /* SEMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEMaterial.m; sourceTree = "<group>"; };
 		B2D1636315B5C7D9009FC1A3 /* SEShaderMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShaderMaterial.h; sourceTree = "<group>"; };
 		B2D1636415B5C7D9009FC1A3 /* SEShaderMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEShaderMaterial.m; sourceTree = "<group>"; };
+		B2D163A915B602C8009FC1A3 /* default.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = default.fsh; sourceTree = "<group>"; };
+		B2D163AA15B602C8009FC1A3 /* default.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = default.vsh; sourceTree = "<group>"; };
+		B2D163AB15B602C8009FC1A3 /* plainColor.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = plainColor.fsh; sourceTree = "<group>"; };
 		B2F29B46158A85B800837A72 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -192,7 +194,7 @@
 		60119DA41319938100146334 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B2D1633315B526F2009FC1A3 /* Shaders */,
+				B2D163A815B602C8009FC1A3 /* Shaders */,
 				B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */,
 				B2BD9D2F15952B950028F9E9 /* mars.jpg */,
 			);
@@ -318,15 +320,15 @@
 			path = Tutorials;
 			sourceTree = "<group>";
 		};
-		B2D1633315B526F2009FC1A3 /* Shaders */ = {
+		B2D163A815B602C8009FC1A3 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				B2D1633415B52717009FC1A3 /* default.vsh */,
-				B2D1633715B5272B009FC1A3 /* default.fsh */,
+				B2D163A915B602C8009FC1A3 /* default.fsh */,
+				B2D163AA15B602C8009FC1A3 /* default.vsh */,
+				B2D163AB15B602C8009FC1A3 /* plainColor.fsh */,
 			);
-			name = Shaders;
-			path = SparkEngine/Resources/Shaders;
-			sourceTree = SOURCE_ROOT;
+			path = Shaders;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -397,8 +399,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2D1633A15B5331B009FC1A3 /* default.vsh in Resources */,
-				B2D1633B15B5331B009FC1A3 /* default.fsh in Resources */,
+				B2D163B215B602DD009FC1A3 /* default.fsh in Resources */,
+				B2D163B315B602DD009FC1A3 /* default.vsh in Resources */,
 				B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */,
 				B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */,
 				B216FB0515B0CB14007B00A7 /* Earth3D-Info.plist in Resources */,
@@ -410,8 +412,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2D1633C15B53323009FC1A3 /* default.vsh in Resources */,
-				B2D1633D15B53323009FC1A3 /* default.fsh in Resources */,
+				B2D163B515B602EC009FC1A3 /* default.fsh in Resources */,
+				B2D163B615B602EC009FC1A3 /* default.vsh in Resources */,
+				B2D163B715B602EC009FC1A3 /* plainColor.fsh in Resources */,
 				B216FB6915B0D1D5007B00A7 /* blueMarble.jpg in Resources */,
 				B216FB6A15B0D1D5007B00A7 /* mars.jpg in Resources */,
 				B216FB6B15B0D1D5007B00A7 /* Earth3D-Info.plist in Resources */,

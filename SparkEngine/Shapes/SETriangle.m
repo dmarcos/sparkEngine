@@ -10,9 +10,9 @@
 
 @implementation SETriangle
 
--(id) initWithVerticesColor: (GLKVector4*) colors
+-(id) initWithVerticesColor: (GLKVector4*) colors material: (SEShaderMaterial*) material
 {
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 numberOfFaces:1] material:NULL];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 numberOfFaces:1] material: material];
     if (self) {
                 
         self.geometry.vertices[0].position = GLKVector3Make(-0.5, -0.5, 1.0);

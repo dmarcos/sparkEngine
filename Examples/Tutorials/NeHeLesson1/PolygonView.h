@@ -13,6 +13,4 @@
 
 + (void) presentColorbuffer;
 
-@property (readonly) SETexture *panorama;
-
 @end

@@ -19,6 +19,7 @@
 #import "SESphere.h"
 #import "SETriangle.h"
 #import "SEPerspectiveCamera.h"
+#import "SEShader.h"
 
 @interface PolygonView(){
     UIWindow		*window;
@@ -38,14 +39,9 @@
     CMAttitude* _referenceAttitude;
 }
 
--(void) loadTextures;
--(void) enableGyro;
-
 @end
 
 @implementation PolygonView
-
-@synthesize panorama;
 
 - (id)init
 {
@@ -61,19 +57,6 @@
 										[NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking,
 										kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
 										nil];
-		
-        self->zoom = 1.0;
-        self->fov = 45.0;
-        self->camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self.bounds.size.width / self.bounds.size.width near: 0.1 far:100.0];
-        self->scene = [[SEScene alloc] init]; 
-        self->scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
-        self->scene.position = GLKVector3Make(0.0, 0.0, -4.0);
-//        SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
-        GLKVector4 colors[3] = {GLKVector4Make(1.0, 1.0, 1.0, 1.0),
-                                GLKVector4Make(1.0, 1.0, 1.0, 1.0),
-                                GLKVector4Make(1.0, 1.0, 1.0, 1.0)};
-        SETriangle* triangle = [[SETriangle alloc] initWithVerticesColor: colors];
-        [self->scene.objects addObject:triangle];
     }
 	
     return self;
@@ -111,21 +94,24 @@
 	self->glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
 	[EAGLContext setCurrentContext: self->glContext];
     self->renderer = [[SERenderer alloc] initWithViewport:self.bounds withGLContext: self->glContext withEAGLLayer: (CAEAGLLayer *) self.layer];
-    self->camera.aspect = self.bounds.size.width / self.bounds.size.height;
-	// Initializes the OpenGL in the CubeExample.mm
-    [self loadTextures];    
+    
+    self->zoom = 1.0;
+    self->fov = 45.0;
+    self->camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self.bounds.size.width / self.bounds.size.height near: 0.1 far:100.0];
+    
+    self->scene = [[SEScene alloc] init]; 
+    self->scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
+    self->scene.position = GLKVector3Make(0.0, 0.0, -4.0);
+    
+    GLKVector4 colors[3] = {GLKVector4Make(1.0, 0.0, 0.0, 1.0),
+        GLKVector4Make(0.0, 1.0, 0.0, 1.0),
+        GLKVector4Make(0.0, 0.0, 1.0, 1.0)};
+    SEShaderMaterial* material = [[SEShaderMaterial alloc] init];
+    material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"plainColor.fsh"];
+    SETriangle* triangle = [[SETriangle alloc] initWithVerticesColor: colors material: material];
+    [self->scene.objects addObject:triangle];
+    
     [self renderFrame];
-    
-    //self->_motionManager = [[CMMotionManager alloc] init];
-    //self->_referenceAttitude = nil;
-    //[self enableGyro];
-    
-}
-
--(void) loadTextures
-{
-    self->panorama = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];
-    [self->renderer setTexture:self->panorama];
 }
 
 + (Class) layerClass
@@ -219,34 +205,6 @@
     scene.rotation = newRotation;
     self->previousSingleTouchPosition = currentLocation;
     [self renderFrame];    
-}
-
--(void) enableGyro{
-    CMDeviceMotion *deviceMotion = self->_motionManager.deviceMotion;      
-    self->_referenceAttitude = deviceMotion.attitude;
-    self->_motionManager.gyroUpdateInterval = 1.0/60.0;
-    //[self->_motionManager startGyroUpdates];
-    //[self->_motionManager startDeviceMotionUpdates];
-    [self->_motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
-        NSLog(@"CCACACACACACACA");
-    }];
-
-    [self->_motionManager startGyroUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMGyroData *gyroData, NSError *error) {
-        
-//        CMDeviceMotion *deviceMotion = self->_motionManager.deviceMotion;     
-//        CMAttitude *attitude = deviceMotion.attitude;
-//        float rateX = self->_motionManager.gyroData.rotationRate.x;
-//        float rateY = self->_motionManager.gyroData.rotationRate.y;
-//        if (fabs(rateX) > .01) {
-//         //   float directionX = rateX > 0 ? 1 : -1;
-//            self->rotationX += rateX * M_PI/90.0;
-//        } 
-//        if (fabs(rateY) > .01) {
-//          //  float directionY = rateY > 0 ? 1 : -1;
-//            self->rotationY += rateY * M_PI/90.0;
-//        }
-        [self renderFrame];
-    }];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

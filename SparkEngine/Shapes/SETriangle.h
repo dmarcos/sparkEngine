@@ -10,6 +10,6 @@
 
 @interface SETriangle : SEMesh
 
--(id) initWithVerticesColor: (GLKVector4*) colorVertices;
+-(id) initWithVerticesColor: (GLKVector4*) colors material: (SEShaderMaterial*) material;
 
 @end
