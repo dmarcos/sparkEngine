@@ -14,6 +14,8 @@
 
 -(id) initWithVertexShaderSource: (const char **) vertexShaderSource fragmentShaderSource: (const char **) fragmentShaderSource; 
 
+-(id) initWithVertexShaderFileName: (NSString*) vertexShaderFileName fragmentShaderFileName: (NSString*) fragmentShaderFileName;
+
 @property (readonly) NSDictionary* attributes;
 @property (readonly) NSDictionary* uniforms;
 

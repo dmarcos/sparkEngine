@@ -34,47 +34,9 @@
 
 +(SEShader*) defaultShader
 {
-    const char *vertexShaderSource = "\
-	precision mediump float;\
-	precision lowp int;\
-	\
-	uniform mat4			u_mvpMatrix;\
-	\
-	attribute highp vec4	a_vertex;\
-	attribute vec2			a_texCoord;\
-	\
-	varying vec2			v_texCoord;\
-	\
-    varying vec4            v_vertexColor; \
-    \
-    attribute vec4 a_vertexColor;\
-    \
-	void main(void)\
-	{\
-    v_texCoord = a_texCoord;\
-    \
-    gl_Position = u_mvpMatrix * a_vertex;\
-    v_vertexColor = a_vertexColor;\
-	}";
-	
-	const char *fragmentShaderSource = "\
-	precision mediump float;\
-	precision lowp int;\
-	\
-	uniform sampler2D		u_map;\
-	\
-	varying vec2			v_texCoord;\
-	\
-    varying vec4            v_vertexColor; \
-    \
-	void main (void)\
-	{\
-    gl_FragColor = v_vertexColor;\
-    gl_FragColor = texture2D(u_map, v_texCoord);\
-	}";
-	
-    return [[SEShader alloc] initWithVertexShaderSource:&vertexShaderSource fragmentShaderSource:&fragmentShaderSource];
+    return [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"default.fsh"];
 }
+
 
 -(id) initWithVertexShaderSource: (const char **) vertexShaderSource fragmentShaderSource: (const char **)fragmentShaderSource
 {
@@ -103,6 +65,37 @@
     }
     return self;  
 };
+
+-(id) initWithVertexShaderFileName: (NSString*) vertexShaderFileName fragmentShaderFileName: (NSString*) fragmentShaderFileName
+{
+    NSString* vertexShaderExtension = [vertexShaderFileName pathExtension];
+    NSString* vertexShaderName = [vertexShaderFileName stringByDeletingPathExtension];
+    NSString* fragmentShaderExtension = [fragmentShaderFileName pathExtension];
+    NSString* fragmentShaderName = [fragmentShaderFileName stringByDeletingPathExtension];
+    
+    
+    NSString* vertexShaderPath = [[NSBundle mainBundle] pathForResource:vertexShaderName ofType:vertexShaderExtension];
+    if (!vertexShaderPath) {
+        NSLog(@"Vertex Shader not found: %@ file does not exist in resources.", vertexShaderFileName);
+        return nil;
+    }
+    
+    NSString * fragmentShaderPath = [[NSBundle mainBundle] pathForResource:fragmentShaderName ofType:fragmentShaderExtension];
+    if (!fragmentShaderPath) {
+        NSLog(@"Fragment Shader not found: %@ file does not exist in resources.", fragmentShaderFileName);
+        return nil;
+    }
+    
+    NSError* error;
+    NSString* vertexShaderCode = [[NSString alloc] initWithContentsOfFile:vertexShaderPath encoding:NSUTF8StringEncoding error:&error];
+    NSString* fragmentShaderCode = [[NSString alloc] initWithContentsOfFile:fragmentShaderPath encoding:NSUTF8StringEncoding error:&error];
+    
+    const char* vertexShaderCodeChar = [vertexShaderCode UTF8String];
+    const char* fragmentShaderCodeChar = [fragmentShaderCode UTF8String];
+    
+    self = [self initWithVertexShaderSource: &vertexShaderCodeChar fragmentShaderSource: &fragmentShaderCodeChar];
+    return self;
+}
 
 -(GLuint) initShaderWithType: (GLenum) type withSource: (const char **) source
 {

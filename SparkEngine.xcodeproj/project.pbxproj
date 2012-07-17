@@ -47,6 +47,39 @@
 		B26EA38315890CCF000EB015 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
 		B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
+		B2D1633515B52717009FC1A3 /* default.vsh in Sources */ = {isa = PBXBuildFile; fileRef = B2D1633415B52717009FC1A3 /* default.vsh */; };
+		B2D1633615B52717009FC1A3 /* default.vsh in Sources */ = {isa = PBXBuildFile; fileRef = B2D1633415B52717009FC1A3 /* default.vsh */; };
+		B2D1633815B5272B009FC1A3 /* default.fsh in Sources */ = {isa = PBXBuildFile; fileRef = B2D1633715B5272B009FC1A3 /* default.fsh */; };
+		B2D1633915B5272B009FC1A3 /* default.fsh in Sources */ = {isa = PBXBuildFile; fileRef = B2D1633715B5272B009FC1A3 /* default.fsh */; };
+		B2D1633A15B5331B009FC1A3 /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D1633415B52717009FC1A3 /* default.vsh */; };
+		B2D1633B15B5331B009FC1A3 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D1633715B5272B009FC1A3 /* default.fsh */; };
+		B2D1633C15B53323009FC1A3 /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D1633415B52717009FC1A3 /* default.vsh */; };
+		B2D1633D15B53323009FC1A3 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D1633715B5272B009FC1A3 /* default.fsh */; };
+		B2D1633E15B533C7009FC1A3 /* SECamera.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7A15B0D769007B00A7 /* SECamera.h */; };
+		B2D1633F15B533C7009FC1A3 /* SECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7B15B0D769007B00A7 /* SECamera.m */; };
+		B2D1634015B533C7009FC1A3 /* SEGeometry.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7C15B0D769007B00A7 /* SEGeometry.h */; };
+		B2D1634115B533C7009FC1A3 /* SEGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7D15B0D769007B00A7 /* SEGeometry.m */; };
+		B2D1634215B533C7009FC1A3 /* SEMesh.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7E15B0D769007B00A7 /* SEMesh.h */; };
+		B2D1634315B533C7009FC1A3 /* SEMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7F15B0D769007B00A7 /* SEMesh.m */; };
+		B2D1634415B533C7009FC1A3 /* SEObject3D.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8015B0D769007B00A7 /* SEObject3D.h */; };
+		B2D1634515B533C7009FC1A3 /* SEObject3D.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8115B0D769007B00A7 /* SEObject3D.m */; };
+		B2D1634615B533C7009FC1A3 /* SEPerspectiveCamera.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8215B0D769007B00A7 /* SEPerspectiveCamera.h */; };
+		B2D1634715B533C7009FC1A3 /* SEPerspectiveCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8315B0D769007B00A7 /* SEPerspectiveCamera.m */; };
+		B2D1634815B533C7009FC1A3 /* SERenderer.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8415B0D769007B00A7 /* SERenderer.h */; };
+		B2D1634915B533C7009FC1A3 /* SERenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8515B0D769007B00A7 /* SERenderer.m */; };
+		B2D1634A15B533C7009FC1A3 /* SEScene.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8615B0D769007B00A7 /* SEScene.h */; };
+		B2D1634B15B533C7009FC1A3 /* SEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8715B0D769007B00A7 /* SEScene.m */; };
+		B2D1634C15B533C7009FC1A3 /* SEShader.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8815B0D769007B00A7 /* SEShader.h */; };
+		B2D1634D15B533C7009FC1A3 /* SEShader.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8915B0D769007B00A7 /* SEShader.m */; };
+		B2D1634E15B533C7009FC1A3 /* SEShaderVariable.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8A15B0D769007B00A7 /* SEShaderVariable.h */; };
+		B2D1634F15B533C7009FC1A3 /* SEShaderVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8B15B0D769007B00A7 /* SEShaderVariable.m */; };
+		B2D1635015B533C7009FC1A3 /* SETexture.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8C15B0D769007B00A7 /* SETexture.h */; };
+		B2D1635115B533C7009FC1A3 /* SETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8D15B0D769007B00A7 /* SETexture.m */; };
+		B2D1635215B533C7009FC1A3 /* SEVertex.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB8E15B0D769007B00A7 /* SEVertex.h */; };
+		B2D1635315B533C7009FC1A3 /* SESphere.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9115B0D769007B00A7 /* SESphere.h */; };
+		B2D1635415B533C7009FC1A3 /* SESphere.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9215B0D769007B00A7 /* SESphere.m */; };
+		B2D1635515B533C7009FC1A3 /* SETriangle.h in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9315B0D769007B00A7 /* SETriangle.h */; };
+		B2D1635615B533C7009FC1A3 /* SETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9415B0D769007B00A7 /* SETriangle.m */; };
 		B2F29B47158A85B800837A72 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F29B46158A85B800837A72 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +131,8 @@
 		B26EA38215890CCF000EB015 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
 		B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueMarble.jpg; sourceTree = "<group>"; };
+		B2D1633415B52717009FC1A3 /* default.vsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = default.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		B2D1633715B5272B009FC1A3 /* default.fsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = default.fsh; sourceTree = "<group>"; };
 		B2F29B46158A85B800837A72 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -170,6 +205,7 @@
 		60119DA41319938100146334 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B2D1633315B526F2009FC1A3 /* Shaders */,
 				B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */,
 				B2BD9D2F15952B950028F9E9 /* mars.jpg */,
 			);
@@ -291,6 +327,16 @@
 			path = Tutorials;
 			sourceTree = "<group>";
 		};
+		B2D1633315B526F2009FC1A3 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				B2D1633415B52717009FC1A3 /* default.vsh */,
+				B2D1633715B5272B009FC1A3 /* default.fsh */,
+			);
+			name = Shaders;
+			path = SparkEngine/Resources/Shaders;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,6 +406,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D1633A15B5331B009FC1A3 /* default.vsh in Resources */,
+				B2D1633B15B5331B009FC1A3 /* default.fsh in Resources */,
 				B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */,
 				B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */,
 				B216FB0515B0CB14007B00A7 /* Earth3D-Info.plist in Resources */,
@@ -371,6 +419,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D1633C15B53323009FC1A3 /* default.vsh in Resources */,
+				B2D1633D15B53323009FC1A3 /* default.fsh in Resources */,
 				B216FB6915B0D1D5007B00A7 /* blueMarble.jpg in Resources */,
 				B216FB6A15B0D1D5007B00A7 /* mars.jpg in Resources */,
 				B216FB6B15B0D1D5007B00A7 /* Earth3D-Info.plist in Resources */,
@@ -401,6 +451,8 @@
 				B216FB9E15B0D769007B00A7 /* SETexture.m in Sources */,
 				B216FB9F15B0D769007B00A7 /* SESphere.m in Sources */,
 				B216FBA015B0D769007B00A7 /* SETriangle.m in Sources */,
+				B2D1633515B52717009FC1A3 /* default.vsh in Sources */,
+				B2D1633815B5272B009FC1A3 /* default.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,9 +460,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D1633E15B533C7009FC1A3 /* SECamera.h in Sources */,
+				B2D1633F15B533C7009FC1A3 /* SECamera.m in Sources */,
+				B2D1634015B533C7009FC1A3 /* SEGeometry.h in Sources */,
+				B2D1634115B533C7009FC1A3 /* SEGeometry.m in Sources */,
+				B2D1634215B533C7009FC1A3 /* SEMesh.h in Sources */,
+				B2D1634315B533C7009FC1A3 /* SEMesh.m in Sources */,
+				B2D1634415B533C7009FC1A3 /* SEObject3D.h in Sources */,
+				B2D1634515B533C7009FC1A3 /* SEObject3D.m in Sources */,
+				B2D1634615B533C7009FC1A3 /* SEPerspectiveCamera.h in Sources */,
+				B2D1634715B533C7009FC1A3 /* SEPerspectiveCamera.m in Sources */,
+				B2D1634815B533C7009FC1A3 /* SERenderer.h in Sources */,
+				B2D1634915B533C7009FC1A3 /* SERenderer.m in Sources */,
+				B2D1634A15B533C7009FC1A3 /* SEScene.h in Sources */,
+				B2D1634B15B533C7009FC1A3 /* SEScene.m in Sources */,
+				B2D1634C15B533C7009FC1A3 /* SEShader.h in Sources */,
+				B2D1634D15B533C7009FC1A3 /* SEShader.m in Sources */,
+				B2D1634E15B533C7009FC1A3 /* SEShaderVariable.h in Sources */,
+				B2D1634F15B533C7009FC1A3 /* SEShaderVariable.m in Sources */,
+				B2D1635015B533C7009FC1A3 /* SETexture.h in Sources */,
+				B2D1635115B533C7009FC1A3 /* SETexture.m in Sources */,
+				B2D1635215B533C7009FC1A3 /* SEVertex.h in Sources */,
+				B2D1635315B533C7009FC1A3 /* SESphere.h in Sources */,
+				B2D1635415B533C7009FC1A3 /* SESphere.m in Sources */,
+				B2D1635515B533C7009FC1A3 /* SETriangle.h in Sources */,
+				B2D1635615B533C7009FC1A3 /* SETriangle.m in Sources */,
 				B216FB7615B0D3F6007B00A7 /* PolygonView.h in Sources */,
 				B216FB7715B0D3F6007B00A7 /* PolygonView.m in Sources */,
 				B216FB5D15B0D1D5007B00A7 /* main.m in Sources */,
+				B2D1633615B52717009FC1A3 /* default.vsh in Sources */,
+				B2D1633915B5272B009FC1A3 /* default.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
