@@ -11,6 +11,4 @@
 
 @interface PolygonView : UIView <UIApplicationDelegate>
 
-+ (void) presentColorbuffer;
-
 @end

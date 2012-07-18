@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AR.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Earth3D.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -73,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>B27CE10515B0BFF800E348FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2D163D515B734ED009FC1A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
