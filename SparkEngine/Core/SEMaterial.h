@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SETexture.h"
 
 @interface SEMaterial : NSObject
+
+@property (nonatomic, strong) SETexture* texture; 
 
 @end

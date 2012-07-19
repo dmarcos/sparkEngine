@@ -42,6 +42,10 @@
 		B216FB9F15B0D769007B00A7 /* SESphere.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9215B0D769007B00A7 /* SESphere.m */; };
 		B216FBA015B0D769007B00A7 /* SETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9415B0D769007B00A7 /* SETriangle.m */; };
 		B26EA38315890CCF000EB015 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
+		B29FDA3815B7B7D800D337BA /* SEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29FDA3715B7B7D700D337BA /* SEViewController.m */; };
+		B29FDA3915B7B7D800D337BA /* SEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29FDA3715B7B7D700D337BA /* SEViewController.m */; };
+		B29FDA3A15B7B7D800D337BA /* SEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29FDA3715B7B7D700D337BA /* SEViewController.m */; };
+		B29FDA3E15B7BE4900D337BA /* EarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29FDA3D15B7BE4900D337BA /* EarthViewController.m */; };
 		B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
 		B2D1636115B5C6D7009FC1A3 /* SEMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D1636015B5C6D7009FC1A3 /* SEMaterial.m */; };
@@ -149,6 +153,10 @@
 		B216FB9315B0D769007B00A7 /* SETriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETriangle.h; sourceTree = "<group>"; };
 		B216FB9415B0D769007B00A7 /* SETriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETriangle.m; sourceTree = "<group>"; };
 		B26EA38215890CCF000EB015 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		B29FDA3615B7B7D600D337BA /* SEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEViewController.h; sourceTree = "<group>"; };
+		B29FDA3715B7B7D700D337BA /* SEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEViewController.m; sourceTree = "<group>"; };
+		B29FDA3C15B7BE4900D337BA /* EarthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthViewController.h; sourceTree = "<group>"; };
+		B29FDA3D15B7BE4900D337BA /* EarthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthViewController.m; sourceTree = "<group>"; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
 		B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueMarble.jpg; sourceTree = "<group>"; };
 		B2D1635F15B5C6D7009FC1A3 /* SEMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEMaterial.h; sourceTree = "<group>"; };
@@ -314,6 +322,8 @@
 				B216FAFD15B0CB14007B00A7 /* SERendererOld.h */,
 				B216FAFE15B0CB14007B00A7 /* SERendererOld.m */,
 				B216FAFF15B0CB14007B00A7 /* SupportingFiles */,
+				B29FDA3C15B7BE4900D337BA /* EarthViewController.h */,
+				B29FDA3D15B7BE4900D337BA /* EarthViewController.m */,
 			);
 			path = Earth3D;
 			sourceTree = "<group>";
@@ -387,6 +397,8 @@
 				B2D1636415B5C7D9009FC1A3 /* SEShaderMaterial.m */,
 				B2D1645415B76F73009FC1A3 /* SEView.h */,
 				B2D1645515B76F75009FC1A3 /* SEView.m */,
+				B29FDA3615B7B7D600D337BA /* SEViewController.h */,
+				B29FDA3715B7B7D700D337BA /* SEViewController.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -660,6 +672,8 @@
 				B2D1636115B5C6D7009FC1A3 /* SEMaterial.m in Sources */,
 				B2D1636515B5C7DA009FC1A3 /* SEShaderMaterial.m in Sources */,
 				B2D1645615B76F76009FC1A3 /* SEView.m in Sources */,
+				B29FDA3815B7B7D800D337BA /* SEViewController.m in Sources */,
+				B29FDA3E15B7BE4900D337BA /* EarthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +697,7 @@
 				B216FB7715B0D3F6007B00A7 /* PolygonView.m in Sources */,
 				B216FB5D15B0D1D5007B00A7 /* main.m in Sources */,
 				B2D1645715B76F76009FC1A3 /* SEView.m in Sources */,
+				B29FDA3915B7B7D800D337BA /* SEViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +719,7 @@
 				B2D1642A15B744FC009FC1A3 /* EAGLView.mm in Sources */,
 				B2D1642B15B744FC009FC1A3 /* ImageTargetsAppDelegate.mm in Sources */,
 				B2D1645815B76F76009FC1A3 /* SEView.m in Sources */,
+				B29FDA3A15B7B7D800D337BA /* SEViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,6 +952,7 @@
 				B2D163E915B734ED009FC1A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

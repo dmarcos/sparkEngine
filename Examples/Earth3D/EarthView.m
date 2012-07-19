@@ -38,14 +38,11 @@
     CMAttitude* _referenceAttitude;
 }
 
--(void) loadTextures;
 -(void) enableGyro;
 
 @end
 
 @implementation EarthView
-
-@synthesize panorama;
 
 - (id)init
 {
@@ -61,15 +58,6 @@
 										[NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking,
 										kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
 										nil];
-		
-        self->zoom = 1.0;
-        self->fov = 45.0;
-        self->camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self.bounds.size.width / self.bounds.size.width near: 0.1 far:100.0];
-        self->scene = [[SEScene alloc] init]; 
-        self->scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
-        self->scene.position = GLKVector3Make(0.0, 0.0, -4.0);
-        SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
-        [self->scene.objects addObject:sphere];
     }
 	
     return self;
@@ -101,21 +89,29 @@
 	self->glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
 	[EAGLContext setCurrentContext: self->glContext];
     self->renderer = [[SERenderer alloc] initWithViewport:self.bounds withGLContext: self->glContext withEAGLLayer: (CAEAGLLayer *) self.layer];
+    
+    // Camera Setup
+    self->zoom = 1.0;
+    self->fov = 45.0;
+    self->camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self.bounds.size.width / self.bounds.size.width near: 0.1 far:100.0];
     self->camera.aspect = self.bounds.size.width / self.bounds.size.height;
-	// Initializes the OpenGL in the CubeExample.mm
-    [self loadTextures];    
+
+    // Scene Setup
+    self->scene = [[SEScene alloc] init]; 
+    self->scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
+    self->scene.position = GLKVector3Make(0.0, 0.0,-4.0);
+    
+    // Objects Setup
+    SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
+    sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];;
+    [self->scene.objects addObject:sphere];
+    
     [self renderFrame];
     
     //self->_motionManager = [[CMMotionManager alloc] init];
     //self->_referenceAttitude = nil;
     //[self enableGyro];
     
-}
-
--(void) loadTextures
-{
-    self->panorama = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];
-    [self->renderer setTexture:self->panorama];
 }
 
 + (Class) layerClass

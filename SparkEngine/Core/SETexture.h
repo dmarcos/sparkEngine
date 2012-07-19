@@ -10,6 +10,7 @@
 
 @interface SETexture : NSObject
 
+// Texture Object name/id.
 @property (readonly) GLuint glTextureName;
 
 - (id) initWithImage:(UIImage *) image;

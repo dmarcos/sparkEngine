@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SEView.h"
 
 @interface SEViewController : UIViewController
+
+- (id) initWithScene: (SEScene*) scene camera: (SECamera*) camera;
+- (void) renderFrame;
 
 @end

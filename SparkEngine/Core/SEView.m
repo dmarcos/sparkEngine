@@ -7,25 +7,55 @@
 //
 
 #import "SEView.h"
+#import <QuartzCore/QuartzCore.h>
+#import <OpenGLES/EAGL.h>
+#import <OpenGLES/EAGLDrawable.h>
+#import <OpenGLES/ES2/gl.h>
+#import <OpenGLES/ES2/glext.h>
+
+@interface SEView(){
+    EAGLContext* _glContext;
+    SERenderer* _renderer;
+}
+@end
 
 @implementation SEView
+
+@synthesize camera = _camera;
+@synthesize scene = _scene;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+		CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
+		
+		// Set the properties to EAGL.
+		// If the color format here is set to kEAGLColorFormatRGB565, you'll not be able
+		// to use texture with alpha in this EAGLLayer.
+        eaglLayer.opaque = YES;
+		eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
+										[NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking,
+										kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
+										nil];
+        
+        // Creates the EAGLContext and set it as the current one.
+        self->_glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+        [EAGLContext setCurrentContext: self->_glContext];
+        self->_renderer = [[SERenderer alloc] initWithViewport:self.bounds withGLContext: self->_glContext withEAGLLayer: (CAEAGLLayer *) self.layer];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)renderFrame
 {
-    // Drawing code
+    [self->_renderer renderScene:self->_scene camera:self->_camera];
 }
-*/
+
++ (Class) layerClass
+{
+	// This is mandatory to work with CAEAGLLayer in Cocoa Framework.
+    return [CAEAGLLayer class];
+}
 
 @end

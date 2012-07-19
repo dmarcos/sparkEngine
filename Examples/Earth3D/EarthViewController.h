@@ -8,6 +8,8 @@
 
 #import "SEViewController.h"
 
-@interface EarthViewController : SEViewController
+@interface EarthViewController : SEViewController<UIApplicationDelegate>
+
+@property (nonatomic, strong) UIWindow* window;
 
 @end

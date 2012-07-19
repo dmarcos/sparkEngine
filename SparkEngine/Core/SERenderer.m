@@ -29,9 +29,6 @@
     GLuint		_colorbuffer;
     GLuint		_depthbuffer;
 
-    // Texture Object name/id.
-    GLuint		_texture;
-    
     NSMutableArray* _bufferObjectIndices;
     
     bool _updateObjects;
@@ -42,7 +39,7 @@
 -(void) clearBuffers;
 -(void) clearOpenGL;
 -(void) showBuffers;
--(void) drawScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera;
+-(void) drawScene: (SEScene*) scene camera: (SECamera*) camera;
 -(void) updateBufferObjectsInScene: (SEScene*) scene;
 -(GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data;
 
@@ -104,7 +101,12 @@
         // Just to illustration purposes, in this case let's use the Texture Unit 7.
         // Remember which OpenGL gives 32 Texture Units.
         glActiveTexture(GL_TEXTURE7);
-        glBindTexture(GL_TEXTURE_2D, self->_texture);
+        
+        if ([object isKindOfClass:[SEMesh class]]) {
+            if ([object respondsToSelector:@selector(material)]) {
+                glBindTexture(GL_TEXTURE_2D, [[[object material] texture] glTextureName]);
+            }
+        }
         
         // Sets the uniform to the desired Texture Unit.
         // As the Texture Unit used is 7, let's set this value to 7.
@@ -148,11 +150,6 @@
 	
 	// Call EAGL process to present the final image to the device's screen.
     [[EAGLContext currentContext] presentRenderbuffer:GL_RENDERBUFFER];
-}
-
--(void) setTexture: (SETexture*) texture
-{
-    self->_texture = [texture glTextureName];
 }
 
 -(void) initOpenGL

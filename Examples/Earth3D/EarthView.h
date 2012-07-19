@@ -10,6 +10,4 @@
 
 @interface EarthView : UIView <UIApplicationDelegate>
 
-@property (readonly) SETexture *panorama;
-
 @end

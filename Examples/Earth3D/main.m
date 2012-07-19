@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	@autoreleasepool {
-		int retVal = UIApplicationMain(argc, argv, nil, @"EarthView");
+		int retVal = UIApplicationMain(argc, argv, nil, @"EarthViewController");
 		return retVal;
 	}
 }

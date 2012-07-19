@@ -11,13 +11,12 @@
 
 @class CAEAGLLayer;
 @class SEScene;
-@class SEPerspectiveCamera;
+@class SECamera;
 
 @interface SERenderer : NSObject
 
 - (id) initWithViewport: (CGRect) viewport withGLContext: (EAGLContext*) glContext withEAGLLayer: (CAEAGLLayer*) eaglLayer;
-- (void) renderScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera;
-- (void) setTexture: (SETexture*) texture;
+- (void) renderScene: (SEScene*) scene camera: (SECamera*) camera;
 
 @property (nonatomic, readonly) CGRect viewport;
 @property (weak, nonatomic, readonly) EAGLContext* glContext;

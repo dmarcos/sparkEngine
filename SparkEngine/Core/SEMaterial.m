@@ -10,4 +10,6 @@
 
 @implementation SEMaterial
 
+@synthesize texture = _texture;
+
 @end

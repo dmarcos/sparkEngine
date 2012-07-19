@@ -8,19 +8,29 @@
 
 #import "SEViewController.h"
 
-@interface SEViewController ()
+@interface SEViewController (){
+    SEView* _renderView;
+}
 
 @end
 
 @implementation SEViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id) initWithScene: (SEScene*) scene camera: (SECamera*) camera
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        self->_renderView = [[SEView alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+        self->_renderView.scene = scene;
+        self->_renderView.camera = camera;
+        self.view = self->_renderView;
     }
     return self;
+}
+
+-(void) renderFrame
+{
+    [self->_renderView renderFrame];
 }
 
 - (void)viewDidLoad
