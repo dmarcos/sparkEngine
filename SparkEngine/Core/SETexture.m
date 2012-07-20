@@ -11,8 +11,7 @@
 #import <OpenGLES/ES2/glext.h>
 
 @interface SETexture(){
-    GLuint textureName;
-    CGImageRef image;
+    CGImageRef _image;
 }
 
 - (GLuint) createGLTextureWithData: (void*) data withWidth: (int) width withHeight: (int) height; 
@@ -21,30 +20,36 @@
 
 @implementation SETexture
 
-@synthesize glTextureName;
+@synthesize glTextureName = _glTextureName;
 
 - (id) initWithImage:(UIImage *)uiImage
 {
-    self->image = [uiImage CGImage];
-    CGImageRetain(self->image);
+    self->_image = [uiImage CGImage];
+    CGImageRetain(self->_image);
     
     // Extracts the pixel informations and place it into the data.
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    int imageHeight = CGImageGetHeight(image);
-    int imageWidth = CGImageGetWidth(image);
+    int imageHeight = CGImageGetHeight(self->_image);
+    int imageWidth = CGImageGetWidth(self->_image);
     void* pixelData = malloc(imageWidth * imageHeight * 4);
     CGContextRef context = CGBitmapContextCreate(pixelData, imageWidth, imageHeight, 8, 4 *imageWidth, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    
     CGColorSpaceRelease(colorSpace);
     
     // Clears and ReDraw the image into the context.
     CGContextClearRect(context, CGRectMake(0, 0, imageWidth, imageHeight));
     UIGraphicsBeginImageContextWithOptions([uiImage size], NO, 0);
-    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight), self->image);
+    
+    // Flip the image to fix Cocoa and CoreGraphics disagreement on which corner corresponds to the first pixel of the image. 
+    CGAffineTransform flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, imageHeight);
+    CGContextConcatCTM(context, flipVertical);
+    
+    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight), self->_image);
     UIGraphicsEndImageContext();
     // Releases the context.
     CGContextRelease(context);
     
-    self->glTextureName = [self createGLTextureWithData:pixelData withWidth:imageWidth withHeight:imageHeight];
+    self->_glTextureName = [self createGLTextureWithData:pixelData withWidth:imageWidth withHeight:imageHeight];
     
     return self;
 }
@@ -74,7 +79,7 @@
 
 - (void) dealloc
 {
-	CGImageRelease(image);	
+	CGImageRelease(self->_image);	
 }
 
 @end

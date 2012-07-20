@@ -103,7 +103,7 @@
     self->scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
     self->scene.position = GLKVector3Make(0.0, 0.0, -4.0);
     
-    GLKVector4 colors[3] = {GLKVector4Make(1.0, 0.0, 0.0, 1.0),
+    GLKVector4 colors[4] = {GLKVector4Make(1.0, 0.0, 0.0, 1.0),
         GLKVector4Make(0.0, 1.0, 0.0, 1.0),
         GLKVector4Make(0.0, 0.0, 1.0, 1.0)};
     SEShaderMaterial* material = [[SEShaderMaterial alloc] init];

@@ -8,6 +8,7 @@
 
 #import "SEARView.h"
 #import "SESphere.h"
+#import "SERectangle.h"
 #import "SEPerspectiveCamera.h"
 #import <QCAR/QCAR.h>
 #import <QCAR/Renderer.h>
@@ -32,9 +33,15 @@
         scene.position = GLKVector3Make(0.0, 0.0,-4.0);
         
         // Objects Setup
-        SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
-        sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];;
-        [scene.objects addObject:sphere];
+        //SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
+        //sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];;
+        //[scene.objects addObject:sphere];
+        
+        SERectangle* rectangle = [[SERectangle alloc] initWithVerticesColor: NULL material: NULL];
+        rectangle.height = 10.0;
+        rectangle.width = 7.5;
+        rectangle.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"pierresRubis.jpg"]];;
+        [scene.objects addObject:rectangle];
         
         self.scene = scene;
         self.camera = camera;
@@ -49,7 +56,6 @@
     // frames.  Depending on your requirements you can opt to omit these.
     QCAR::setHint(QCAR::HINT_IMAGE_TARGET_MULTI_FRAME_ENABLED, 1);
     QCAR::setHint(QCAR::HINT_IMAGE_TARGET_MILLISECONDS_PER_MULTI_FRAME, 25);
-    
     // Here we could also make a QCAR::setHint call to set the maximum
     // number of simultaneous targets                
     // QCAR::setHint(QCAR::HINT_MAX_SIMULTANEOUS_IMAGE_TARGETS, 2);
