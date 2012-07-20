@@ -5,11 +5,11 @@
  ==============================================================================*/
 
 #import <UIKit/UIKit.h>
-@class EAGLView, QCARutils;
+@class EAGLView, QCARutils, SEARView;
 
 @interface ARViewController : UIViewController {
 @public
-    IBOutlet EAGLView *arView;  // the Augmented Reality view
+    IBOutlet SEARView *arView;  // the Augmented Reality view
     CGSize arViewSize;          // required view size
 
 @private
@@ -19,7 +19,7 @@
     BOOL arVisible;             // State of visibility of the view
 }
 
-@property (nonatomic, retain) IBOutlet EAGLView *arView;
+@property (nonatomic, retain) IBOutlet SEARView* arView;
 @property (nonatomic) CGSize arViewSize;
            
 - (void) handleARViewRotation:(UIInterfaceOrientation)interfaceOrientation;

@@ -13,23 +13,20 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
-@interface SEView(){
-    EAGLContext* _glContext;
-    SERenderer* _renderer;
-}
-@end
-
 @implementation SEView
 
 @synthesize camera = _camera;
 @synthesize scene = _scene;
+@synthesize renderer = _renderer;
+@synthesize glContext = _glContext;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
 		CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
-		
+
 		// Set the properties to EAGL.
 		// If the color format here is set to kEAGLColorFormatRGB565, you'll not be able
 		// to use texture with alpha in this EAGLLayer.

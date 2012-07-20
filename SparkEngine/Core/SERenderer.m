@@ -20,8 +20,6 @@
 #import "SEPerspectiveCamera.h"
 
 @interface SERenderer(){
-    CGRect _viewport;
-    EAGLContext* __weak _glContext;
     CAEAGLLayer* _eaglLayer;
     
     // Frame and Render buffer names/ids.
@@ -35,10 +33,12 @@
 }
 
 -(void) initOpenGL;
--(void) initFrameAndRenderbuffers;
--(void) clearBuffers;
 -(void) clearOpenGL;
--(void) showBuffers;
+
+-(void) initRenderBuffers;
+-(void) clearRenderBuffers;
+-(void) showRenderBuffers;
+
 -(void) drawScene: (SEScene*) scene camera: (SECamera*) camera;
 -(void) updateBufferObjectsInScene: (SEScene*) scene;
 -(GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data;
@@ -49,6 +49,7 @@
 
 @synthesize viewport = _viewport;
 @synthesize glContext = _glContext;
+@synthesize delegate = _delegate;
 
 -(id) initWithViewport:(CGRect)viewport withGLContext: (EAGLContext*) glContext withEAGLLayer: (CAEAGLLayer*) eaglLayer
 {
@@ -61,20 +62,40 @@
     return self;
 }
 
+-(void) preRenderScene
+{
+    // Actions before rendering the scene
+    if(self->_delegate && [self->_delegate respondsToSelector:@selector(preRenderScene)]) {
+        [self->_delegate preRenderScene];
+    }
+}
+
+-(void) postRenderScene
+{
+    // Actions after rendering the scene
+    if(self->_delegate && [self->_delegate respondsToSelector:@selector(postRenderScene)]) {
+        [self->_delegate postRenderScene];
+    }
+}
+
 -(void) renderScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera
 {
     [EAGLContext setCurrentContext: self->_glContext];
-	[self clearBuffers];
+	[self clearRenderBuffers];
+    [self preRenderScene];
     if(self->_updateObjects){
         [self updateBufferObjectsInScene: scene];
         self->_updateObjects = false;
     }
 	[self drawScene: scene camera: camera];
-	[self showBuffers];
+    [self postRenderScene];
+	[self showRenderBuffers];
 }
 
 -(void) drawScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera
 {    
+    glViewport(0, 0, self.viewport.size.width, self.viewport.size.height);
+
     // Multiplies the Projection by the ModelView to create the ModelViewProjection matrix.
     GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(camera.projectionMatrix, scene.matrix);
     
@@ -118,12 +139,20 @@
         // index of the ABO.
         glBindBuffer(GL_ARRAY_BUFFER, [object vertexBuffer]);
         
+        glEnableVertexAttribArray(currentShader.a_vertex);
+        glEnableVertexAttribArray(currentShader.a_texCoord);
+        glEnableVertexAttribArray(currentShader.a_vertexColor);
+        
         glVertexAttribPointer(currentShader.a_vertex, 3, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) 0);    
         glVertexAttribPointer(currentShader.a_texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) (sizeof(GLKVector3)));
         glVertexAttribPointer(currentShader.a_vertexColor, 4, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
 
         // Draws the triangles, starting by the index 0 in the IBO.
         glDrawElements(GL_TRIANGLES, [[object geometry] numFaces] * 3, GL_UNSIGNED_SHORT, (void *) 0);
+        
+        glDisableVertexAttribArray(currentShader.a_vertex);
+        glDisableVertexAttribArray(currentShader.a_texCoord);
+        glDisableVertexAttribArray(currentShader.a_vertexColor);
         
     }
     
@@ -133,7 +162,7 @@
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
--(void) clearBuffers
+-(void) clearRenderBuffers
 {
     // Clears the color and depth render buffer.
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -142,7 +171,7 @@
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 }
 
--(void) showBuffers
+-(void) showRenderBuffers
 {
     // Binds the necessary frame buffer and its color render buffer.
 	glBindFramebuffer(GL_FRAMEBUFFER, self->_framebuffer);
@@ -155,8 +184,7 @@
 -(void) initOpenGL
 {	
 	// Creates all the OpenGL objects necessary to an application.
-	[self initFrameAndRenderbuffers];
-    //[self setTexture: texture]
+	[self initRenderBuffers];
     [EAGLContext setCurrentContext: self.glContext];
 	// Sets the size to OpenGL view.
 	glViewport(0, 0, self.viewport.size.width, self.viewport.size.height);
@@ -172,7 +200,7 @@
     }
 }
 
--(void) initFrameAndRenderbuffers
+-(void) initRenderBuffers
 {
 	// Creates the Frame buffer.
 	glGenFramebuffers(1, &self->_framebuffer);
@@ -238,7 +266,6 @@
 
 - (void) clearOpenGL
 {
-    
     NSEnumerator *e = [self->_bufferObjectIndices objectEnumerator];
     id object;
     while (object = [e nextObject]) {
@@ -251,7 +278,6 @@
     glDeleteRenderbuffers(1, &self->_colorbuffer);
     glDeleteRenderbuffers(1, &self->_depthbuffer);
     glDeleteFramebuffers(1, &self->_framebuffer);
-    
 }
 
 - (void) dealloc

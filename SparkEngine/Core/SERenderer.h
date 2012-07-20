@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SETexture.h"
+#import "SERendererDelegate.h"
 
 @class CAEAGLLayer;
 @class SEScene;
@@ -20,5 +21,6 @@
 
 @property (nonatomic, readonly) CGRect viewport;
 @property (weak, nonatomic, readonly) EAGLContext* glContext;
+@property(nonatomic, assign) id<SERendererDelegate> delegate;
 
 @end

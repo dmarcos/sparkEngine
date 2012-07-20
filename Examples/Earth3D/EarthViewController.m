@@ -16,8 +16,22 @@
 
 - (id)init
 {
-    SEPerspectiveCamera* camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self.view.bounds.size.width / self.view.bounds.size.width near: 0.1 far:100.0];
+    self = [super init];
+    if (self) {
+        // Starts a UIWindow with the size of the device's screen.
+        CGRect rect = [[UIScreen mainScreen] bounds];	
+        self.window = [[UIWindow alloc] initWithFrame:rect];        
+        // Makes that UIWindow the key window. Additionaly add the renderView UIView to it.
+        [self.window addSubview: self.renderView];
+    }
+    return self;
+}
 
+- (void) applicationDidFinishLaunching:(UIApplication *)application
+{    
+    // Camera Setup
+    SEPerspectiveCamera* camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self.renderView.bounds.size.width / self.renderView.bounds.size.height near: 0.1 far:100.0];
+    
     // Scene Setup
     SEScene* scene = [[SEScene alloc] init]; 
     scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
@@ -27,23 +41,20 @@
     SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
     sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];;
     [scene.objects addObject:sphere];
-    
-	self = [super initWithScene:scene camera:camera];
-    camera.aspect = self.view.bounds.size.width / self.view.bounds.size.height;
-    return self;
+        
+    // Attaches scene and camera and renders one frame
+    self.renderView.scene = scene;
+    self.renderView.camera = camera;
+    self.renderView.multipleTouchEnabled = YES;
+    [self renderFrame];
+
+    // Shows the window.
+    [self.window makeKeyAndVisible];
 }
 
-- (void) applicationDidFinishLaunching:(UIApplication *)application
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    // Starts a UIWindow with the size of the device's screen.
-	CGRect rect = [[UIScreen mainScreen] bounds];	
-	window = [[UIWindow alloc] initWithFrame:rect];
-    self.view.backgroundColor = [UIColor redColor];
-
-	// Makes that UIWindow the key window and show it. Additionaly add this UIView to it.
-	[window addSubview: self.view];
-    [self renderFrame];
-    [window makeKeyAndVisible];
+//    [self renderFrame];
 }
 
 @end

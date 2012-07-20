@@ -14,4 +14,6 @@
 - (id) initWithScene: (SEScene*) scene camera: (SECamera*) camera;
 - (void) renderFrame;
 
+@property (nonatomic, strong) SEView* renderView;
+
 @end

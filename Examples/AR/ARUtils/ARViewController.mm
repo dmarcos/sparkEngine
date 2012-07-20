@@ -9,6 +9,7 @@
 #import "ARViewController.h"
 #import "QCARutils.h"
 #import "EAGLView.h"
+#import "SEARView.h"
 #import "Texture.h"
 
 @interface ARViewController ()
@@ -76,7 +77,7 @@
     viewBounds.origin.y = 0;
     viewBounds.size.width = arViewSize.height;
     viewBounds.size.height = arViewSize.width;
-    arView = [[EAGLView alloc] initWithFrame: viewBounds];
+    arView = [[SEARView alloc] initWithFrame: viewBounds];
     
     // we add a parent view as EAGLView doesn't like being the immediate child of a VC
     parentView = [[UIView alloc] initWithFrame: viewBounds];
@@ -90,9 +91,9 @@
     NSLog(@"ARVC: viewDidLoad");
     
     // load the list of textures requested by the view, and tell it about them
-    if (textures == nil)
-        [self loadTextures:arView.textureList];
-    [arView useTextures:textures];
+    //if (textures == nil)
+    //    [self loadTextures:arView.textureList];
+    //[arView useTextures:textures];
    
     // set the view size for initialisation, and go do it...
     [qUtils createARofSize:arViewSize forDelegate:arView];

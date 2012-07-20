@@ -18,5 +18,7 @@
 
 @property (nonatomic, strong) SECamera* camera;
 @property (nonatomic, strong) SEScene* scene;
+@property (nonatomic, strong) SERenderer* renderer;
+@property (nonatomic, strong) EAGLContext* glContext;
 
 @end
