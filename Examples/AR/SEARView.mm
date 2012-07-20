@@ -65,6 +65,7 @@
     // Render video background and retrieve tracking state
     QCAR::State state = QCAR::Renderer::getInstance().begin();
     QCAR::Renderer::getInstance().drawVideoBackground();
+    self.camera.projectionMatrix = GLKMatrix4MakeWithArray(self->_qUtils.projectionMatrix.data);
     if (state.getNumActiveTrackables() == 0) {
         self.scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
     } else {
@@ -77,6 +78,7 @@
             newModelViewMatrix = GLKMatrix4RotateY(newModelViewMatrix, self.scene.rotation.y);
             newModelViewMatrix = GLKMatrix4RotateZ(newModelViewMatrix, self.scene.rotation.z);
             newModelViewMatrix = GLKMatrix4Translate(newModelViewMatrix, self.scene.position.x, self.scene.position.y, self.scene.position.z);
+            newModelViewMatrix = GLKMatrix4Scale(newModelViewMatrix, 64.0, 64.0, 64.0);
            
             self.scene.matrix = newModelViewMatrix;
         }
