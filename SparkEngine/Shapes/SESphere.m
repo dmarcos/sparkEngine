@@ -39,7 +39,7 @@
                 double z = sinPhi * sinTheta;
                 
                 double u = 1 - (double) longNumber / steps;
-                double v = (double) latNumber / steps;
+                double v = 1 - (double) latNumber / steps;
                 
                 self.geometry.vertices[latNumber*(steps+1) + longNumber].position = GLKVector3Make(radius*x, radius*y, radius*z);
                 self.geometry.vertices[latNumber*(steps+1) + longNumber].normal = GLKVector3Make(x,y,z);

@@ -11,16 +11,28 @@
 #import "EAGLView.h"
 #import "SEARView.h"
 #import "Texture.h"
+#import <CoreMotion/CMMotionManager.h>
+#import "DetailViewController.h"
 
-@interface ARViewController ()
+#define degrees(x) (180.0 * x / M_PI)
+
+@interface ARViewController (){
+    CMMotionManager* motionManager;
+    CMAttitude* referenceAttitude;
+    UIInterfaceOrientation orientation;
+}
 - (int)loadTextures:(NSArray *)textureList;
 - (void) unloadViewData;
 - (void) handleARViewRotation:(UIInterfaceOrientation)interfaceOrientation;
+- (void) enableGyro;
+- (void) resizeView: (UIView*) view;
 @end
 
 @implementation ARViewController
 
 @synthesize arView;
+@synthesize detailView;
+@synthesize detailWebView;
 @synthesize arViewSize;
 
 - (id)init
@@ -77,14 +89,84 @@
     viewBounds.origin.y = 0;
     viewBounds.size.width = arViewSize.height;
     viewBounds.size.height = arViewSize.width;
+    
     arView = [[SEARView alloc] initWithFrame: viewBounds];
+    
+    detailView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pierresRubis.jpg"]];
+    detailView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    detailWebView = [[UIWebView alloc] initWithFrame: viewBounds];
+    NSURL* url = [NSURL URLWithString: @"http://ec2-50-16-5-86.compute-1.amazonaws.com/board"];
+    NSURLRequest* webRequest = [NSURLRequest requestWithURL: url];
+    [detailWebView loadRequest: webRequest];
+    
+    //change size of frame
+    [self resizeView: detailView];
     
     // we add a parent view as EAGLView doesn't like being the immediate child of a VC
     parentView = [[UIView alloc] initWithFrame: viewBounds];
     [parentView addSubview:arView];
     self.view = parentView;
+    
+    // Enable gyroscope
+    self->motionManager = [[CMMotionManager alloc] init];
+    self->referenceAttitude = nil;
+    [self enableGyro];
 }
 
+-(void) resizeView: (UIView*) view{
+    CGRect frame = view.frame;
+    frame.size.width = arViewSize.width;
+    frame.size.height = arViewSize.height;
+    view.frame = frame;
+}
+
+-(void) enableGyro{
+    CMDeviceMotion *deviceMotion = self->motionManager.deviceMotion;      
+    self->referenceAttitude = deviceMotion.attitude;
+    self->motionManager.gyroUpdateInterval = 1.0/60.0;
+    [self->motionManager startGyroUpdates];
+    [self->motionManager startDeviceMotionUpdates];
+    [self->motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+    }];
+    
+    [self->motionManager startGyroUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMGyroData *gyroData, NSError *error) {
+        // removeFromSuperView
+        CMDeviceMotion *deviceMotion = self->motionManager.deviceMotion;     
+        CMAttitude *attitude = deviceMotion.attitude;
+        NSLog(@"roll = %f... pitch = %f ... yaw = %f", degrees(attitude.roll), degrees(attitude.pitch), degrees(attitude.yaw));
+        
+        if(self->orientation == UIDeviceOrientationLandscapeRight ||
+           self->orientation == UIDeviceOrientationLandscapeLeft) {
+            if(self->orientation == UIDeviceOrientationLandscapeRight) {
+                if (degrees(attitude.roll) >= 40.0 && arView.superview == nil){
+                    [detailView removeFromSuperview];
+                    [parentView addSubview:arView];
+                } else if (degrees(attitude.roll) < 40.0 && detailView.superview == nil) {
+                    [arView removeFromSuperview];
+                    [parentView addSubview:detailView];
+                }
+            } else {
+                if (degrees(attitude.roll) <= -40.0 && arView.superview == nil){
+                    [detailView removeFromSuperview];
+                    [parentView addSubview:arView];
+                } else if (degrees(attitude.roll) > -40.0 && detailView.superview == nil) {
+                    [arView removeFromSuperview];
+                    [parentView addSubview:detailView];
+                }
+            }
+        }
+        else {
+            if (degrees(attitude.pitch) >= 40.0 && arView.superview == nil){
+                [detailView removeFromSuperview];
+                [parentView addSubview:arView];
+            } else if (degrees(attitude.pitch) < 40.0 && detailView.superview == nil) {
+                [arView removeFromSuperview];
+                [parentView addSubview:detailView];
+            }
+        }
+    }];
+}
 
 - (void)viewDidLoad
 {
@@ -146,6 +228,8 @@
     centre.x = arViewSize.width / 2;
     centre.y = arViewSize.height / 2;
     
+    self->orientation = interfaceOrientation;
+    
     if (interfaceOrientation == UIInterfaceOrientationPortrait)
     {
         NSLog(@"ARVC: Rotating to Portrait");
@@ -164,6 +248,8 @@
         pos.x = centre.y;
         pos.y = centre.x;
         rot = 180;
+        [detailView removeFromSuperview];
+        [parentView addSubview:arView];
     }
     else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight)
     {
@@ -171,11 +257,14 @@
         pos.x = centre.y;
         pos.y = centre.x;
         rot = 0;
+        [detailView removeFromSuperview];
+        [parentView addSubview:arView];
     }
 
     arView.layer.position = pos;
     CGAffineTransform rotate = CGAffineTransformMakeRotation(rot * M_PI  / 180);
     arView.transform = rotate;  
+    
 }
 
 

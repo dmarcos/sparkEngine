@@ -46,4 +46,14 @@
     return self->_material;
 }
 
+-(void) setMaterial: (SEShaderMaterial*) material
+{
+    if(material.verticesColors){
+        for(int i = 0; i < self->_geometry.numVertices;++i){
+            self->_geometry.vertices[i].color = material.verticesColors[i];
+        }
+    }
+    self->_material = material;
+}
+
 @end

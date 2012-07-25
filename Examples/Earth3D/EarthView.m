@@ -108,9 +108,9 @@
     
     [self renderFrame];
     
-    //self->_motionManager = [[CMMotionManager alloc] init];
-    //self->_referenceAttitude = nil;
-    //[self enableGyro];
+    self->_motionManager = [[CMMotionManager alloc] init];
+    self->_referenceAttitude = nil;
+    [self enableGyro];
     
 }
 
@@ -211,16 +211,15 @@
     CMDeviceMotion *deviceMotion = self->_motionManager.deviceMotion;      
     self->_referenceAttitude = deviceMotion.attitude;
     self->_motionManager.gyroUpdateInterval = 1.0/60.0;
-    //[self->_motionManager startGyroUpdates];
-    //[self->_motionManager startDeviceMotionUpdates];
+    [self->_motionManager startGyroUpdates];
+    [self->_motionManager startDeviceMotionUpdates];
     [self->_motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
-        NSLog(@"CCACACACACACACA");
     }];
 
     [self->_motionManager startGyroUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMGyroData *gyroData, NSError *error) {
-        
-//        CMDeviceMotion *deviceMotion = self->_motionManager.deviceMotion;     
-//        CMAttitude *attitude = deviceMotion.attitude;
+        // removeFromSuperView
+        CMDeviceMotion *deviceMotion = self->_motionManager.deviceMotion;     
+        CMAttitude *attitude = deviceMotion.attitude;
 //        float rateX = self->_motionManager.gyroData.rotationRate.x;
 //        float rateY = self->_motionManager.gyroData.rotationRate.y;
 //        if (fabs(rateX) > .01) {

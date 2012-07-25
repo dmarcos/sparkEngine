@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GLKit/GLKMath.h>
 #import "SETexture.h"
 
 @interface SEMaterial : NSObject
 
 @property (nonatomic, strong) SETexture* texture; 
+@property (nonatomic) GLKVector4* verticesColors;
 
 @end

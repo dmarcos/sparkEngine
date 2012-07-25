@@ -43,7 +43,9 @@
 		B216FBA015B0D769007B00A7 /* SETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9415B0D769007B00A7 /* SETriangle.m */; };
 		B21757A215B9F6800066AC85 /* pierresRubis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B21757A115B9F6800066AC85 /* pierresRubis.jpg */; };
 		B21757A415B9FA1E0066AC85 /* pierresRubis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B21757A115B9F6800066AC85 /* pierresRubis.jpg */; };
+		B21757AE15BDB5600066AC85 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F29B46158A85B800837A72 /* CoreMotion.framework */; };
 		B26EA38315890CCF000EB015 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
+		B2996EA515BDE76800DE026D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2996EA415BDE76800DE026D /* DetailViewController.m */; };
 		B29FDA3E15B7BE4900D337BA /* EarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29FDA3D15B7BE4900D337BA /* EarthViewController.m */; };
 		B29FDA4615B876B000D337BA /* SESphere.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9215B0D769007B00A7 /* SESphere.m */; };
 		B29FDA4715B876C600D337BA /* SEGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7D15B0D769007B00A7 /* SEGeometry.m */; };
@@ -174,6 +176,8 @@
 		B216FB9415B0D769007B00A7 /* SETriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETriangle.m; sourceTree = "<group>"; };
 		B21757A115B9F6800066AC85 /* pierresRubis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pierresRubis.jpg; sourceTree = "<group>"; };
 		B26EA38215890CCF000EB015 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		B2996EA315BDE76800DE026D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		B2996EA415BDE76800DE026D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		B29FDA3C15B7BE4900D337BA /* EarthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthViewController.h; sourceTree = "<group>"; };
 		B29FDA3D15B7BE4900D337BA /* EarthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthViewController.m; sourceTree = "<group>"; };
 		B29FDA5C15B8938B00D337BA /* SEARView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEARView.h; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21757AE15BDB5600066AC85 /* CoreMotion.framework in Frameworks */,
 				B29FDA5515B8775500D337BA /* GLKit.framework in Frameworks */,
 				B2D1644D15B74D4E009FC1A3 /* SystemConfiguration.framework in Frameworks */,
 				B2D1644B15B74D1D009FC1A3 /* Security.framework in Frameworks */,
@@ -494,6 +499,8 @@
 				B2D163FE15B73708009FC1A3 /* SupportingFiles */,
 				B29FDA5C15B8938B00D337BA /* SEARView.h */,
 				B29FDA5D15B8938C00D337BA /* SEARView.mm */,
+				B2996EA315BDE76800DE026D /* DetailViewController.h */,
+				B2996EA415BDE76800DE026D /* DetailViewController.m */,
 			);
 			path = AR;
 			sourceTree = "<group>";
@@ -772,6 +779,7 @@
 				B29FDA5E15B8938C00D337BA /* SEARView.mm in Sources */,
 				B2B8158515B8DC3100794DE9 /* SEViewController.m in Sources */,
 				B2B815A215B9CA2900794DE9 /* SERectangle.m in Sources */,
+				B2996EA515BDE76800DE026D /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

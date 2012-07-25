@@ -11,5 +11,10 @@
 @implementation SEMaterial
 
 @synthesize texture = _texture;
+@synthesize verticesColors = _verticesColors;
+
+- (void) dealloc {
+    free(self->_verticesColors);
+}
 
 @end
