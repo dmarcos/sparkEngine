@@ -14,11 +14,10 @@
 #import <CoreMotion/CMMotionManager.h>
 
 #import "EarthView.h"
-#import "SERenderer.h"
-#import "SEScene.h"
-#import "SESphere.h"
-#import "SETriangle.h"
-#import "SEPerspectiveCamera.h"
+#import <SparkEngine/SERenderer.h>
+#import <SparkEngine/SEScene.h>
+#import <SparkEngine/SEPerspectiveCamera.h>
+#import <SparkEngine/SESphere.h>
 
 @interface EarthView(){
     UIWindow		*window;

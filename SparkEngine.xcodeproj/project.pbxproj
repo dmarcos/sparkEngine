@@ -27,7 +27,6 @@
 		B21757A415B9FA1E0066AC85 /* pierresRubis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B21757A115B9F6800066AC85 /* pierresRubis.jpg */; };
 		B21757AE15BDB5600066AC85 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F29B46158A85B800837A72 /* CoreMotion.framework */; };
 		B22EB70815C1FC94002B6A96 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B22EB70415C1FC94002B6A96 /* InfoPlist.strings */; };
-		B22EB70C15C1FCE7002B6A96 /* SEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B8158215B8DC3100794DE9 /* SEViewController.m */; };
 		B22EB70E15C1FCE7002B6A96 /* SECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7B15B0D769007B00A7 /* SECamera.m */; };
 		B22EB71015C1FCE7002B6A96 /* SEGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7D15B0D769007B00A7 /* SEGeometry.m */; };
 		B22EB71215C1FCE7002B6A96 /* SEMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7F15B0D769007B00A7 /* SEMesh.m */; };
@@ -45,7 +44,6 @@
 		B22EB72C15C1FCE8002B6A96 /* SETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB9415B0D769007B00A7 /* SETriangle.m */; };
 		B22EB72E15C1FCE8002B6A96 /* SERectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B8159F15B9CA2900794DE9 /* SERectangle.m */; };
 		B22EB72F15C1FDA1002B6A96 /* SparkEngine-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B22EB70715C1FC94002B6A96 /* SparkEngine-Prefix.pch */; settings = {ATTRIBUTES = (); }; };
-		B22EB73015C1FDB9002B6A96 /* SEViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B2B8158115B8DC3100794DE9 /* SEViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B22EB73115C1FDB9002B6A96 /* SECamera.h in Headers */ = {isa = PBXBuildFile; fileRef = B216FB7A15B0D769007B00A7 /* SECamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B22EB73215C1FDB9002B6A96 /* SEGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = B216FB7C15B0D769007B00A7 /* SEGeometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B22EB73315C1FDB9002B6A96 /* SEMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = B216FB7E15B0D769007B00A7 /* SEMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -192,13 +190,9 @@
 		B26EA38215890CCF000EB015 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B2996EA315BDE76800DE026D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		B2996EA415BDE76800DE026D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		B29FDA3C15B7BE4900D337BA /* EarthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthViewController.h; sourceTree = "<group>"; };
-		B29FDA3D15B7BE4900D337BA /* EarthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthViewController.m; sourceTree = "<group>"; };
 		B29FDA5C15B8938B00D337BA /* SEARView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEARView.h; sourceTree = "<group>"; };
 		B29FDA5D15B8938C00D337BA /* SEARView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SEARView.mm; sourceTree = "<group>"; };
 		B29FDA5F15B8C56400D337BA /* SERendererDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERendererDelegate.h; sourceTree = "<group>"; };
-		B2B8158115B8DC3100794DE9 /* SEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEViewController.h; sourceTree = "<group>"; };
-		B2B8158215B8DC3100794DE9 /* SEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEViewController.m; sourceTree = "<group>"; };
 		B2B8159E15B9CA2900794DE9 /* SERectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERectangle.h; sourceTree = "<group>"; };
 		B2B8159F15B9CA2900794DE9 /* SERectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERectangle.m; sourceTree = "<group>"; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
@@ -375,8 +369,6 @@
 				B216FAFD15B0CB14007B00A7 /* SERendererOld.h */,
 				B216FAFE15B0CB14007B00A7 /* SERendererOld.m */,
 				B216FAFF15B0CB14007B00A7 /* SupportingFiles */,
-				B29FDA3C15B7BE4900D337BA /* EarthViewController.h */,
-				B29FDA3D15B7BE4900D337BA /* EarthViewController.m */,
 			);
 			path = Earth3D;
 			sourceTree = "<group>";
@@ -424,8 +416,6 @@
 		B216FB7915B0D769007B00A7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B2B8158115B8DC3100794DE9 /* SEViewController.h */,
-				B2B8158215B8DC3100794DE9 /* SEViewController.m */,
 				B216FB7A15B0D769007B00A7 /* SECamera.h */,
 				B216FB7B15B0D769007B00A7 /* SECamera.m */,
 				B216FB7C15B0D769007B00A7 /* SEGeometry.h */,
@@ -600,7 +590,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B22EB73015C1FDB9002B6A96 /* SEViewController.h in Headers */,
 				B22EB73115C1FDB9002B6A96 /* SECamera.h in Headers */,
 				B22EB73215C1FDB9002B6A96 /* SEGeometry.h in Headers */,
 				B22EB73315C1FDB9002B6A96 /* SEMesh.h in Headers */,
@@ -853,7 +842,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B22EB70C15C1FCE7002B6A96 /* SEViewController.m in Sources */,
 				B22EB70E15C1FCE7002B6A96 /* SECamera.m in Sources */,
 				B22EB71015C1FCE7002B6A96 /* SEGeometry.m in Sources */,
 				B22EB71215C1FCE7002B6A96 /* SEMesh.m in Sources */,
