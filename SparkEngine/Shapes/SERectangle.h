@@ -10,7 +10,7 @@
 
 @interface SERectangle : SEMesh
 
--(id) initWithVerticesColor: (GLKVector4*) colors material: (SEShaderMaterial*) material;
+-(id) initWithMaterial: (SEShaderMaterial*) material;
 
 @property (nonatomic) float height;
 @property (nonatomic) float width;

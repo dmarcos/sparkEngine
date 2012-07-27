@@ -140,29 +140,23 @@
            self->orientation == UIDeviceOrientationLandscapeLeft) {
             if(self->orientation == UIDeviceOrientationLandscapeRight) {
                 if (degrees(attitude.roll) >= 40.0 && arView.superview == nil){
-                    [detailView removeFromSuperview];
-                    [parentView addSubview:arView];
+                    [UIView transitionFromView:detailView toView:arView duration:.1 options:UIViewAnimationOptionTransitionNone completion:nil];
                 } else if (degrees(attitude.roll) < 40.0 && detailView.superview == nil) {
-                    [arView removeFromSuperview];
-                    [parentView addSubview:detailView];
+                    [UIView transitionFromView:arView toView:detailView duration:.3 options:UIViewAnimationOptionTransitionCrossDissolve completion:nil];
                 }
             } else {
                 if (degrees(attitude.roll) <= -40.0 && arView.superview == nil){
-                    [detailView removeFromSuperview];
-                    [parentView addSubview:arView];
+                    [UIView transitionFromView:detailView toView:arView duration:.1 options:UIViewAnimationOptionTransitionNone completion:nil];
                 } else if (degrees(attitude.roll) > -40.0 && detailView.superview == nil) {
-                    [arView removeFromSuperview];
-                    [parentView addSubview:detailView];
+                    [UIView transitionFromView:arView toView:detailView duration:.3 options:UIViewAnimationOptionTransitionCrossDissolve completion:nil];
                 }
             }
         }
         else {
             if (degrees(attitude.pitch) >= 40.0 && arView.superview == nil){
-                [detailView removeFromSuperview];
-                [parentView addSubview:arView];
+                [UIView transitionFromView:detailView toView:arView duration:.1 options:UIViewAnimationOptionTransitionNone completion:nil];
             } else if (degrees(attitude.pitch) < 40.0 && detailView.superview == nil) {
-                [arView removeFromSuperview];
-                [parentView addSubview:detailView];
+                [UIView transitionFromView:arView toView:detailView duration:.3 options:UIViewAnimationOptionTransitionCrossDissolve completion:nil];
             }
         }
     }];

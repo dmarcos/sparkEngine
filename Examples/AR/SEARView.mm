@@ -37,7 +37,7 @@
         //sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];;
         //[scene.objects addObject:sphere];
         
-        SERectangle* rectangle = [[SERectangle alloc] initWithVerticesColor: NULL material: NULL];
+        SERectangle* rectangle = [[SERectangle alloc] initWithMaterial: NULL];
         rectangle.height = 10.0;
         rectangle.width = 7.5;
         rectangle.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"pierresRubis.jpg"]];;

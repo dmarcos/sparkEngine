@@ -7,6 +7,7 @@
 //
 
 #import "SETexture.h"
+#import <UIKit/UIGraphics.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 

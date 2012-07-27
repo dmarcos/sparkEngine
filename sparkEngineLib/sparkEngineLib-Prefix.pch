@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'sparkEngineLib' target in the 'sparkEngineLib' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

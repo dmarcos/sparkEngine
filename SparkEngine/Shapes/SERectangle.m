@@ -19,7 +19,7 @@
 @synthesize height = _height;
 @synthesize width = _width;
 
--(id) initWithVerticesColor: (GLKVector4*) colors material: (SEShaderMaterial*) material
+-(id) initWithMaterial: (SEShaderMaterial*) material
 {
     self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:4 numberOfFaces:2] material: material];
     if (self) {
@@ -29,19 +29,17 @@
         
         [self calculateVertices];
         
-        if (!colors) {
-            
+        if(material && material.verticesColors) {
+            self.geometry.vertices[0].color = material.verticesColors[0];
+            self.geometry.vertices[1].color = material.verticesColors[1];
+            self.geometry.vertices[2].color = material.verticesColors[2];
+            self.geometry.vertices[3].color = material.verticesColors[3];
+        } else {
             self.geometry.vertices[0].color = GLKVector4Make(1.0, 0.0, 0.0, 0.0);
             self.geometry.vertices[1].color = GLKVector4Make(0.0, 1.0, 0.0, 0.0);
             self.geometry.vertices[2].color = GLKVector4Make(0.0, 0.0, 1.0, 0.0);
             self.geometry.vertices[3].color = GLKVector4Make(0.0, 0.0, 1.0, 0.0);
-            
-        } else {
-            
-            self.geometry.vertices[0].color = colors[0];
-            self.geometry.vertices[1].color = colors[1];
-            self.geometry.vertices[2].color = colors[2];
-            self.geometry.vertices[3].color = colors[3];
+
         }
         
         self.geometry.facesIndices[0].a = 0;

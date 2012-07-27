@@ -7,6 +7,7 @@
 //
 
 #import <GLKit/GLKMath.h>
+#import <OpenGLES/ES2/gl.h>
 
 struct SEVertex
 {
