@@ -111,6 +111,8 @@
 		B2DAB72915C30E97006B9E50 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2513198BC100146334 /* CoreGraphics.framework */; };
 		B2DAB72A15C30EA4006B9E50 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2713198BC100146334 /* QuartzCore.framework */; };
 		B2DAB72B15C30EDC006B9E50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2113198BC100146334 /* UIKit.framework */; };
+		B2DAB73715C34B7E006B9E50 /* Earth3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73615C34B7D006B9E50 /* Earth3DViewController.m */; };
+		B2DAB73A15C34E5E006B9E50 /* Earth3DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73915C34E5E006B9E50 /* Earth3DAppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +249,10 @@
 		B2D1644C15B74D4D009FC1A3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B2D1645415B76F73009FC1A3 /* SEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEView.h; sourceTree = "<group>"; };
 		B2D1645515B76F75009FC1A3 /* SEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEView.m; sourceTree = "<group>"; };
+		B2DAB73515C34B7D006B9E50 /* Earth3DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Earth3DViewController.h; sourceTree = "<group>"; };
+		B2DAB73615C34B7D006B9E50 /* Earth3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Earth3DViewController.m; sourceTree = "<group>"; };
+		B2DAB73815C34E5E006B9E50 /* Earth3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Earth3DAppDelegate.h; sourceTree = "<group>"; };
+		B2DAB73915C34E5E006B9E50 /* Earth3DAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Earth3DAppDelegate.m; sourceTree = "<group>"; };
 		B2F29B46158A85B800837A72 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -369,6 +375,10 @@
 				B216FAFD15B0CB14007B00A7 /* SERendererOld.h */,
 				B216FAFE15B0CB14007B00A7 /* SERendererOld.m */,
 				B216FAFF15B0CB14007B00A7 /* SupportingFiles */,
+				B2DAB73515C34B7D006B9E50 /* Earth3DViewController.h */,
+				B2DAB73615C34B7D006B9E50 /* Earth3DViewController.m */,
+				B2DAB73815C34E5E006B9E50 /* Earth3DAppDelegate.h */,
+				B2DAB73915C34E5E006B9E50 /* Earth3DAppDelegate.m */,
 			);
 			path = Earth3D;
 			sourceTree = "<group>";
@@ -826,6 +836,8 @@
 			files = (
 				B216FB0215B0CB14007B00A7 /* main.m in Sources */,
 				B216FB0315B0CB14007B00A7 /* EarthView.m in Sources */,
+				B2DAB73715C34B7E006B9E50 /* Earth3DViewController.m in Sources */,
+				B2DAB73A15C34E5E006B9E50 /* Earth3DAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,6 +40,7 @@
         self->_glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
         [EAGLContext setCurrentContext: self->_glContext];
         self->_renderer = [[SERenderer alloc] initWithViewport:self.bounds withGLContext: self->_glContext withEAGLLayer: (CAEAGLLayer *) self.layer];
+        self->_scene = [[SEScene alloc] init];
     }
     return self;
 }
