@@ -153,8 +153,6 @@
 		B216FAFA15B0CB14007B00A7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B216FAFB15B0CB14007B00A7 /* EarthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthView.h; sourceTree = "<group>"; };
 		B216FAFC15B0CB14007B00A7 /* EarthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthView.m; sourceTree = "<group>"; };
-		B216FAFD15B0CB14007B00A7 /* SERendererOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERendererOld.h; sourceTree = "<group>"; };
-		B216FAFE15B0CB14007B00A7 /* SERendererOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERendererOld.m; sourceTree = "<group>"; };
 		B216FB0015B0CB14007B00A7 /* Earth3D-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Earth3D-Info.plist"; sourceTree = "<group>"; };
 		B216FB0115B0CB14007B00A7 /* Earth3D-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Earth3D-Prefix.pch"; sourceTree = "<group>"; };
 		B216FB4015B0D1A7007B00A7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -380,8 +378,6 @@
 				B216FAFA15B0CB14007B00A7 /* main.m */,
 				B216FAFB15B0CB14007B00A7 /* EarthView.h */,
 				B216FAFC15B0CB14007B00A7 /* EarthView.m */,
-				B216FAFD15B0CB14007B00A7 /* SERendererOld.h */,
-				B216FAFE15B0CB14007B00A7 /* SERendererOld.m */,
 				B216FAFF15B0CB14007B00A7 /* SupportingFiles */,
 				B2DAB73515C34B7D006B9E50 /* Earth3DViewController.h */,
 				B2DAB73615C34B7D006B9E50 /* Earth3DViewController.m */,
