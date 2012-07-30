@@ -16,8 +16,7 @@
 #import "PolygonView.h"
 #import "SERenderer.h"
 #import "SEScene.h"
-#import "SESphere.h"
-#import "SETriangle.h"
+#import "SEOctaedron.h"
 #import "SEPerspectiveCamera.h"
 #import "SEShader.h"
 
@@ -109,7 +108,7 @@
     SEShaderMaterial* material = [[SEShaderMaterial alloc] init];
     material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"plainColor.fsh"];
     material.verticesColors = colors;
-    SETriangle* triangle = [[SETriangle alloc] initWithMaterial: material];
+    SEOctaedron* triangle = [[SEOctaedron alloc] initWithMaterial: material];
     [self->scene.objects addObject:triangle];
     
     [self renderFrame];

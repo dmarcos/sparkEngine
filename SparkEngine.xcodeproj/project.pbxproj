@@ -113,6 +113,10 @@
 		B2DAB72B15C30EDC006B9E50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2113198BC100146334 /* UIKit.framework */; };
 		B2DAB73715C34B7E006B9E50 /* Earth3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73615C34B7D006B9E50 /* Earth3DViewController.m */; };
 		B2DAB73A15C34E5E006B9E50 /* Earth3DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73915C34E5E006B9E50 /* Earth3DAppDelegate.m */; };
+		B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73B15C6F9E4006B9E50 /* SECube.h */; };
+		B2DAB73E15C6F9E4006B9E50 /* SECube.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73C15C6F9E4006B9E50 /* SECube.m */; };
+		B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */; };
+		B2DAB74215C6FDEC006B9E50 /* SEOctaedron.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB74015C6FDEB006B9E50 /* SEOctaedron.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +257,10 @@
 		B2DAB73615C34B7D006B9E50 /* Earth3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Earth3DViewController.m; sourceTree = "<group>"; };
 		B2DAB73815C34E5E006B9E50 /* Earth3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Earth3DAppDelegate.h; sourceTree = "<group>"; };
 		B2DAB73915C34E5E006B9E50 /* Earth3DAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Earth3DAppDelegate.m; sourceTree = "<group>"; };
+		B2DAB73B15C6F9E4006B9E50 /* SECube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECube.h; sourceTree = "<group>"; };
+		B2DAB73C15C6F9E4006B9E50 /* SECube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SECube.m; sourceTree = "<group>"; };
+		B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEOctaedron.h; sourceTree = "<group>"; };
+		B2DAB74015C6FDEB006B9E50 /* SEOctaedron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEOctaedron.m; sourceTree = "<group>"; };
 		B2F29B46158A85B800837A72 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -474,6 +482,10 @@
 				B216FB9415B0D769007B00A7 /* SETriangle.m */,
 				B2B8159E15B9CA2900794DE9 /* SERectangle.h */,
 				B2B8159F15B9CA2900794DE9 /* SERectangle.m */,
+				B2DAB73B15C6F9E4006B9E50 /* SECube.h */,
+				B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */,
+				B2DAB74015C6FDEB006B9E50 /* SEOctaedron.m */,
+				B2DAB73C15C6F9E4006B9E50 /* SECube.m */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -619,6 +631,8 @@
 				B22EB74115C1FDB9002B6A96 /* SETriangle.h in Headers */,
 				B22EB74215C1FDB9002B6A96 /* SERectangle.h in Headers */,
 				B22EB72F15C1FDA1002B6A96 /* SparkEngine-Prefix.pch in Headers */,
+				B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */,
+				B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +884,8 @@
 				B22EB72A15C1FCE8002B6A96 /* SESphere.m in Sources */,
 				B22EB72C15C1FCE8002B6A96 /* SETriangle.m in Sources */,
 				B22EB72E15C1FCE8002B6A96 /* SERectangle.m in Sources */,
+				B2DAB73E15C6F9E4006B9E50 /* SECube.m in Sources */,
+				B2DAB74215C6FDEC006B9E50 /* SEOctaedron.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
