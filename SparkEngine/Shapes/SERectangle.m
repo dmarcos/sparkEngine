@@ -21,26 +21,13 @@
 
 -(id) initWithMaterial: (SEShaderMaterial*) material
 {
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:4 numberOfFaces:2] material: material];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:4 numberOfFaces:2 vertices: nil facesIndices: nil] material: material];
     if (self) {
         
         self->_height = 1.0;
         self->_width = 1.0;
         
         [self calculateVertices];
-        
-        if(material && material.verticesColors) {
-            self.geometry.vertices[0].color = material.verticesColors[0];
-            self.geometry.vertices[1].color = material.verticesColors[1];
-            self.geometry.vertices[2].color = material.verticesColors[2];
-            self.geometry.vertices[3].color = material.verticesColors[3];
-        } else {
-            self.geometry.vertices[0].color = GLKVector4Make(1.0, 0.0, 0.0, 0.0);
-            self.geometry.vertices[1].color = GLKVector4Make(0.0, 1.0, 0.0, 0.0);
-            self.geometry.vertices[2].color = GLKVector4Make(0.0, 0.0, 1.0, 0.0);
-            self.geometry.vertices[3].color = GLKVector4Make(0.0, 0.0, 1.0, 0.0);
-
-        }
         
         self.geometry.facesIndices[0].a = 0;
         self.geometry.facesIndices[0].b = 1;

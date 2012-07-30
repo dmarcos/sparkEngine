@@ -21,11 +21,23 @@
 @synthesize facesIndices = _facesIndices;
 @synthesize numFaces = _numFaces;
 
--(id) initWithNumberOfVertices: (int) numVertices numberOfFaces: (int) numFaces{
-    self = [self init];
+-(id) initWithNumberOfVertices: (int) numVertices numberOfFaces: (int) numFaces vertices: (GLfloat*) vertices facesIndices: (GLushort*) facesIndices{
+    self = [super init];
     if (self) {
         self->_numVertices = numVertices;
         self->_numFaces = numFaces;
+        if(vertices && facesIndices) {
+            for(int i = 0; i < numVertices; ++i) {
+                self.vertices[i].position = GLKVector3Make(vertices[i*5], vertices[i*5+1], vertices[i*5+2]);
+                self.vertices[i].texture = GLKVector2Make(vertices[i*5+3], vertices[i*5+4]);
+                self.vertices[i].color = GLKVector4Make(1.0, 0.0, 0.0, 0.0); // Default vertex color. RED. Totally arbitrary :)
+            }
+            for(int i = 0; i < numFaces; ++i) {
+                self.facesIndices[i].a = facesIndices[i*3];
+                self.facesIndices[i].b = facesIndices[i*3+1];
+                self.facesIndices[i].c = facesIndices[i*3+2];
+            }
+        }
     }
     return self;
 }

@@ -10,7 +10,7 @@
 
 @interface SEGeometry : NSObject
 
--(id) initWithNumberOfVertices: (int) numVertices numberOfFaces: (int) numFaces;
+-(id) initWithNumberOfVertices: (int) numVertices numberOfFaces: (int) numFaces vertices: (GLfloat*) vertices facesIndices: (GLushort*) facesIndices;
     
 @property (nonatomic) SEVertex* vertices;
 @property (nonatomic, readonly) int numVertices;

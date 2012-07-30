@@ -12,7 +12,7 @@
 
 -(id) initWithMaterial: (SEShaderMaterial*) material
 {
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 numberOfFaces:1] material: material];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 numberOfFaces:1 vertices: nil facesIndices: nil] material: material];
     if (self) {
                 
         self.geometry.vertices[0].position = GLKVector3Make(-0.5, -0.5, 1.0);

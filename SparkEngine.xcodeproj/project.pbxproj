@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B216FB0215B0CB14007B00A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FAFA15B0CB14007B00A7 /* main.m */; };
-		B216FB0315B0CB14007B00A7 /* EarthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FAFC15B0CB14007B00A7 /* EarthView.m */; };
 		B216FB0515B0CB14007B00A7 /* Earth3D-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B216FB0015B0CB14007B00A7 /* Earth3D-Info.plist */; };
 		B216FB4B15B0D1A7007B00A7 /* NeHeLesson1-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B216FB4615B0D1A7007B00A7 /* NeHeLesson1-Info.plist */; };
 		B216FB5D15B0D1D5007B00A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB4015B0D1A7007B00A7 /* main.m */; };
@@ -22,10 +21,11 @@
 		B216FB6A15B0D1D5007B00A7 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B216FB6B15B0D1D5007B00A7 /* Earth3D-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B216FB0015B0CB14007B00A7 /* Earth3D-Info.plist */; };
 		B216FB6C15B0D1D5007B00A7 /* NeHeLesson1-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B216FB4615B0D1A7007B00A7 /* NeHeLesson1-Info.plist */; };
-		B216FB7715B0D3F6007B00A7 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7415B0D382007B00A7 /* PolygonView.m */; };
 		B21757A215B9F6800066AC85 /* pierresRubis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B21757A115B9F6800066AC85 /* pierresRubis.jpg */; };
 		B21757A415B9FA1E0066AC85 /* pierresRubis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B21757A115B9F6800066AC85 /* pierresRubis.jpg */; };
 		B21757AE15BDB5600066AC85 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F29B46158A85B800837A72 /* CoreMotion.framework */; };
+		B220366015C728020017FAE0 /* PoligonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B220365F15C728020017FAE0 /* PoligonViewController.m */; };
+		B220366415C728D30017FAE0 /* PolygonViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B220366315C728D30017FAE0 /* PolygonViewAppDelegate.m */; };
 		B22EB70815C1FC94002B6A96 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B22EB70415C1FC94002B6A96 /* InfoPlist.strings */; };
 		B22EB70E15C1FCE7002B6A96 /* SECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7B15B0D769007B00A7 /* SECamera.m */; };
 		B22EB71015C1FCE7002B6A96 /* SEGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B216FB7D15B0D769007B00A7 /* SEGeometry.m */; };
@@ -151,16 +151,12 @@
 		60119D2713198BC100146334 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		60119D2913198BC100146334 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B216FAFA15B0CB14007B00A7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B216FAFB15B0CB14007B00A7 /* EarthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthView.h; sourceTree = "<group>"; };
-		B216FAFC15B0CB14007B00A7 /* EarthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthView.m; sourceTree = "<group>"; };
 		B216FB0015B0CB14007B00A7 /* Earth3D-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Earth3D-Info.plist"; sourceTree = "<group>"; };
 		B216FB0115B0CB14007B00A7 /* Earth3D-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Earth3D-Prefix.pch"; sourceTree = "<group>"; };
 		B216FB4015B0D1A7007B00A7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B216FB4615B0D1A7007B00A7 /* NeHeLesson1-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NeHeLesson1-Info.plist"; sourceTree = "<group>"; };
 		B216FB4715B0D1A7007B00A7 /* NeHeLesson1-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NeHeLesson1-Prefix.pch"; sourceTree = "<group>"; };
 		B216FB7015B0D1D5007B00A7 /* NeHeLesson1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeHeLesson1.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B216FB7315B0D382007B00A7 /* PolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonView.h; sourceTree = "<group>"; };
-		B216FB7415B0D382007B00A7 /* PolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonView.m; sourceTree = "<group>"; };
 		B216FB7A15B0D769007B00A7 /* SECamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECamera.h; sourceTree = "<group>"; };
 		B216FB7B15B0D769007B00A7 /* SECamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SECamera.m; sourceTree = "<group>"; };
 		B216FB7C15B0D769007B00A7 /* SEGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGeometry.h; sourceTree = "<group>"; };
@@ -187,6 +183,10 @@
 		B216FB9315B0D769007B00A7 /* SETriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETriangle.h; sourceTree = "<group>"; };
 		B216FB9415B0D769007B00A7 /* SETriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETriangle.m; sourceTree = "<group>"; };
 		B21757A115B9F6800066AC85 /* pierresRubis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pierresRubis.jpg; sourceTree = "<group>"; };
+		B220365E15C728020017FAE0 /* PoligonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoligonViewController.h; sourceTree = "<group>"; };
+		B220365F15C728020017FAE0 /* PoligonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoligonViewController.m; sourceTree = "<group>"; };
+		B220366215C728D30017FAE0 /* PolygonViewAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonViewAppDelegate.h; sourceTree = "<group>"; };
+		B220366315C728D30017FAE0 /* PolygonViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonViewAppDelegate.m; sourceTree = "<group>"; };
 		B22EB6F815C1FBED002B6A96 /* SparkEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22EB70515C1FC94002B6A96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B22EB70615C1FC94002B6A96 /* SparkEngine-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SparkEngine-Info.plist"; sourceTree = "<group>"; };
@@ -376,8 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				B216FAFA15B0CB14007B00A7 /* main.m */,
-				B216FAFB15B0CB14007B00A7 /* EarthView.h */,
-				B216FAFC15B0CB14007B00A7 /* EarthView.m */,
 				B216FAFF15B0CB14007B00A7 /* SupportingFiles */,
 				B2DAB73515C34B7D006B9E50 /* Earth3DViewController.h */,
 				B2DAB73615C34B7D006B9E50 /* Earth3DViewController.m */,
@@ -399,10 +397,12 @@
 		B216FB3F15B0D1A7007B00A7 /* NeHeLesson1 */ = {
 			isa = PBXGroup;
 			children = (
-				B216FB7315B0D382007B00A7 /* PolygonView.h */,
-				B216FB7415B0D382007B00A7 /* PolygonView.m */,
 				B216FB4015B0D1A7007B00A7 /* main.m */,
 				B216FB4515B0D1A7007B00A7 /* SupportingFiles */,
+				B220365E15C728020017FAE0 /* PoligonViewController.h */,
+				B220365F15C728020017FAE0 /* PoligonViewController.m */,
+				B220366215C728D30017FAE0 /* PolygonViewAppDelegate.h */,
+				B220366315C728D30017FAE0 /* PolygonViewAppDelegate.m */,
 			);
 			path = NeHeLesson1;
 			sourceTree = "<group>";
@@ -479,9 +479,9 @@
 				B2B8159E15B9CA2900794DE9 /* SERectangle.h */,
 				B2B8159F15B9CA2900794DE9 /* SERectangle.m */,
 				B2DAB73B15C6F9E4006B9E50 /* SECube.h */,
+				B2DAB73C15C6F9E4006B9E50 /* SECube.m */,
 				B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */,
 				B2DAB74015C6FDEB006B9E50 /* SEOctaedron.m */,
-				B2DAB73C15C6F9E4006B9E50 /* SECube.m */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -845,7 +845,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B216FB0215B0CB14007B00A7 /* main.m in Sources */,
-				B216FB0315B0CB14007B00A7 /* EarthView.m in Sources */,
 				B2DAB73715C34B7E006B9E50 /* Earth3DViewController.m in Sources */,
 				B2DAB73A15C34E5E006B9E50 /* Earth3DAppDelegate.m in Sources */,
 			);
@@ -855,8 +854,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B216FB7715B0D3F6007B00A7 /* PolygonView.m in Sources */,
 				B216FB5D15B0D1D5007B00A7 /* main.m in Sources */,
+				B220366015C728020017FAE0 /* PoligonViewController.m in Sources */,
+				B220366415C728D30017FAE0 /* PolygonViewAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

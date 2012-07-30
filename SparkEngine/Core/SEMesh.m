@@ -19,21 +19,14 @@
 
 -(id) initWithGeometry: (SEGeometry*) geometry material: (SEShaderMaterial*) material;
 {
-    self = [self init];
-    if (self) {
-        self->_geometry = geometry;
-        if(material) {
-            self->_material = material;
-        }
-    }
-    return self;
-}
-
--(id)init
-{   self = [super init];
+    self = [super init];
     if (self) {
         self->_vertexBuffer = -1;
         self->_facesIndicesBuffer = -1;
+        self->_geometry = geometry;
+        if(material) {
+            self.material = material;
+        }
     }
     return self;
 }

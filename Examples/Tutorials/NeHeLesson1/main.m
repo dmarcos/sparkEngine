@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	@autoreleasepool {
-		int retVal = UIApplicationMain(argc, argv, nil, @"PolygonView");
+		int retVal = UIApplicationMain(argc, argv, nil, @"PolygonViewAppDelegate");
 		return retVal;
 	}
 }
