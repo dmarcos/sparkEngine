@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) SETexture* texture; 
 @property (nonatomic) GLKVector4* verticesColors;
+@property (nonatomic) GLKVector4 color;
 
 @property (nonatomic) bool wireframe;
 @property (nonatomic) bool pointCloud;

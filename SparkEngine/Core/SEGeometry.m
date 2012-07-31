@@ -78,9 +78,6 @@
     if (self->_vertices == nil) {
         self->_verticesData = [NSMutableData dataWithLength:sizeof(SEVertex)*self.numVertices];
         self->_vertices = [self->_verticesData mutableBytes];
-        for (int i = 0; i < self.numVertices; i++) {
-            self->_vertices[i].color = GLKVector4Make(1.0, 0.0, 0.0, 1.0); // Default vertex color. RED. Totally arbitrary :)
-        }
     }
     return self->_vertices;
 }

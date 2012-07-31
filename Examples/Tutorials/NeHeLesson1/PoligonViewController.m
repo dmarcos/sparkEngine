@@ -27,15 +27,12 @@
 
 - (void) loadView {
     
+    // UIView setup
 	self->_polygonView = [[SEView alloc] initWithFrame: self->_viewFrame];
     self->_polygonView.multipleTouchEnabled = YES;
+    
+    // Camera setup
     self->_polygonView.camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self->_viewFrame.size.width / self->_viewFrame.size.height near: 0.1 far:100.0];
-    
-    UIPanGestureRecognizer* gestureRecognizer = [[ UIPanGestureRecognizer alloc] initWithTarget:self action:@ selector( dragging:)];
-    [self->_polygonView addGestureRecognizer: gestureRecognizer];
-    
-    // Scene Setup
-    self->_polygonView.scene.position = GLKVector3Make(0.0, 0.0,-4.0);
     
     // Objects Setup
     GLKVector4 colors[3] = {GLKVector4Make(1.0, 0.0, 0.0, 1.0),
@@ -47,7 +44,13 @@
     //sphere.material.wireframe = YES;
     //sphere.material.pointCloud = YES;
     SETriangle* triangle = [[SETriangle alloc] initWithMaterial: material];
+    
+    // Scene Setup
     [self->_polygonView.scene.objects addObject:triangle];
+    self->_polygonView.scene.position = GLKVector3Make(0.0, 0.0,-4.0);
+    
+    UIPanGestureRecognizer* gestureRecognizer = [[ UIPanGestureRecognizer alloc] initWithTarget:self action:@ selector( dragging:)];
+    [self->_polygonView addGestureRecognizer: gestureRecognizer];
     
     self.view = self->_polygonView;
 }

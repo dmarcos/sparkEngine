@@ -24,20 +24,24 @@
 
 - (void) loadView {
     
+    // UIView setup
 	self->_earth3dView = [[SEView alloc] initWithFrame: self->_viewFrame];
     self->_earth3dView.multipleTouchEnabled = YES;
+    
+    // Camera Setup
     self->_earth3dView.camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self->_viewFrame.size.width / self->_viewFrame.size.height near: 0.1 far:100.0];
-    
-    UIPanGestureRecognizer* gestureRecognizer = [[ UIPanGestureRecognizer alloc] initWithTarget:self action:@ selector( dragging:)];
-    [self->_earth3dView addGestureRecognizer: gestureRecognizer];
         
-    // Scene Setup
-    self->_earth3dView.scene.position = GLKVector3Make(0.0, 0.0,-4.0);
-    
     // Objects Setup
     SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
     sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];
+    
+    // Scene Setup
     [self->_earth3dView.scene.objects addObject:sphere];
+    self->_earth3dView.scene.position = GLKVector3Make(0.0, 0.0,-4.0);
+    
+    // Gesture recognizer setup
+    UIPanGestureRecognizer* gestureRecognizer = [[ UIPanGestureRecognizer alloc] initWithTarget:self action:@ selector( dragging:)];
+    [self->_earth3dView addGestureRecognizer: gestureRecognizer];
     
     self.view = self->_earth3dView;
 }

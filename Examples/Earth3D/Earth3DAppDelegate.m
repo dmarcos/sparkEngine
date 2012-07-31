@@ -22,7 +22,6 @@
     earth3DViewController.viewFrame = appFrame;
     
     self.window.rootViewController = earth3DViewController;
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;

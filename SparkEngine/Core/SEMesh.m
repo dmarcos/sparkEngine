@@ -28,6 +28,8 @@
         self->_geometry = geometry;
         if(material) {
             self.material = material;
+        } else {
+            self.material = [[SEShaderMaterial alloc] init]; // Default Material
         }
     }
     return self;
@@ -46,6 +48,10 @@
     if(material.verticesColors){
         for(int i = 0; i < self->_geometry.numVertices;++i){
             self->_geometry.vertices[i].color = material.verticesColors[i];
+        }
+    } else {
+        for(int i = 0; i < self->_geometry.numVertices;++i){
+            self->_geometry.vertices[i].color = material.color;
         }
     }
     self->_material = material;
