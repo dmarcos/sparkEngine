@@ -18,8 +18,9 @@
 {
     int numVertices = (steps+1)*(steps+1);
     int numFaces = steps*steps*2;
+    int numLines = numFaces*3;
     
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:numVertices numberOfFaces: numFaces vertices: nil facesIndices: nil] material:NULL];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:numVertices vertices: nil numFaces: numFaces facesIndices: nil numLines: numLines linesIndices: nil] material:NULL];
     if (self) {
     
         self->_radius = radius;
@@ -57,9 +58,24 @@
                 self.geometry.facesIndices[latNumber*steps*2 + longNumber*2].b = second;
                 self.geometry.facesIndices[latNumber*steps*2 + longNumber*2].c = first+1;
                 
+                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2].a = first;
+                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2].b = second;
+                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 1].a = first;
+                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 1].b = first+1;
+                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 2].a = second;
+                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 2].b = first+1;
+                
                 self.geometry.facesIndices[latNumber*steps*2 + longNumber*2 + 1].a = second;
                 self.geometry.facesIndices[latNumber*steps*2 + longNumber*2 + 1].b = second+1;
                 self.geometry.facesIndices[latNumber*steps*2 + longNumber*2 + 1].c = first+1;
+//                
+//                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 3].a = second;
+//                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 3].b = second+1;
+//                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 4].a = second;
+//                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 4].b = first+1;
+//                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 5].a = second+1;
+//                self.geometry.linesIndices[latNumber*steps*2 + longNumber*2 + 5].b = first+1;
+                
             }
         }
         

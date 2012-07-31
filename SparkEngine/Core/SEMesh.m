@@ -14,6 +14,7 @@
 
 @synthesize vertexBuffer = _vertexBuffer;
 @synthesize facesIndicesBuffer = _facesIndicesBuffer;
+@synthesize linesIndicesBuffer = _linesIndicesBuffer;
 
 @synthesize material = _material;
 
@@ -23,6 +24,7 @@
     if (self) {
         self->_vertexBuffer = -1;
         self->_facesIndicesBuffer = -1;
+        self->_linesIndicesBuffer = -1;
         self->_geometry = geometry;
         if(material) {
             self.material = material;

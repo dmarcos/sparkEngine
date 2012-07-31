@@ -36,7 +36,7 @@
     
     // Objects Setup
     SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
-    sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];;
+    sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];
     [self->_earth3dView.scene.objects addObject:sphere];
     
     self.view = self->_earth3dView;

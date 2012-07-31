@@ -113,9 +113,9 @@
 		B2DAB72B15C30EDC006B9E50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2113198BC100146334 /* UIKit.framework */; };
 		B2DAB73715C34B7E006B9E50 /* Earth3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73615C34B7D006B9E50 /* Earth3DViewController.m */; };
 		B2DAB73A15C34E5E006B9E50 /* Earth3DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73915C34E5E006B9E50 /* Earth3DAppDelegate.m */; };
-		B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73B15C6F9E4006B9E50 /* SECube.h */; };
+		B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73B15C6F9E4006B9E50 /* SECube.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2DAB73E15C6F9E4006B9E50 /* SECube.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73C15C6F9E4006B9E50 /* SECube.m */; };
-		B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */; };
+		B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2DAB74215C6FDEC006B9E50 /* SEOctaedron.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB74015C6FDEB006B9E50 /* SEOctaedron.m */; };
 /* End PBXBuildFile section */
 
@@ -624,11 +624,11 @@
 				B22EB73E15C1FDB9002B6A96 /* SEView.h in Headers */,
 				B22EB73F15C1FDB9002B6A96 /* SERendererDelegate.h in Headers */,
 				B22EB74015C1FDB9002B6A96 /* SESphere.h in Headers */,
+				B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */,
+				B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */,
 				B22EB74115C1FDB9002B6A96 /* SETriangle.h in Headers */,
 				B22EB74215C1FDB9002B6A96 /* SERectangle.h in Headers */,
 				B22EB72F15C1FDA1002B6A96 /* SparkEngine-Prefix.pch in Headers */,
-				B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */,
-				B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

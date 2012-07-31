@@ -101,10 +101,14 @@
     
     NSEnumerator *e = [scene.objects objectEnumerator];
     SEShader* currentShader;
+    id currentMaterial;
     id object;
     while (object = [e nextObject]) {
         
-        currentShader = [[object material] shader];
+        currentMaterial = [object material];
+        if ([currentMaterial isKindOfClass:[SEShaderMaterial class]]) {
+            currentShader = [currentMaterial shader];
+        }
         //***********************************************
         //  OpenGL Drawing Operations
         //***********************************************
@@ -133,8 +137,6 @@
         // As the Texture Unit used is 7, let's set this value to 7.
         glUniform1i(currentShader.u_map, 7);
         
-        // Bind the Buffer Objects which we'll use now.
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, [object facesIndicesBuffer]);
         // Sets the dynamic attributes in the current shaders. Each attribute will start in a different
         // index of the ABO.
         glBindBuffer(GL_ARRAY_BUFFER, [object vertexBuffer]);
@@ -147,8 +149,17 @@
         glVertexAttribPointer(currentShader.a_texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) (sizeof(GLKVector3)));
         glVertexAttribPointer(currentShader.a_vertexColor, 4, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
 
-        // Draws the triangles, starting by the index 0 in the IBO.
-        glDrawElements(GL_TRIANGLES, [[object geometry] numFaces] * 3, GL_UNSIGNED_SHORT, (void *) 0);
+        // Draw primitives
+        if ([currentMaterial wireframe]) {
+            // Draws the triangles, starting by the index 0 in the IBO.
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, [object linesIndicesBuffer]);
+            glDrawElements(GL_LINES, [[object geometry] numLines] * 2, GL_UNSIGNED_SHORT, (void *) 0);
+        } else if ([currentMaterial pointCloud]) {
+            glDrawArrays(GL_POINTS, 0, [[object geometry] numVertices]);
+        } else {
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, [object facesIndicesBuffer]);
+            glDrawElements(GL_TRIANGLES, [[object geometry] numFaces] * 3, GL_UNSIGNED_SHORT, (void *) 0);
+        }
         
         glDisableVertexAttribArray(currentShader.a_vertex);
         glDisableVertexAttribArray(currentShader.a_texCoord);
@@ -195,8 +206,15 @@
     NSEnumerator *e = [scene.objects objectEnumerator];
     id object;
     while (object = [e nextObject]) {
-        [object setVertexBuffer: [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: [[object geometry] numVertices] * sizeof(SEVertex) withData: [[object geometry] vertices]]];
-        [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [[object geometry ] numFaces] * sizeof(SEFaceIndices) withData: [[object geometry] facesIndices]]];
+        if ([[object geometry] numVertices] > 0) {
+            [object setVertexBuffer: [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: [[object geometry] numVertices] * sizeof(SEVertex) withData: [[object geometry] vertices]]];
+        }
+        if ([[object geometry] numFaces] > 0) {
+            [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [[object geometry ] numFaces] * sizeof(SEFaceIndices) withData: [[object geometry] facesIndices]]];
+        }
+        if ([[object geometry] numLines] > 0) {
+            [object setLinesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [[object geometry ] numLines] * sizeof(SEFaceIndices) withData: [[object geometry] linesIndices]]];
+        }
     }
 }
 

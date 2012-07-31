@@ -12,30 +12,24 @@
 
 -(id) initWithMaterial: (SEShaderMaterial*) material
 {
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 numberOfFaces:1 vertices: nil facesIndices: nil] material: material];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 vertices: nil numFaces:1 facesIndices: nil numLines: 3 linesIndices: nil] material: material];
     if (self) {
                 
         self.geometry.vertices[0].position = GLKVector3Make(-0.5, -0.5, 1.0);
         self.geometry.vertices[1].position = GLKVector3Make(0.5, -0.5, 1.0);
         self.geometry.vertices[2].position = GLKVector3Make(0.0, 0.5, 1.0);
 
-        if (!material.verticesColors) {
-        
-            self.geometry.vertices[0].color = GLKVector4Make(1.0, 0.0, 0.0, 0.0);
-            self.geometry.vertices[1].color = GLKVector4Make(0.0, 1.0, 0.0, 0.0);
-            self.geometry.vertices[2].color = GLKVector4Make(0.0, 0.0, 1.0, 0.0);
-            
-        } else {
-            
-            self.geometry.vertices[0].color = material.verticesColors[0];
-            self.geometry.vertices[1].color = material.verticesColors[1];
-            self.geometry.vertices[2].color = material.verticesColors[2];
-        }
-        
         self.geometry.facesIndices[0].a = 0;
         self.geometry.facesIndices[0].b = 1;
         self.geometry.facesIndices[0].c = 2;
- 
+        
+        self.geometry.linesIndices[0].a = 0;
+        self.geometry.linesIndices[0].b = 1;
+        self.geometry.linesIndices[1].a = 0;
+        self.geometry.linesIndices[1].b = 2;
+        self.geometry.linesIndices[2].a = 1;
+        self.geometry.linesIndices[2].b = 2;
+        
     }
     
     return self;

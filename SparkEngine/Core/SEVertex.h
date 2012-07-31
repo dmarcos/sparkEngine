@@ -34,3 +34,11 @@ struct SEFaceIndices
     GLushort c;
 };
 typedef struct SEFaceIndices SEFaceIndices;
+
+struct SELineIndices
+{
+    //vertex indices
+    GLushort a;
+    GLushort b;
+};
+typedef struct SELineIndices SELineIndices;

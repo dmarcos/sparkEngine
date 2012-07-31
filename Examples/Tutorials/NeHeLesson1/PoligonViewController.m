@@ -44,6 +44,8 @@
     SEShaderMaterial* material = [[SEShaderMaterial alloc] init];
     material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"plainColor.fsh"];
     material.verticesColors = colors;
+    //sphere.material.wireframe = YES;
+    //sphere.material.pointCloud = YES;
     SETriangle* triangle = [[SETriangle alloc] initWithMaterial: material];
     [self->_polygonView.scene.objects addObject:triangle];
     

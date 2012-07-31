@@ -26,5 +26,6 @@
 // Buffer Objects names/ids.
 @property GLuint vertexBuffer;
 @property GLuint facesIndicesBuffer;
+@property GLuint linesIndicesBuffer;
 
 @end

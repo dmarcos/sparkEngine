@@ -21,7 +21,7 @@
 
 -(id) initWithMaterial: (SEShaderMaterial*) material
 {
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:4 numberOfFaces:2 vertices: nil facesIndices: nil] material: material];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:4 vertices: nil numFaces:2 facesIndices: nil numLines: 6 linesIndices: nil] material: material];
     if (self) {
         
         self->_height = 1.0;
@@ -33,9 +33,24 @@
         self.geometry.facesIndices[0].b = 1;
         self.geometry.facesIndices[0].c = 2;
         
+        self.geometry.linesIndices[0].a = 0;
+        self.geometry.linesIndices[0].b = 1;
+        self.geometry.linesIndices[1].a = 0;
+        self.geometry.linesIndices[1].b = 2;
+        self.geometry.linesIndices[2].a = 1;
+        self.geometry.linesIndices[2].b = 2;
+        
         self.geometry.facesIndices[1].a = 2;
         self.geometry.facesIndices[1].b = 1;
         self.geometry.facesIndices[1].c = 3;
+        
+        self.geometry.linesIndices[3].a = 2;
+        self.geometry.linesIndices[3].b = 1;
+        self.geometry.linesIndices[4].a = 2;
+        self.geometry.linesIndices[4].b = 3;
+        self.geometry.linesIndices[5].a = 1;
+        self.geometry.linesIndices[5].b = 3;
+        
     }
     
     return self;
