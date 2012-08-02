@@ -13,22 +13,21 @@
 
 +(SEShader*) defaultShader;
 
--(id) initWithVertexShaderSource: (const char **) vertexShaderSource fragmentShaderSource: (const char **) fragmentShaderSource; 
-
--(id) initWithVertexShaderFileName: (NSString*) vertexShaderFileName fragmentShaderFileName: (NSString*) fragmentShaderFileName;
+-(id) initWithVertexShaderSource:(const char*)vertexShaderSource fragmentShaderSource:(const char*)fragmentShaderSource;
+-(id) initWithVertexShaderFileName:(NSString*)vertexShaderFileName fragmentShaderFileName:(NSString*)fragmentShaderFileName;
 
 @property (readonly) NSDictionary* attributes;
 @property (readonly) NSDictionary* uniforms;
 
-@property GLuint programId;
+@property (nonatomic, readonly) GLuint programId;
 
 // Uniforms
-@property GLuint u_mvpMatrix;
-@property GLuint u_map;
+@property (readonly) GLuint u_mvpMatrix;
+@property (readonly) GLuint u_map;
 
 // Attributes
-@property GLuint a_vertex;
-@property GLuint a_texCoord;
-@property GLuint a_vertexColor;
+@property (readonly) GLuint a_vertex;
+@property (readonly) GLuint a_texCoord;
+@property (readonly) GLuint a_vertexColor;
 
 @end

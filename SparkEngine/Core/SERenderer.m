@@ -21,21 +21,21 @@
 
 @interface SERenderer(){
     CAEAGLLayer* _eaglLayer;
-    
+
     // Frame and Render buffer names/ids.
     GLuint		_framebuffer;
     GLuint		_colorbuffer;
     GLuint		_depthbuffer;
 
     NSMutableArray* _bufferObjectIndices;
-    
+
     bool _updateObjects;
 }
 
--(void) initOpenGL;
 -(void) clearOpenGL;
 
 -(void) initRenderBuffers;
+-(void) deleteRenderBuffers;
 -(void) clearRenderBuffers;
 -(void) showRenderBuffers;
 
@@ -47,19 +47,34 @@
 
 @implementation SERenderer
 
-@synthesize viewport = _viewport;
 @synthesize glContext = _glContext;
 @synthesize delegate = _delegate;
+@synthesize viewport = _viewport;
 
--(id) initWithViewport:(CGRect)viewport withGLContext: (EAGLContext*) glContext withEAGLLayer: (CAEAGLLayer*) eaglLayer
+- (id) initWithGLContext: (EAGLContext*) glContext withEAGLLayer: (CAEAGLLayer*) eaglLayer;
+{
+    if (eaglLayer && glContext) { // Provided EAGL layer and OpenGL context trigger manual initialization of OpenGL.
+        self->_glContext = glContext;
+        self->_eaglLayer = eaglLayer;
+        self->_framebuffer = -1;
+        self->_colorbuffer = -1;
+        self->_depthbuffer = -1;
+        self->_viewport = eaglLayer.bounds;
+        [EAGLContext setCurrentContext: self->_glContext];
+        [self initRenderBuffers];
+    }
+    self->_updateObjects = true;
+    return self;
+}
+
+-(void) setViewport:(CGRect)viewport
 {
     self->_viewport = viewport;
-    self->_glContext = glContext;
-    self->_eaglLayer = eaglLayer;
-    self->_updateObjects = true;
-    
-    [self initOpenGL];
-    return self;
+    if (self->_glContext) {
+        [EAGLContext setCurrentContext: self->_glContext];
+    }
+    [self deleteRenderBuffers];
+    [self initRenderBuffers];
 }
 
 -(void) preRenderScene
@@ -78,9 +93,13 @@
     }
 }
 
--(void) renderScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera
+-(void) renderScene:(SEScene*)scene camera:(SECamera*)camera viewport:(CGRect) viewport
 {
-    [EAGLContext setCurrentContext: self->_glContext];
+    self->_viewport = viewport;
+    if (self->_glContext) {
+        [EAGLContext setCurrentContext: self->_glContext];
+        glViewport(0, 0, self->_viewport.size.width, self->_viewport.size.height);
+    }
 	[self clearRenderBuffers];
     [self preRenderScene];
     if(self->_updateObjects){
@@ -92,10 +111,8 @@
 	[self showRenderBuffers];
 }
 
--(void) drawScene: (SEScene*) scene camera: (SEPerspectiveCamera*) camera
+-(void) drawScene:(SEScene*)scene camera:(SEPerspectiveCamera*)camera
 {    
-    glViewport(0, 0, self.viewport.size.width, self.viewport.size.height);
-
     // Multiplies the Projection by the ModelView to create the ModelViewProjection matrix.
     GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(camera.projectionMatrix, scene.matrix);
     
@@ -187,21 +204,11 @@
     // Binds the necessary frame buffer and its color render buffer.
 	glBindFramebuffer(GL_FRAMEBUFFER, self->_framebuffer);
 	glBindRenderbuffer(GL_RENDERBUFFER, self->_colorbuffer);
-	
 	// Call EAGL process to present the final image to the device's screen.
     [[EAGLContext currentContext] presentRenderbuffer:GL_RENDERBUFFER];
 }
 
--(void) initOpenGL
-{	
-	// Creates all the OpenGL objects necessary to an application.
-	[self initRenderBuffers];
-    [EAGLContext setCurrentContext: self.glContext];
-	// Sets the size to OpenGL view.
-	glViewport(0, 0, self.viewport.size.width, self.viewport.size.height);
-}
-
--(void) updateBufferObjectsInScene: (SEScene*) scene
+-(void) updateBufferObjectsInScene:(SEScene*)scene
 {
     NSEnumerator *e = [scene.objects objectEnumerator];
     id object;
@@ -239,7 +246,7 @@
 	// The render will not respect the Z Depth informations of the 3D objects.
 	glGenRenderbuffers(1, &_depthbuffer);
 	glBindRenderbuffer(GL_RENDERBUFFER, _depthbuffer);
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.viewport.size.width, self.viewport.size.height);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self->_viewport.size.width, self->_viewport.size.height);
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthbuffer);
 	glEnable(GL_DEPTH_TEST);
 	
@@ -266,7 +273,21 @@
 #endif
 }
 
-- (GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data
+-(void) deleteRenderBuffers
+{
+    // Delete the Frame and Render buffers.
+    if (self->_colorbuffer != -1) {
+        glDeleteRenderbuffers(1, &self->_colorbuffer);
+    }
+    if (self->_depthbuffer != -1) {
+        glDeleteRenderbuffers(1, &self->_depthbuffer);
+    }
+    if (self->_framebuffer != -1) {
+        glDeleteFramebuffers(1, &self->_framebuffer);
+    }
+}
+
+- (GLuint) initBufferObjectWithType:(GLenum)type withSize:(GLsizeiptr)size withData:(const GLvoid*)data
 {
 	GLuint buffer;
 	
@@ -293,9 +314,7 @@
     }
 
     // Delete the Frame and Render buffers.
-    glDeleteRenderbuffers(1, &self->_colorbuffer);
-    glDeleteRenderbuffers(1, &self->_depthbuffer);
-    glDeleteFramebuffers(1, &self->_framebuffer);
+    [self deleteRenderBuffers];
 }
 
 - (void) dealloc

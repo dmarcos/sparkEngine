@@ -62,6 +62,9 @@
 		B22EB74015C1FDB9002B6A96 /* SESphere.h in Headers */ = {isa = PBXBuildFile; fileRef = B216FB9115B0D769007B00A7 /* SESphere.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B22EB74115C1FDB9002B6A96 /* SETriangle.h in Headers */ = {isa = PBXBuildFile; fileRef = B216FB9315B0D769007B00A7 /* SETriangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B22EB74215C1FDB9002B6A96 /* SERectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = B2B8159E15B9CA2900794DE9 /* SERectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B252833815C9CAB4005C8AD9 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163A915B602C8009FC1A3 /* default.fsh */; };
+		B252833915C9CAB4005C8AD9 /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163AA15B602C8009FC1A3 /* default.vsh */; };
+		B252833A15C9CAB4005C8AD9 /* plainColor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163AB15B602C8009FC1A3 /* plainColor.fsh */; };
 		B2996EA515BDE76800DE026D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2996EA415BDE76800DE026D /* DetailViewController.m */; };
 		B29FDA5515B8775500D337BA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
 		B29FDA5615B87BDA00D337BA /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
@@ -70,6 +73,18 @@
 		B29FDA5E15B8938C00D337BA /* SEARView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B29FDA5D15B8938C00D337BA /* SEARView.mm */; };
 		B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
+		B2C76F1315C9B77B00DEC0F4 /* SERendererController.h in Headers */ = {isa = PBXBuildFile; fileRef = B2C76F1115C9B77A00DEC0F4 /* SERendererController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2C76F1415C9B77B00DEC0F4 /* SERendererController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C76F1215C9B77A00DEC0F4 /* SERendererController.m */; };
+		B2C76F1B15C9C17000DEC0F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2113198BC100146334 /* UIKit.framework */; };
+		B2C76F1C15C9C17000DEC0F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2313198BC100146334 /* Foundation.framework */; };
+		B2C76F1D15C9C17000DEC0F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2513198BC100146334 /* CoreGraphics.framework */; };
+		B2C76F3515C9C1A100DEC0F4 /* RenderLoppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C76F2F15C9C1A100DEC0F4 /* RenderLoppAppDelegate.m */; };
+		B2C76F3715C9C1A100DEC0F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C76F3215C9C1A100DEC0F4 /* main.m */; };
+		B2C76F3B15C9C22700DEC0F4 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26EA38215890CCF000EB015 /* GLKit.framework */; };
+		B2C76F3C15C9C22700DEC0F4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2913198BC100146334 /* OpenGLES.framework */; };
+		B2C76F3D15C9C22D00DEC0F4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60119D2713198BC100146334 /* QuartzCore.framework */; };
+		B2C76F4515C9C6EB00DEC0F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2C76F4115C9C6EB00DEC0F4 /* InfoPlist.strings */; };
+		B2C76F4615C9C6EB00DEC0F4 /* RenderLoop-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2C76F4315C9C6EB00DEC0F4 /* RenderLoop-Info.plist */; };
 		B2D163B215B602DD009FC1A3 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163A915B602C8009FC1A3 /* default.fsh */; };
 		B2D163B315B602DD009FC1A3 /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163AA15B602C8009FC1A3 /* default.vsh */; };
 		B2D163B515B602EC009FC1A3 /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163A915B602C8009FC1A3 /* default.fsh */; };
@@ -120,6 +135,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B2C76F3915C9C21700DEC0F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60119D1413198BC100146334 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B22EB6F715C1FBED002B6A96;
+			remoteInfo = SparkEngine;
+		};
 		B2DAB72C15C31832006B9E50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 60119D1413198BC100146334 /* Project object */;
@@ -201,6 +223,15 @@
 		B2B8159F15B9CA2900794DE9 /* SERectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERectangle.m; sourceTree = "<group>"; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
 		B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueMarble.jpg; sourceTree = "<group>"; };
+		B2C76F1115C9B77A00DEC0F4 /* SERendererController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERendererController.h; sourceTree = "<group>"; };
+		B2C76F1215C9B77A00DEC0F4 /* SERendererController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERendererController.m; sourceTree = "<group>"; };
+		B2C76F1915C9C17000DEC0F4 /* RenderLoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenderLoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2C76F2E15C9C1A100DEC0F4 /* RenderLoppAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderLoppAppDelegate.h; sourceTree = "<group>"; };
+		B2C76F2F15C9C1A100DEC0F4 /* RenderLoppAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderLoppAppDelegate.m; sourceTree = "<group>"; };
+		B2C76F3215C9C1A100DEC0F4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B2C76F4215C9C6EB00DEC0F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2C76F4315C9C6EB00DEC0F4 /* RenderLoop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RenderLoop-Info.plist"; sourceTree = "<group>"; };
+		B2C76F4415C9C6EB00DEC0F4 /* RenderLoop-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RenderLoop-Prefix.pch"; sourceTree = "<group>"; };
 		B2D1635F15B5C6D7009FC1A3 /* SEMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEMaterial.h; sourceTree = "<group>"; };
 		B2D1636015B5C6D7009FC1A3 /* SEMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEMaterial.m; sourceTree = "<group>"; };
 		B2D1636315B5C7D9009FC1A3 /* SEShaderMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEShaderMaterial.h; sourceTree = "<group>"; };
@@ -296,6 +327,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2C76F1615C9C17000DEC0F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2C76F3D15C9C22D00DEC0F4 /* QuartzCore.framework in Frameworks */,
+				B2C76F3B15C9C22700DEC0F4 /* GLKit.framework in Frameworks */,
+				B2C76F3C15C9C22700DEC0F4 /* OpenGLES.framework in Frameworks */,
+				B2C76F1B15C9C17000DEC0F4 /* UIKit.framework in Frameworks */,
+				B2C76F1C15C9C17000DEC0F4 /* Foundation.framework in Frameworks */,
+				B2C76F1D15C9C17000DEC0F4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2D163D315B734ED009FC1A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,6 +381,7 @@
 				B216FB7015B0D1D5007B00A7 /* NeHeLesson1.app */,
 				B2D163D615B734ED009FC1A3 /* AR.app */,
 				B22EB6F815C1FBED002B6A96 /* SparkEngine.framework */,
+				B2C76F1915C9C17000DEC0F4 /* RenderLoop.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -442,6 +487,8 @@
 				B216FB8315B0D769007B00A7 /* SEPerspectiveCamera.m */,
 				B216FB8415B0D769007B00A7 /* SERenderer.h */,
 				B216FB8515B0D769007B00A7 /* SERenderer.m */,
+				B2C76F1115C9B77A00DEC0F4 /* SERendererController.h */,
+				B2C76F1215C9B77A00DEC0F4 /* SERendererController.m */,
 				B216FB8615B0D769007B00A7 /* SEScene.h */,
 				B216FB8715B0D769007B00A7 /* SEScene.m */,
 				B216FB8815B0D769007B00A7 /* SEShader.h */,
@@ -499,6 +546,7 @@
 		B27CE09815B0B9AB00E348FA /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				B2C76F2D15C9C1A100DEC0F4 /* RenderLoop */,
 				B2D163FA15B73708009FC1A3 /* AR */,
 				B216FAF915B0CB14007B00A7 /* Earth3D */,
 				B27CE09915B0B9AB00E348FA /* Tutorials */,
@@ -512,6 +560,27 @@
 				B216FB3F15B0D1A7007B00A7 /* NeHeLesson1 */,
 			);
 			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		B2C76F2D15C9C1A100DEC0F4 /* RenderLoop */ = {
+			isa = PBXGroup;
+			children = (
+				B2C76F4015C9C6EB00DEC0F4 /* SupportingFiles */,
+				B2C76F2E15C9C1A100DEC0F4 /* RenderLoppAppDelegate.h */,
+				B2C76F2F15C9C1A100DEC0F4 /* RenderLoppAppDelegate.m */,
+				B2C76F3215C9C1A100DEC0F4 /* main.m */,
+			);
+			path = RenderLoop;
+			sourceTree = "<group>";
+		};
+		B2C76F4015C9C6EB00DEC0F4 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B2C76F4115C9C6EB00DEC0F4 /* InfoPlist.strings */,
+				B2C76F4315C9C6EB00DEC0F4 /* RenderLoop-Info.plist */,
+				B2C76F4415C9C6EB00DEC0F4 /* RenderLoop-Prefix.pch */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		B2D163A815B602C8009FC1A3 /* Shaders */ = {
@@ -627,6 +696,7 @@
 				B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */,
 				B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */,
 				B22EB74115C1FDB9002B6A96 /* SETriangle.h in Headers */,
+				B2C76F1315C9B77B00DEC0F4 /* SERendererController.h in Headers */,
 				B22EB74215C1FDB9002B6A96 /* SERectangle.h in Headers */,
 				B22EB72F15C1FDA1002B6A96 /* SparkEngine-Prefix.pch in Headers */,
 			);
@@ -692,6 +762,24 @@
 			productReference = B22EB6F815C1FBED002B6A96 /* SparkEngine.framework */;
 			productType = "com.apple.product-type.bundle";
 		};
+		B2C76F1815C9C17000DEC0F4 /* RenderLoop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2C76F2A15C9C17000DEC0F4 /* Build configuration list for PBXNativeTarget "RenderLoop" */;
+			buildPhases = (
+				B2C76F1515C9C17000DEC0F4 /* Sources */,
+				B2C76F1615C9C17000DEC0F4 /* Frameworks */,
+				B2C76F1715C9C17000DEC0F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2C76F3A15C9C21700DEC0F4 /* PBXTargetDependency */,
+			);
+			name = RenderLoop;
+			productName = RenderLoop;
+			productReference = B2C76F1915C9C17000DEC0F4 /* RenderLoop.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B2D163D515B734ED009FC1A3 /* AR */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2D163E715B734ED009FC1A3 /* Build configuration list for PBXNativeTarget "AR" */;
@@ -735,6 +823,7 @@
 				B216FB4C15B0D1D5007B00A7 /* NeHeLesson1 */,
 				B2D163D515B734ED009FC1A3 /* AR */,
 				B22EB6F715C1FBED002B6A96 /* SparkEngine */,
+				B2C76F1815C9C17000DEC0F4 /* RenderLoop */,
 			);
 		};
 /* End PBXProject section */
@@ -773,6 +862,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B22EB70815C1FC94002B6A96 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2C76F1715C9C17000DEC0F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B252833815C9CAB4005C8AD9 /* default.fsh in Resources */,
+				B252833915C9CAB4005C8AD9 /* default.vsh in Resources */,
+				B252833A15C9CAB4005C8AD9 /* plainColor.fsh in Resources */,
+				B2C76F4515C9C6EB00DEC0F4 /* InfoPlist.strings in Resources */,
+				B2C76F4615C9C6EB00DEC0F4 /* RenderLoop-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,6 +983,16 @@
 				B22EB72E15C1FCE8002B6A96 /* SERectangle.m in Sources */,
 				B2DAB73E15C6F9E4006B9E50 /* SECube.m in Sources */,
 				B2DAB74215C6FDEC006B9E50 /* SEOctaedron.m in Sources */,
+				B2C76F1415C9B77B00DEC0F4 /* SERendererController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2C76F1515C9C17000DEC0F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2C76F3515C9C1A100DEC0F4 /* RenderLoppAppDelegate.m in Sources */,
+				B2C76F3715C9C1A100DEC0F4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,6 +1019,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B2C76F3A15C9C21700DEC0F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B22EB6F715C1FBED002B6A96 /* SparkEngine */;
+			targetProxy = B2C76F3915C9C21700DEC0F4 /* PBXContainerItemProxy */;
+		};
 		B2DAB72D15C31832006B9E50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B22EB6F715C1FBED002B6A96 /* SparkEngine */;
@@ -930,6 +1046,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				B22EB70515C1FC94002B6A96 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B2C76F4115C9C6EB00DEC0F4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2C76F4215C9C6EB00DEC0F4 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1155,6 +1279,63 @@
 			};
 			name = Release;
 		};
+		B2C76F2B15C9C17000DEC0F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Examples/RenderLoop/SupportingFiles/RenderLoop-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Examples/RenderLoop/SupportingFiles/RenderLoop-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SparkEngine,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B2C76F2C15C9C17000DEC0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Examples/RenderLoop/SupportingFiles/RenderLoop-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Examples/RenderLoop/SupportingFiles/RenderLoop-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SparkEngine,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		B2D163E815B734ED009FC1A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1257,6 +1438,15 @@
 			buildConfigurations = (
 				B22EB70115C1FBED002B6A96 /* Debug */,
 				B22EB70215C1FBED002B6A96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2C76F2A15C9C17000DEC0F4 /* Build configuration list for PBXNativeTarget "RenderLoop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2C76F2B15C9C17000DEC0F4 /* Debug */,
+				B2C76F2C15C9C17000DEC0F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

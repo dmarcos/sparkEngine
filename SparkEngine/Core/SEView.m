@@ -13,13 +13,17 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+@interface SEView(){
+    CGRect _viewport;
+}
+@end
+
 @implementation SEView
 
 @synthesize camera = _camera;
 @synthesize scene = _scene;
 @synthesize renderer = _renderer;
 @synthesize glContext = _glContext;
-
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -38,8 +42,8 @@
         
         // Creates the EAGLContext and set it as the current one.
         self->_glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-        [EAGLContext setCurrentContext: self->_glContext];
-        self->_renderer = [[SERenderer alloc] initWithViewport:self.bounds withGLContext: self->_glContext withEAGLLayer: (CAEAGLLayer *) self.layer];
+        self->_renderer = [[SERenderer alloc] initWithGLContext: self->_glContext withEAGLLayer: (CAEAGLLayer*) self.layer];
+        self->_viewport = self.bounds;
         self->_scene = [[SEScene alloc] init];
     }
     return self;
@@ -47,7 +51,7 @@
 
 - (void)renderFrame
 {
-    [self->_renderer renderScene:self->_scene camera:self->_camera];
+    [self->_renderer renderScene:self->_scene camera:self->_camera viewport: self->_viewport];
 }
 
 + (Class) layerClass

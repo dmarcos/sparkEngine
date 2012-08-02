@@ -11,8 +11,6 @@
 
 @implementation Earth3DAppDelegate
 
-@synthesize window = _window;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     CGRect appFrame = [[UIScreen mainScreen] bounds];

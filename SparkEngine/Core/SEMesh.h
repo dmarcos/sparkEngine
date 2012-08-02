@@ -20,8 +20,8 @@
 
 -(id) initWithGeometry: (SEGeometry*) geometry material: (SEShaderMaterial*) material;
 
-@property (nonatomic) SEGeometry* geometry;
-@property (nonatomic) SEShaderMaterial* material;
+@property (nonatomic, retain) SEGeometry* geometry;
+@property (nonatomic, retain) SEShaderMaterial* material;
 
 // Buffer Objects names/ids.
 @property GLuint vertexBuffer;

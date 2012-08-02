@@ -85,7 +85,6 @@
             newModelViewMatrix = GLKMatrix4RotateZ(newModelViewMatrix, self.scene.rotation.z);
             newModelViewMatrix = GLKMatrix4Translate(newModelViewMatrix, self.scene.position.x, self.scene.position.y, self.scene.position.z);
             newModelViewMatrix = GLKMatrix4Scale(newModelViewMatrix, 64.0, 64.0, 64.0);
-           
             self.scene.matrix = newModelViewMatrix;
         }
     }

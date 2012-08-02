@@ -9,9 +9,13 @@
 #import "SEShader.h"
 #import <OpenGLES/ES2/gl.h>
 
-@interface SEShader()
+@interface SEShader(){
+    NSString* _vertexShaderSource;
+    NSString* _fragmentShaderSource;
+}
 
 -(GLuint) initShaderWithType: (GLenum) type withSource: (const char **) source;
+-(void) compileProgram;
 -(GLuint) compileProgramWithVertexShader: (GLuint) vertexShader withFragmentShader: (GLuint) fragmentShader;
 
 @end
@@ -38,41 +42,23 @@
 }
 
 
--(id) initWithVertexShaderSource: (const char **) vertexShaderSource fragmentShaderSource: (const char **)fragmentShaderSource
+-(id) initWithVertexShaderSource:(const char*)vertexShaderSource fragmentShaderSource:(const char*)fragmentShaderSource
 {
     self = [super init];
     if(self){
-        GLuint vertexShaderId = [self initShaderWithType: GL_VERTEX_SHADER withSource: vertexShaderSource];
-        GLuint fragmentShaderId = [self initShaderWithType: GL_FRAGMENT_SHADER withSource: fragmentShaderSource];
-        self->_programId = [self compileProgramWithVertexShader: vertexShaderId withFragmentShader: fragmentShaderId];
-        // Clears the shaders objects.
-        // The OpenGL stores a copy of them into the program object.
-        glDeleteShader(vertexShaderId);
-        glDeleteShader(fragmentShaderId);
-        // Gets the uniforms locations.
-        self->_u_mvpMatrix = glGetUniformLocation(self->_programId, "u_mvpMatrix");
-        self->_u_map = glGetUniformLocation(self->_programId, "u_map");
-        
-        // Gets the attributes locations.
-        self->_a_vertex = glGetAttribLocation(self->_programId, "a_vertex");
-        self->_a_texCoord = glGetAttribLocation(self->_programId, "a_texCoord");
-        self->_a_vertexColor = glGetAttribLocation(self->_programId, "a_vertexColor");
-        
-        // As we'll use only those pair of shaders, let's enable the dynamic attributes to they once.
-        glEnableVertexAttribArray(self->_a_vertex);
-        glEnableVertexAttribArray(self->_a_texCoord);
-        glEnableVertexAttribArray(self->_a_vertexColor);
+        self->_vertexShaderSource = [NSString stringWithCString:vertexShaderSource encoding:NSUTF8StringEncoding];
+        self->_fragmentShaderSource = [NSString stringWithCString:fragmentShaderSource encoding:NSUTF8StringEncoding];
+        self->_programId = -1;
     }
     return self;  
 };
 
--(id) initWithVertexShaderFileName: (NSString*) vertexShaderFileName fragmentShaderFileName: (NSString*) fragmentShaderFileName
+-(id) initWithVertexShaderFileName:(NSString*)vertexShaderFileName fragmentShaderFileName:(NSString*)fragmentShaderFileName
 {
     NSString* vertexShaderExtension = [vertexShaderFileName pathExtension];
     NSString* vertexShaderName = [vertexShaderFileName stringByDeletingPathExtension];
     NSString* fragmentShaderExtension = [fragmentShaderFileName pathExtension];
     NSString* fragmentShaderName = [fragmentShaderFileName stringByDeletingPathExtension];
-    
     
     NSString* vertexShaderPath = [[NSBundle mainBundle] pathForResource:vertexShaderName ofType:vertexShaderExtension];
     if (!vertexShaderPath) {
@@ -90,14 +76,17 @@
     NSString* vertexShaderCode = [[NSString alloc] initWithContentsOfFile:vertexShaderPath encoding:NSUTF8StringEncoding error:&error];
     NSString* fragmentShaderCode = [[NSString alloc] initWithContentsOfFile:fragmentShaderPath encoding:NSUTF8StringEncoding error:&error];
     
-    const char* vertexShaderCodeChar = [vertexShaderCode UTF8String];
-    const char* fragmentShaderCodeChar = [fragmentShaderCode UTF8String];
-    
-    self = [self initWithVertexShaderSource: &vertexShaderCodeChar fragmentShaderSource: &fragmentShaderCodeChar];
+    self = [super init];
+    if(self){
+        self->_vertexShaderSource = vertexShaderCode;
+        self->_fragmentShaderSource = fragmentShaderCode;
+        self->_programId = -1;
+    }
     return self;
+    
 }
 
--(GLuint) initShaderWithType: (GLenum) type withSource: (const char **) source
+-(GLuint) initShaderWithType:(GLenum)type withSource:(const char **)source
 {
 	GLuint name = glCreateShader(type);
 	
@@ -139,7 +128,29 @@
 	return name;
 }
 
-- (GLuint) compileProgramWithVertexShader: (GLuint) vertexShader withFragmentShader: (GLuint) fragmentShader
+-(void) compileProgram{
+    
+    const char* vertexShaderCodeChar = [self->_vertexShaderSource UTF8String];
+    const char* fragmentShaderCodeChar = [self->_fragmentShaderSource UTF8String];
+    
+    GLuint vertexShaderId = [self initShaderWithType: GL_VERTEX_SHADER withSource: &vertexShaderCodeChar];
+    GLuint fragmentShaderId = [self initShaderWithType: GL_FRAGMENT_SHADER withSource: &fragmentShaderCodeChar];
+    self->_programId = [self compileProgramWithVertexShader: vertexShaderId withFragmentShader: fragmentShaderId];
+    // Clears the shaders objects.
+    // The OpenGL stores a copy of them into the program object.
+    glDeleteShader(vertexShaderId);
+    glDeleteShader(fragmentShaderId);
+    // Gets the uniforms locations.
+    self->_u_mvpMatrix = glGetUniformLocation(self->_programId, "u_mvpMatrix");
+    self->_u_map = glGetUniformLocation(self->_programId, "u_map");
+    
+    // Gets the attributes locations.
+    self->_a_vertex = glGetAttribLocation(self->_programId, "a_vertex");
+    self->_a_texCoord = glGetAttribLocation(self->_programId, "a_texCoord");
+    self->_a_vertexColor = glGetAttribLocation(self->_programId, "a_vertexColor");
+}
+
+- (GLuint) compileProgramWithVertexShader:(GLuint)vertexShader withFragmentShader:(GLuint)fragmentShader
 {
     // Creates the program name/index.
 	GLuint name = glCreateProgram();
@@ -177,6 +188,13 @@
 	return name;
 }
 
+-(GLuint) programId{
+    if (self->_programId == -1) {
+        [self compileProgram];
+    }
+    return self->_programId;
+}
+
 -(void) dealloc
 {
     // Delete Programs, remember which the shaders was already deleted before.
@@ -187,6 +205,5 @@
     glDisableVertexAttribArray(self->_a_texCoord);
     glDisableVertexAttribArray(self->_a_vertexColor);
 }
-
 
 @end

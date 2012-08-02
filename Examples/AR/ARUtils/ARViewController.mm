@@ -134,7 +134,7 @@
         // removeFromSuperView
         CMDeviceMotion *deviceMotion = self->motionManager.deviceMotion;     
         CMAttitude *attitude = deviceMotion.attitude;
-        NSLog(@"roll = %f... pitch = %f ... yaw = %f", degrees(attitude.roll), degrees(attitude.pitch), degrees(attitude.yaw));
+        //NSLog(@"roll = %f... pitch = %f ... yaw = %f", degrees(attitude.roll), degrees(attitude.pitch), degrees(attitude.yaw));
         
         if(self->orientation == UIDeviceOrientationLandscapeRight ||
            self->orientation == UIDeviceOrientationLandscapeLeft) {

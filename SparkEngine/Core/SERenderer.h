@@ -16,11 +16,11 @@
 
 @interface SERenderer : NSObject
 
-- (id) initWithViewport: (CGRect) viewport withGLContext: (EAGLContext*) glContext withEAGLLayer: (CAEAGLLayer*) eaglLayer;
-- (void) renderScene: (SEScene*) scene camera: (SECamera*) camera;
+- (id) initWithGLContext: (EAGLContext*) glContext withEAGLLayer: (CAEAGLLayer*) eaglLayer;
+-(void) renderScene:(SEScene*)scene camera:(SECamera*)camera viewport:(CGRect) viewport;
 
-@property (nonatomic, readonly) CGRect viewport;
 @property (weak, nonatomic, readonly) EAGLContext* glContext;
-@property(nonatomic, assign) id<SERendererDelegate> delegate;
+@property (nonatomic, assign) id<SERendererDelegate> delegate;
+@property (nonatomic) CGRect viewport;
 
 @end
