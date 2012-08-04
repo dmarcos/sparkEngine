@@ -28,8 +28,6 @@
     GLuint		_depthbuffer;
 
     NSMutableArray* _bufferObjectIndices;
-
-    bool _updateObjects;
 }
 
 -(void) clearOpenGL;
@@ -39,9 +37,12 @@
 -(void) clearRenderBuffers;
 -(void) showRenderBuffers;
 
--(void) drawScene: (SEScene*) scene camera: (SECamera*) camera;
--(void) updateBufferObjectsInScene: (SEScene*) scene;
--(GLuint) initBufferObjectWithType: (GLenum) type withSize: (GLsizeiptr) size withData: (const GLvoid*) data;
+-(void) drawScene:(SEScene*)scene camera:(SECamera*)camera;
+
+-(void) updateBufferObjectsInScene:(SEScene*)scene;
+-(GLuint) initBufferObjectWithType:(GLenum)type size:(GLsizeiptr)size data:(const GLvoid*)data;
+-(void) updateBufferObject:(GLuint)bufferId type:(GLenum)type size:(GLsizeiptr)size data:(const GLvoid*)data;
+-(void) deleteBufferObject:(GLuint)bufferId;
 
 @end
 
@@ -63,7 +64,6 @@
         [EAGLContext setCurrentContext: self->_glContext];
         [self initRenderBuffers];
     }
-    self->_updateObjects = true;
     return self;
 }
 
@@ -102,10 +102,7 @@
     }
 	[self clearRenderBuffers];
     [self preRenderScene];
-    if(self->_updateObjects){
-        [self updateBufferObjectsInScene: scene];
-        self->_updateObjects = false;
-    }
+    [self updateBufferObjectsInScene: scene];
 	[self drawScene: scene camera: camera];
     [self postRenderScene];
 	[self showRenderBuffers];
@@ -213,16 +210,26 @@
     NSEnumerator *e = [scene.objects objectEnumerator];
     id object;
     while (object = [e nextObject]) {
-        if ([[object geometry] numVertices] > 0) {
-            [object setVertexBuffer: [self initBufferObjectWithType: GL_ARRAY_BUFFER withSize: [[object geometry] numVertices] * sizeof(SEVertex) withData: [[object geometry] vertices]]];
+        if ([[object geometry] numVertices] > 0 && [object vertexBufferNeedsUpdate]) {
+            if ([object vertexBuffer] == -1){
+                [object setVertexBuffer: [self initBufferObjectWithType:GL_ARRAY_BUFFER size:[[object geometry] numVertices]*sizeof(SEVertex) data:[[object geometry] vertices]]];
+            } else {
+                [self updateBufferObject:[object vertexBuffer] type:GL_ARRAY_BUFFER size:[[object geometry] numVertices]*sizeof(SEVertex) data:[[object geometry] vertices]];
+                [object setVertexBufferNeedsUpdate: NO];
+            }
         }
-        if ([[object geometry] numFaces] > 0) {
-            [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [[object geometry ] numFaces] * sizeof(SEFaceIndices) withData: [[object geometry] facesIndices]]];
+        if ([[object geometry] numFaces] > 0 && [object facesIndicesBuffer] == -1){
+            [object setFacesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER size:[[object geometry ] numFaces] * sizeof(SEFaceIndices) data:[[object geometry] facesIndices]]];
         }
-        if ([[object geometry] numLines] > 0) {
-            [object setLinesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER withSize: [[object geometry ] numLines] * sizeof(SEFaceIndices) withData: [[object geometry] linesIndices]]];
+        if ([[object geometry] numLines] > 0 && [object linesIndicesBuffer] == -1) {
+            [object setLinesIndicesBuffer: [self initBufferObjectWithType: GL_ELEMENT_ARRAY_BUFFER size:[[object geometry ] numLines] * sizeof(SEFaceIndices) data:[[object geometry] linesIndices]]];
         }
     }
+}
+
+-(void) deleteBufferObject:(GLuint)bufferId
+{
+    glDeleteBuffers(1, &bufferId);
 }
 
 -(void) initRenderBuffers
@@ -287,20 +294,25 @@
     }
 }
 
-- (GLuint) initBufferObjectWithType:(GLenum)type withSize:(GLsizeiptr)size withData:(const GLvoid*)data
+- (GLuint) initBufferObjectWithType:(GLenum)type size:(GLsizeiptr)size data:(const GLvoid*)data
 {
-	GLuint buffer;
+	GLuint bufferId;
 	
 	// Generates the vertex buffer object (VBO)
-	glGenBuffers(1, &buffer);
+	glGenBuffers(1, &bufferId);
 	
-    [self->_bufferObjectIndices addObject: [[NSNumber alloc] initWithInt: buffer]];
+    [self->_bufferObjectIndices addObject: [[NSNumber alloc] initWithInt: bufferId]];
     
 	// Bind the VBO so we can fill it with data
-	glBindBuffer(type, buffer);
-	glBufferData(type, size, data, GL_STATIC_DRAW);
+    [self updateBufferObject:(GLuint)bufferId type:type size:size data:data];
 	
-	return buffer;
+	return bufferId;
+}
+
+- (void) updateBufferObject:(GLuint)bufferId type:(GLenum)type size:(GLsizeiptr)size data:(const GLvoid*)data
+{
+    glBindBuffer(type, bufferId);
+	glBufferData(type, size, data, GL_STATIC_DRAW);
 }
 
 - (void) clearOpenGL

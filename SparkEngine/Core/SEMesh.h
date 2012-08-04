@@ -24,7 +24,9 @@
 @property (nonatomic, retain) SEShaderMaterial* material;
 
 // Buffer Objects names/ids.
-@property GLuint vertexBuffer;
+@property (nonatomic) GLuint vertexBuffer;
+@property bool vertexBufferNeedsUpdate;
+
 @property GLuint facesIndicesBuffer;
 @property GLuint linesIndicesBuffer;
 

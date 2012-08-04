@@ -12,9 +12,12 @@
 #import <SparkEngine/SEShaderMaterial.h>
 #import <SparkEngine/SEShader.h>
 #import <SparkEngine/SETriangle.h>
+#include <stdlib.h>
 
 @interface RenderLoppAppDelegate(){
     SERendererController* _rendererController;
+    SEShaderMaterial* _material;
+    SETriangle* _triangle;
 }
 @end
 
@@ -40,17 +43,18 @@
     // Objects Setup
     SEShaderMaterial* material = [[SEShaderMaterial alloc] init];
     material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"plainColor.fsh"];
-    SETriangle* triangle = [[SETriangle alloc] initWithMaterial: material];
+    self->_material = material;
+    self->_triangle = [[SETriangle alloc] initWithMaterial: material];
     
     // Scene Setup
-    [self->_rendererController.scene.objects addObject:triangle];
+    [self->_rendererController.scene.objects addObject:self->_triangle];
     self->_rendererController.scene.position = GLKVector3Make(0.0, 0.0,-4.0);
     
     // GLKViewController Setup
     GLKViewController * viewController = [[GLKViewController alloc] initWithNibName:nil bundle:nil]; 
     viewController.view = view;
     viewController.delegate = self; 
-    viewController.preferredFramesPerSecond = 60; 
+    viewController.preferredFramesPerSecond = 60;
     self.window.rootViewController = viewController; 
     
     self.window.backgroundColor = [UIColor whiteColor];
@@ -59,6 +63,8 @@
 }
 
 - (void)glkViewControllerUpdate:(GLKViewController *)controller {
+    self->_material.color = GLKVector4Make((float) rand() / RAND_MAX, (float) rand() / (float) RAND_MAX, rand() / RAND_MAX, 1.0);
+    self->_triangle.material = self->_material;
 }
 
 @end
