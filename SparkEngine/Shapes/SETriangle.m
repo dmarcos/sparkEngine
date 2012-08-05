@@ -10,7 +10,7 @@
 
 @implementation SETriangle
 
--(id) initWithMaterial: (SEShaderMaterial*) material
+-(id) initWithMaterial:(SEShaderMaterial*)material
 {
     self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 vertices: nil numFaces:1 facesIndices: nil numLines: 3 linesIndices: nil] material: material];
     if (self) {

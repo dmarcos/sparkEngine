@@ -8,10 +8,16 @@
 
 #import "SEObject3D.h"
 
-@class NSMutableArray;
+@class NSEnumerator;
 
 @interface SEScene : SEObject3D
 
-@property NSMutableArray* objects;
+@property GLKVector4 backgroundColor;
+
+@property NSMutableArray* removedObjects;
+
+-(void) addObject:(SEObject3D*)object;
+-(void) removeObject:(SEObject3D*)object;
+-(NSEnumerator*) objectEnumerator;
 
 @end

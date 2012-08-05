@@ -36,7 +36,7 @@
     sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];
     
     // Scene Setup
-    [self->_earth3dView.scene.objects addObject:sphere];
+    [self->_earth3dView.scene addObject:sphere];
     self->_earth3dView.scene.position = GLKVector3Make(0.0, 0.0,-4.0);
     
     // Gesture recognizer setup

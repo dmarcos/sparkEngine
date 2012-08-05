@@ -24,8 +24,7 @@
 @synthesize linesIndices = _linesIndices;
 @synthesize numLines = _numLines;
 
-
--(id) initWithNumberOfVertices: (int) numVertices vertices: (GLfloat*) vertices numFaces: (int) numFaces facesIndices: (GLushort*) facesIndices{
+-(id) initWithNumberOfVertices:(int)numVertices vertices:(GLfloat*)vertices numFaces:(int)numFaces facesIndices:(GLushort*)facesIndices{
     self = [super init];
     if (self) {
         self->_numVertices = numVertices;
@@ -45,7 +44,7 @@
     return self;
 }
 
--(id) initWithNumberOfVertices: (int) numVertices vertices: (GLfloat*) vertices numFaces: (int) numFaces facesIndices: (GLushort*) facesIndices numLines: (int) numLines linesIndices: (GLushort*) linesIndices{
+-(id) initWithNumberOfVertices:(int)numVertices vertices:(GLfloat*)vertices numFaces:(int)numFaces facesIndices:(GLushort*) facesIndices numLines:(int)numLines linesIndices:(GLushort*)linesIndices{
     self = [self initWithNumberOfVertices: (int) numVertices vertices: (GLfloat*) vertices numFaces: (int) numFaces facesIndices: (GLushort*) facesIndices];
     if (self) {
         self->_numLines = numLines;
@@ -59,22 +58,25 @@
     return self;
 }
 
--(int) numVertices {
+-(int) numVertices
+{
     return self->_numVertices;
 }
 
--(int) numFaces {
+-(int) numFaces
+{
     return self->_numFaces;
 }
 
--(void) setVertices: (SEVertex*) vertices 
+-(void) setVertices:(SEVertex*)vertices 
 {
     for (int i =0; i < self->_numVertices; ++i) {
         self.vertices[i] = vertices[i];
     }
 }
 
--(SEVertex*) vertices {
+-(SEVertex*) vertices
+{
     if (self->_vertices == nil) {
         self->_verticesData = [NSMutableData dataWithLength:sizeof(SEVertex)*self.numVertices];
         self->_vertices = [self->_verticesData mutableBytes];
@@ -82,7 +84,7 @@
     return self->_vertices;
 }
 
--(void) setFacesIndices: (SEFaceIndices*) facesIndices
+-(void) setFacesIndices:(SEFaceIndices*)facesIndices
 {
     for (int i =0; i < self->_numFaces; ++i) {
         self.facesIndices[i] = facesIndices[i];
@@ -99,7 +101,7 @@
 }
 
 
--(void) setLinesIndices: (SELineIndices*) linesIndices
+-(void) setLinesIndices:(SELineIndices*)linesIndices
 {
     for (int i =0; i < self->_numLines; ++i) {
         self.linesIndices[i] = linesIndices[i];

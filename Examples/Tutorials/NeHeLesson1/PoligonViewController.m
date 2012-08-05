@@ -46,7 +46,7 @@
     SETriangle* triangle = [[SETriangle alloc] initWithMaterial: material];
     
     // Scene Setup
-    [self->_polygonView.scene.objects addObject:triangle];
+    [self->_polygonView.scene addObject:triangle];
     self->_polygonView.scene.position = GLKVector3Make(0.0, 0.0,-4.0);
     
     UIPanGestureRecognizer* gestureRecognizer = [[ UIPanGestureRecognizer alloc] initWithTarget:self action:@ selector( dragging:)];

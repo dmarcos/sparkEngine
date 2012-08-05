@@ -18,16 +18,16 @@
         int _numFacesIndices;
 }
 
--(id) initWithGeometry: (SEGeometry*) geometry material: (SEShaderMaterial*) material;
+-(id) initWithGeometry:(SEGeometry*)geometry material:(SEShaderMaterial*)material;
 
 @property (nonatomic, retain) SEGeometry* geometry;
 @property (nonatomic, retain) SEShaderMaterial* material;
 
 // Buffer Objects names/ids.
 @property (nonatomic) GLuint vertexBuffer;
-@property bool vertexBufferNeedsUpdate;
-
 @property GLuint facesIndicesBuffer;
 @property GLuint linesIndicesBuffer;
+
+@property bool vertexBufferNeedsUpdate;
 
 @end

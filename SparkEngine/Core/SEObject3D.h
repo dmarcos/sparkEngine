@@ -17,4 +17,6 @@
 
 @property (nonatomic) GLKMatrix4 matrix;
 
+@property (nonatomic) bool visible;
+
 @end

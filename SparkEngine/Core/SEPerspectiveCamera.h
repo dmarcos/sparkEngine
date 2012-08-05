@@ -10,7 +10,7 @@
 
 @interface SEPerspectiveCamera : SECamera
 
--(id) initWithFov: (float) fov aspect: (float) aspect near: (float) near far: (float) far;
+-(id) initWithFov:(float)fov aspect:(float)aspect near:(float)near far:(float)far;
 
 @property (nonatomic) float fov;
 @property (nonatomic) float aspect;

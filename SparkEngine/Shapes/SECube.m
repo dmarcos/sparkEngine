@@ -10,7 +10,7 @@
 
 @implementation SECube
 
--(id) initWithMaterial: (SEShaderMaterial*) material
+-(id) initWithMaterial:(SEShaderMaterial*)material
 {
     // 20 vertices x, y, z, u, v
     GLfloat cubeVertices[] =
@@ -71,7 +71,7 @@
         18,19,18,16,19,16
     };
     
-    return [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:20 vertices:cubeVertices numFaces:12 facesIndices:cubeIndices numLines: 36 linesIndices: linesIndices] material: material];
+    return [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:20 vertices:cubeVertices numFaces:12 facesIndices:cubeIndices numLines:36 linesIndices:linesIndices] material:material];
        
 }
 

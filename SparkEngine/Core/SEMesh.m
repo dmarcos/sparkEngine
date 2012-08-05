@@ -26,7 +26,7 @@
 
 @synthesize material = _material;
 
--(id) initWithGeometry: (SEGeometry*) geometry material: (SEShaderMaterial*) material;
+-(id) initWithGeometry:(SEGeometry*)geometry material:(SEShaderMaterial*)material;
 {
     self = [super init];
     if (self) {
@@ -59,7 +59,7 @@
     return self->_material;
 }
 
--(void) setMaterial: (SEShaderMaterial*) material
+-(void) setMaterial:(SEShaderMaterial*)material
 {
     self->_material = material;
     self->_geometryNeedsUpdate = YES;

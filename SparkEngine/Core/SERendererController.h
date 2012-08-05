@@ -15,7 +15,7 @@
 
 @interface SERendererController : NSObject<GLKViewDelegate>
 
-- (void)glkView: (GLKView*) view drawInRect:(CGRect)rect;
+-(void) glkView:(GLKView*)view drawInRect:(CGRect)rect;
 
 @property (nonatomic, strong) SECamera* camera;
 @property (nonatomic, strong) SEScene* scene;

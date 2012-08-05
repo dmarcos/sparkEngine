@@ -10,12 +10,12 @@
 
 @interface SEGeometry : NSObject
 
--(id) initWithNumberOfVertices: (int) numVertices vertices: (GLfloat*) vertices
-                      numFaces: (int) numFaces facesIndices: (GLushort*) facesIndices;
+-(id) initWithNumberOfVertices:(int)numVertices vertices:(GLfloat*)vertices
+                      numFaces:(int)numFaces facesIndices:(GLushort*)facesIndices;
 
--(id) initWithNumberOfVertices: (int) numVertices vertices: (GLfloat*) vertices
-                      numFaces: (int) numFaces facesIndices: (GLushort*) facesIndices
-                      numLines: (int) numLines linesIndices: (GLushort*) linesIndices;
+-(id) initWithNumberOfVertices:(int)numVertices vertices:(GLfloat*)vertices
+                      numFaces:(int)numFaces facesIndices:(GLushort*)facesIndices
+                      numLines:(int)numLines linesIndices:(GLushort*)linesIndices;
     
 @property (nonatomic) SEVertex* vertices;
 @property (nonatomic, readonly) int numVertices;

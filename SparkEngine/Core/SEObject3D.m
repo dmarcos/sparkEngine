@@ -22,6 +22,7 @@
 @synthesize rotation = _rotation;
 @synthesize up = _up;
 @synthesize matrix = _matrix;
+@synthesize visible = _visible;
 
 -(id) init
 {
@@ -32,6 +33,7 @@
         self->_up = GLKVector3Make(0,1,0);
         self->_matrix = GLKMatrix4Identity;
         self->_matrixNeedsUpdate = NO;
+        self->_visible = YES;
     }
     return self;
 }
@@ -46,13 +48,13 @@
     self->_matrixNeedsUpdate = NO;
 }
 
--(void) setPosition: (GLKVector3) position
+-(void) setPosition:(GLKVector3)position
 {
     self->_position = position;
     self->_matrixNeedsUpdate = YES;
 }
 
--(void) setRotation: (GLKVector3) rotation
+-(void) setRotation:(GLKVector3)rotation
 {
     self->_rotation = rotation;
     self->_matrixNeedsUpdate = YES;
@@ -65,4 +67,5 @@
     }
     return self->_matrix;
 }
+
 @end

@@ -14,7 +14,7 @@
 @synthesize radius = _radius;
 @synthesize steps = _steps;
 
--(id) initWithRadius:(float)radius withSteps: (int)steps
+-(id) initWithRadius:(float)radius withSteps:(int)steps
 {
     int numVertices = (steps+1)*(steps+1);
     int numFaces = steps*steps*2;

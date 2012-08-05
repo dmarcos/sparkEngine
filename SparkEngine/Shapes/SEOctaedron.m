@@ -10,7 +10,7 @@
 
 @implementation SEOctaedron
 
--(id) initWithMaterial: (SEShaderMaterial*) material
+-(id) initWithMaterial:(SEShaderMaterial*)material
 {
 
     // 6 vertices x, y, z, u, v

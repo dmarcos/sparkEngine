@@ -10,6 +10,6 @@
 
 @interface SEOctaedron : SEMesh
 
--(id) initWithMaterial: (SEShaderMaterial*) material;
+-(id) initWithMaterial:(SEShaderMaterial*)material;
 
 @end

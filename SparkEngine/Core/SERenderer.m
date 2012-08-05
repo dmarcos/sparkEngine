@@ -34,7 +34,7 @@
 
 -(void) initRenderBuffers;
 -(void) deleteRenderBuffers;
--(void) clearRenderBuffers;
+-(void) clearRenderBuffersWithColor:(GLKVector4)color;
 -(void) showRenderBuffers;
 
 -(void) drawScene:(SEScene*)scene camera:(SECamera*)camera;
@@ -100,7 +100,17 @@
         [EAGLContext setCurrentContext: self->_glContext];
         glViewport(0, 0, self->_viewport.size.width, self->_viewport.size.height);
     }
-	[self clearRenderBuffers];
+    // Removes GL assets associated to a deleted object from the scene
+    NSEnumerator *e = [scene.removedObjects objectEnumerator];
+    id object;
+    while (object = [e nextObject]) {
+        if ([object isKindOfClass:[SEMesh class]]) {
+            [self deleteBufferObject:[object vertexBuffer]];
+            [self deleteBufferObject:[object facesIndicesBuffer]];
+            [self deleteBufferObject:[object linesIndicesBuffer]];
+        }
+    }
+	[self clearRenderBuffersWithColor: scene.backgroundColor];
     [self preRenderScene];
     [self updateBufferObjectsInScene: scene];
 	[self drawScene: scene camera: camera];
@@ -113,11 +123,15 @@
     // Multiplies the Projection by the ModelView to create the ModelViewProjection matrix.
     GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(camera.projectionMatrix, scene.matrix);
     
-    NSEnumerator *e = [scene.objects objectEnumerator];
+    NSEnumerator *e = [scene objectEnumerator];
     SEShader* currentShader;
     id currentMaterial;
     id object;
     while (object = [e nextObject]) {
+        
+        if (![object visible]) {
+            continue;
+        }
         
         currentMaterial = [object material];
         if ([currentMaterial isKindOfClass:[SEShaderMaterial class]]) {
@@ -187,13 +201,13 @@
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
--(void) clearRenderBuffers
+-(void) clearRenderBuffersWithColor:(GLKVector4)color
 {
     // Clears the color and depth render buffer.
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	// Clears an amount of color in the color render buffer.
-	glClearColor(0.0, 0.0, 0.0, 1.0);
+	glClearColor(color.r, color.g, color.b, color.a);
 }
 
 -(void) showRenderBuffers
@@ -207,7 +221,7 @@
 
 -(void) updateBufferObjectsInScene:(SEScene*)scene
 {
-    NSEnumerator *e = [scene.objects objectEnumerator];
+    NSEnumerator *e = [scene objectEnumerator];
     id object;
     while (object = [e nextObject]) {
         if ([[object geometry] numVertices] > 0 && [object vertexBufferNeedsUpdate]) {

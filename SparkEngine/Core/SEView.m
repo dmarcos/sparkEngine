@@ -25,7 +25,7 @@
 @synthesize renderer = _renderer;
 @synthesize glContext = _glContext;
 
-- (id)initWithFrame:(CGRect)frame
+- (id) initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -49,7 +49,7 @@
     return self;
 }
 
-- (void)renderFrame
+- (void) renderFrame
 {
     [self->_renderer renderScene:self->_scene camera:self->_camera viewport: self->_viewport];
 }

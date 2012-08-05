@@ -10,7 +10,7 @@
 
 @interface SESphere : SEMesh
 
--(id) initWithRadius: (float) radius withSteps: (int) steps;
+-(id) initWithRadius:(float)radius withSteps:(int)steps;
 
 @property (readonly) float radius;
 @property (readonly) int steps;

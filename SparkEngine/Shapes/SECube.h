@@ -10,6 +10,6 @@
 
 @interface SECube : SEMesh
 
--(id) initWithMaterial: (SEShaderMaterial*) material;
+-(id) initWithMaterial:(SEShaderMaterial*)material;
 
 @end

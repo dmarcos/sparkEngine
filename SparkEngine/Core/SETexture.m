@@ -14,8 +14,8 @@
 @interface SETexture(){
     CGImageRef _image;
 }
-
-- (GLuint) createGLTextureWithData: (void*) data withWidth: (int) width withHeight: (int) height; 
+ 
+-(GLuint) createGLTextureWithData:(void*)data width:(int)width height:(int)height;
 
 @end
 
@@ -23,9 +23,9 @@
 
 @synthesize glTextureName = _glTextureName;
 
-- (id) initWithImage:(UIImage *)uiImage
+-(id) initWithImage:(UIImage*)image
 {
-    self->_image = [uiImage CGImage];
+    self->_image = [image CGImage];
     CGImageRetain(self->_image);
     
     // Extracts the pixel informations and place it into the data.
@@ -39,7 +39,7 @@
     
     // Clears and ReDraw the image into the context.
     CGContextClearRect(context, CGRectMake(0, 0, imageWidth, imageHeight));
-    UIGraphicsBeginImageContextWithOptions([uiImage size], NO, 0);
+    UIGraphicsBeginImageContextWithOptions([image size], NO, 0);
     
     // Flip the image to fix Cocoa and CoreGraphics disagreement on which corner corresponds to the first pixel of the image. 
     CGAffineTransform flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, imageHeight);
@@ -50,12 +50,12 @@
     // Releases the context.
     CGContextRelease(context);
     
-    self->_glTextureName = [self createGLTextureWithData:pixelData withWidth:imageWidth withHeight:imageHeight];
+    self->_glTextureName = [self createGLTextureWithData:pixelData width:imageWidth height:imageHeight];
     
     return self;
 }
 
-- (GLuint) createGLTextureWithData: (void*) pixelData withWidth: (int) width withHeight: (int) height; 
+-(GLuint) createGLTextureWithData:(void*)data width:(int)width height:(int)height
 {
 	GLuint newTextureName;
 	
@@ -66,7 +66,7 @@
 	glBindTexture(GL_TEXTURE_2D, newTextureName);
 	
 	// Uploads the pixel data to the bound texture.
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixelData);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 	
 	// Defines the Minification and Magnification filters to the bound texture.
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -78,7 +78,7 @@
 	return newTextureName;
 }
 
-- (void) dealloc
+-(void) dealloc
 {
 	CGImageRelease(self->_image);	
 }

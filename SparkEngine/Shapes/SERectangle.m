@@ -19,7 +19,7 @@
 @synthesize height = _height;
 @synthesize width = _width;
 
--(id) initWithMaterial: (SEShaderMaterial*) material
+-(id) initWithMaterial:(SEShaderMaterial*)material
 {
     self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:4 vertices: nil numFaces:2 facesIndices: nil numLines: 6 linesIndices: nil] material: material];
     if (self) {
@@ -84,13 +84,13 @@
     self.geometry.vertices[3].normal = GLKVector3Make(0.0, 1.0, 0.0);
 }
 
--(void) setHeight: (float) height
+-(void) setHeight:(float)height
 {
     self->_height = height;
     [self calculateVertices];
 }
 
--(void) setWidth: (float) width
+-(void) setWidth:(float)width
 {
     self->_width = width;
     [self calculateVertices];
