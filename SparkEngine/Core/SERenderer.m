@@ -17,7 +17,7 @@
 #import "SEScene.h"
 #import "SEMesh.h"
 #import "SEShader.h"
-#import "SEPerspectiveCamera.h"
+#import "SECamera.h"
 
 @interface SERenderer(){
     CAEAGLLayer* _eaglLayer;
@@ -39,6 +39,7 @@
 
 -(void) drawScene:(SEScene*)scene camera:(SECamera*)camera;
 
+-(void) updateScene:(SEScene*)scene;
 -(void) updateBufferObjectsInScene:(SEScene*)scene;
 -(GLuint) initBufferObjectWithType:(GLenum)type size:(GLsizeiptr)size data:(const GLvoid*)data;
 -(void) updateBufferObject:(GLuint)bufferId type:(GLenum)type size:(GLsizeiptr)size data:(const GLvoid*)data;
@@ -100,16 +101,7 @@
         [EAGLContext setCurrentContext: self->_glContext];
         glViewport(0, 0, self->_viewport.size.width, self->_viewport.size.height);
     }
-    // Removes GL assets associated to a deleted object from the scene
-    NSEnumerator *e = [scene.removedObjects objectEnumerator];
-    id object;
-    while (object = [e nextObject]) {
-        if ([object isKindOfClass:[SEMesh class]]) {
-            [self deleteBufferObject:[object vertexBuffer]];
-            [self deleteBufferObject:[object facesIndicesBuffer]];
-            [self deleteBufferObject:[object linesIndicesBuffer]];
-        }
-    }
+    [self updateScene: scene];
 	[self clearRenderBuffersWithColor: scene.backgroundColor];
     [self preRenderScene];
     [self updateBufferObjectsInScene: scene];
@@ -118,7 +110,7 @@
 	[self showRenderBuffers];
 }
 
--(void) drawScene:(SEScene*)scene camera:(SEPerspectiveCamera*)camera
+-(void) drawScene:(SEScene*)scene camera:(SECamera*)camera
 {    
     // Multiplies the Projection by the ModelView to create the ModelViewProjection matrix.
     GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(camera.projectionMatrix, scene.matrix);
@@ -217,6 +209,21 @@
 	glBindRenderbuffer(GL_RENDERBUFFER, self->_colorbuffer);
 	// Call EAGL process to present the final image to the device's screen.
     [[EAGLContext currentContext] presentRenderbuffer:GL_RENDERBUFFER];
+}
+
+-(void) updateScene:(SEScene*)scene
+{
+    // Removes GL assets associated to a deleted object from the scene
+    NSEnumerator *e = [scene.removedObjects objectEnumerator];
+    id object;
+    while (object = [e nextObject]) {
+        if ([object isKindOfClass:[SEMesh class]]) {
+            [self deleteBufferObject:[object vertexBuffer]];
+            [self deleteBufferObject:[object facesIndicesBuffer]];
+            [self deleteBufferObject:[object linesIndicesBuffer]];
+            [scene.removedObjects removeObject:object];
+        }
+    }
 }
 
 -(void) updateBufferObjectsInScene:(SEScene*)scene

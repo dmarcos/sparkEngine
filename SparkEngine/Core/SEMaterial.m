@@ -28,9 +28,9 @@
 }
 
 - (void) dealloc {
-//    if (self->_verticesColors) {
-//        free(self->_verticesColors);
-//    }
+    if (self->_verticesColors) {
+        free(self->_verticesColors);
+    }
 }
 
 @end

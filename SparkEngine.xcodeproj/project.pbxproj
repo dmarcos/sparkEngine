@@ -71,6 +71,8 @@
 		B29FDA5715B87C3100D337BA /* default.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163A915B602C8009FC1A3 /* default.fsh */; };
 		B29FDA5815B87C3100D337BA /* default.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2D163AA15B602C8009FC1A3 /* default.vsh */; };
 		B29FDA5E15B8938C00D337BA /* SEARView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B29FDA5D15B8938C00D337BA /* SEARView.mm */; };
+		B2AB60B315CF2C5900E9862E /* SETetrahedron.h in Headers */ = {isa = PBXBuildFile; fileRef = B2AB60B115CF2C5800E9862E /* SETetrahedron.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2AB60B415CF2C5900E9862E /* SETetrahedron.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AB60B215CF2C5900E9862E /* SETetrahedron.m */; };
 		B2BD9D3015952B950028F9E9 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D2F15952B950028F9E9 /* mars.jpg */; };
 		B2BD9D3C1598D3E50028F9E9 /* blueMarble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2BD9D3B1598D3E50028F9E9 /* blueMarble.jpg */; };
 		B2C76F1315C9B77B00DEC0F4 /* SERendererController.h in Headers */ = {isa = PBXBuildFile; fileRef = B2C76F1115C9B77A00DEC0F4 /* SERendererController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -130,8 +132,8 @@
 		B2DAB73A15C34E5E006B9E50 /* Earth3DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73915C34E5E006B9E50 /* Earth3DAppDelegate.m */; };
 		B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73B15C6F9E4006B9E50 /* SECube.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2DAB73E15C6F9E4006B9E50 /* SECube.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB73C15C6F9E4006B9E50 /* SECube.m */; };
-		B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2DAB74215C6FDEC006B9E50 /* SEOctaedron.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB74015C6FDEB006B9E50 /* SEOctaedron.m */; };
+		B2DAB74115C6FDEC006B9E50 /* SEOctahedron.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DAB73F15C6FDEB006B9E50 /* SEOctahedron.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2DAB74215C6FDEC006B9E50 /* SEOctahedron.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DAB74015C6FDEB006B9E50 /* SEOctahedron.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +221,8 @@
 		B29FDA5C15B8938B00D337BA /* SEARView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEARView.h; sourceTree = "<group>"; };
 		B29FDA5D15B8938C00D337BA /* SEARView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SEARView.mm; sourceTree = "<group>"; };
 		B29FDA5F15B8C56400D337BA /* SERendererDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERendererDelegate.h; sourceTree = "<group>"; };
+		B2AB60B115CF2C5800E9862E /* SETetrahedron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SETetrahedron.h; sourceTree = "<group>"; };
+		B2AB60B215CF2C5900E9862E /* SETetrahedron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SETetrahedron.m; sourceTree = "<group>"; };
 		B2B8159E15B9CA2900794DE9 /* SERectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERectangle.h; sourceTree = "<group>"; };
 		B2B8159F15B9CA2900794DE9 /* SERectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERectangle.m; sourceTree = "<group>"; };
 		B2BD9D2F15952B950028F9E9 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
@@ -288,8 +292,8 @@
 		B2DAB73915C34E5E006B9E50 /* Earth3DAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Earth3DAppDelegate.m; sourceTree = "<group>"; };
 		B2DAB73B15C6F9E4006B9E50 /* SECube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECube.h; sourceTree = "<group>"; };
 		B2DAB73C15C6F9E4006B9E50 /* SECube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SECube.m; sourceTree = "<group>"; };
-		B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEOctaedron.h; sourceTree = "<group>"; };
-		B2DAB74015C6FDEB006B9E50 /* SEOctaedron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEOctaedron.m; sourceTree = "<group>"; };
+		B2DAB73F15C6FDEB006B9E50 /* SEOctahedron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEOctahedron.h; sourceTree = "<group>"; };
+		B2DAB74015C6FDEB006B9E50 /* SEOctahedron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEOctahedron.m; sourceTree = "<group>"; };
 		B2F29B46158A85B800837A72 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -527,8 +531,10 @@
 				B2B8159F15B9CA2900794DE9 /* SERectangle.m */,
 				B2DAB73B15C6F9E4006B9E50 /* SECube.h */,
 				B2DAB73C15C6F9E4006B9E50 /* SECube.m */,
-				B2DAB73F15C6FDEB006B9E50 /* SEOctaedron.h */,
-				B2DAB74015C6FDEB006B9E50 /* SEOctaedron.m */,
+				B2DAB73F15C6FDEB006B9E50 /* SEOctahedron.h */,
+				B2DAB74015C6FDEB006B9E50 /* SEOctahedron.m */,
+				B2AB60B115CF2C5800E9862E /* SETetrahedron.h */,
+				B2AB60B215CF2C5900E9862E /* SETetrahedron.m */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -694,8 +700,9 @@
 				B22EB73F15C1FDB9002B6A96 /* SERendererDelegate.h in Headers */,
 				B22EB74015C1FDB9002B6A96 /* SESphere.h in Headers */,
 				B2DAB73D15C6F9E4006B9E50 /* SECube.h in Headers */,
-				B2DAB74115C6FDEC006B9E50 /* SEOctaedron.h in Headers */,
+				B2DAB74115C6FDEC006B9E50 /* SEOctahedron.h in Headers */,
 				B22EB74115C1FDB9002B6A96 /* SETriangle.h in Headers */,
+				B2AB60B315CF2C5900E9862E /* SETetrahedron.h in Headers */,
 				B2C76F1315C9B77B00DEC0F4 /* SERendererController.h in Headers */,
 				B22EB74215C1FDB9002B6A96 /* SERectangle.h in Headers */,
 				B22EB72F15C1FDA1002B6A96 /* SparkEngine-Prefix.pch in Headers */,
@@ -982,8 +989,9 @@
 				B22EB72C15C1FCE8002B6A96 /* SETriangle.m in Sources */,
 				B22EB72E15C1FCE8002B6A96 /* SERectangle.m in Sources */,
 				B2DAB73E15C6F9E4006B9E50 /* SECube.m in Sources */,
-				B2DAB74215C6FDEC006B9E50 /* SEOctaedron.m in Sources */,
+				B2DAB74215C6FDEC006B9E50 /* SEOctahedron.m in Sources */,
 				B2C76F1415C9B77B00DEC0F4 /* SERendererController.m in Sources */,
+				B2AB60B415CF2C5900E9862E /* SETetrahedron.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,16 +35,19 @@
     self->_polygonView.camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self->_viewFrame.size.width / self->_viewFrame.size.height near: 0.1 far:100.0];
     
     // Objects Setup
-    GLKVector4 colors[3] = {GLKVector4Make(1.0, 0.0, 0.0, 1.0),
-        GLKVector4Make(0.0, 1.0, 0.0, 1.0),
-        GLKVector4Make(0.0, 0.0, 1.0, 1.0)};
+    GLKVector4* colors = (GLKVector4*) malloc(sizeof(GLKVector4)*5);
+    colors[0] = GLKVector4Make(1.0, 0.0, 0.0, 1.0);
+    colors[1] = GLKVector4Make(0.0, 1.0, 0.0, 1.0);
+    colors[2] = GLKVector4Make(0.0, 0.0, 1.0, 1.0);
+    colors[3] = GLKVector4Make(0.0, 1.0, 1.0, 1.0);
+    colors[4] = GLKVector4Make(1.0, 0.0, 1.0, 1.0);
+
     SEShaderMaterial* material = [[SEShaderMaterial alloc] init];
     material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"plainColor.fsh"];
     material.verticesColors = colors;
-    //sphere.material.wireframe = YES;
-    //sphere.material.pointCloud = YES;
+    //material.wireframe = YES;
+    //material.pointCloud = YES;
     SETriangle* triangle = [[SETriangle alloc] initWithMaterial: material];
-    
     // Scene Setup
     [self->_polygonView.scene addObject:triangle];
     self->_polygonView.scene.position = GLKVector3Make(0.0, 0.0,-4.0);

@@ -1,20 +1,20 @@
 //
-//  SEOctaedron.m
+//  SEOctahedron.m
 //  SparkEngine
 //
 //  Created by Diego Marcos Segura on 7/30/12.
 //  Copyright (c) 2012 codebeast.org. All rights reserved.
 //
 
-#import "SEOctaedron.h"
+#import "SEOctahedron.h"
 
-@implementation SEOctaedron
+@implementation SEOctahedron
 
 -(id) initWithMaterial:(SEShaderMaterial*)material
 {
 
     // 6 vertices x, y, z, u, v
-    GLfloat octaedronVertices[] =
+    GLfloat octahedronVertices[] =
     {
         0.00,0.00,-1.00, -0.00, 0.00,
         1.00,0.00,0.00, 0.00, 0.50,
@@ -25,7 +25,7 @@
     };
     
     // 8 faces
-    GLushort octaedronIndices[] =
+    GLushort octahedronIndices[] =
     {
         0,1,2,
         0,2,3,
@@ -37,7 +37,7 @@
         5,1,4
     };
             
-    return [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:6 vertices:octaedronVertices numFaces:8 facesIndices:octaedronIndices numLines: 24 linesIndices: nil] material: material];
+    return [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:6 vertices:octahedronVertices numFaces:8 facesIndices:octahedronIndices numLines: 24 linesIndices: nil] material: material];
 }
 
 @end

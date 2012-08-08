@@ -15,9 +15,9 @@
     self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:3 vertices: nil numFaces:1 facesIndices: nil numLines: 3 linesIndices: nil] material: material];
     if (self) {
                 
-        self.geometry.vertices[0].position = GLKVector3Make(-0.5, -0.5, 1.0);
-        self.geometry.vertices[1].position = GLKVector3Make(0.5, -0.5, 1.0);
-        self.geometry.vertices[2].position = GLKVector3Make(0.0, 0.5, 1.0);
+        self.geometry.vertices[0].position = GLKVector3Make(-1.0, -1.0, 0.0);
+        self.geometry.vertices[1].position = GLKVector3Make(1.0, -1.0, 0.0);
+        self.geometry.vertices[2].position = GLKVector3Make(0.0, 1.0, 0.0);
 
         self.geometry.facesIndices[0].a = 0;
         self.geometry.facesIndices[0].b = 1;
