@@ -37,7 +37,7 @@
         5,1,4
     };
             
-    return [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:6 vertices:octahedronVertices numFaces:8 facesIndices:octahedronIndices numLines: 24 linesIndices: nil] material: material];
+    return [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:6 vertices:octahedronVertices numFaces:8 facesIndices:octahedronIndices numLines:24 linesIndices:nil] material:material];
 }
 
 @end

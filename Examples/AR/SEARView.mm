@@ -25,23 +25,24 @@
         self->_qUtils.QCARFlags = QCAR::GL_20;
 
         // Camera Setup
-        SEPerspectiveCamera* camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: frame.size.width / frame.size.height near: 0.1 far:100.0];
+        SECamera* camera = [[SECamera alloc] initWithFov:45.0 aspect: frame.size.width / frame.size.height near: 0.1 far:100.0];
         
         // Scene Setup
         SEScene* scene = [[SEScene alloc] init]; 
         scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
-        scene.position = GLKVector3Make(0.0, 0.0,-4.0);
+        scene.position = GLKVector3Make(0.0, 0.0, -4.0);
         
         // Objects Setup
         //SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
-        //sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];;
-        //[scene.objects addObject:sphere];
+        //sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];
+        //sphere.position = GLKVector3Make(0.0, 0.0, -3.0);
+        //[scene addObject:sphere];
         
         SERectangle* rectangle = [[SERectangle alloc] initWithMaterial: NULL];
         rectangle.height = 10.0;
         rectangle.width = 7.5;
         rectangle.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"pierresRubis.jpg"]];;
-        [scene.objects addObject:rectangle];
+        [scene addObject:rectangle];
         
         self.scene = scene;
         self.camera = camera;

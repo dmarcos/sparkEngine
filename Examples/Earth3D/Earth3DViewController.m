@@ -8,7 +8,7 @@
 
 #import "Earth3DViewController.h"
 #import <SparkEngine/SEView.h>
-#import <SparkEngine/SEPerspectiveCamera.h>
+#import <SparkEngine/SECamera.h>
 #import <SparkEngine/SEScene.h>
 #import <SparkEngine/SESphere.h>
 
@@ -29,7 +29,7 @@
     self->_earth3dView.multipleTouchEnabled = YES;
     
     // Camera Setup
-    self->_earth3dView.camera = [[SEPerspectiveCamera alloc] initWithFov:GLKMathDegreesToRadians(45.0) aspect: self->_viewFrame.size.width / self->_viewFrame.size.height near: 0.1 far:100.0];
+    self->_earth3dView.camera = [[SECamera alloc] initWithFov:45.0 aspect: self->_viewFrame.size.width / self->_viewFrame.size.height near: 0.1 far:100.0];
         
     // Objects Setup
     SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];

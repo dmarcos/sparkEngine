@@ -20,7 +20,7 @@
     int numFaces = steps*steps*2;
     int numLines = numFaces*3;
     
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:numVertices vertices: nil numFaces: numFaces facesIndices: nil numLines: numLines linesIndices: nil] material:NULL];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:numVertices vertices:nil numFaces:numFaces facesIndices:nil numLines:numLines linesIndices:nil] material:NULL];
     if (self) {
     
         self->_radius = radius;

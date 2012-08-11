@@ -119,12 +119,13 @@
     SEShader* currentShader;
     id currentMaterial;
     id object;
+    GLKMatrix4 objectViewProjectionMatrix;
     while (object = [e nextObject]) {
         
         if (![object visible]) {
             continue;
         }
-        
+        objectViewProjectionMatrix = GLKMatrix4Multiply(modelViewProjectionMatrix, [object matrix]);
         currentMaterial = [object material];
         if ([currentMaterial isKindOfClass:[SEShaderMaterial class]]) {
             currentShader = [currentMaterial shader];
@@ -140,7 +141,7 @@
         glUseProgram(currentShader.programId);
         
         // Sets the uniform to MVP Matrix.
-        glUniformMatrix4fv(currentShader.u_mvpMatrix, 1, GL_FALSE, modelViewProjectionMatrix.m);
+        glUniformMatrix4fv(currentShader.u_mvpMatrix, 1, GL_FALSE, objectViewProjectionMatrix.m);
         
         // Bind the texture to an Texture Unit.
         // Just to illustration purposes, in this case let's use the Texture Unit 7.
@@ -170,11 +171,11 @@
         glVertexAttribPointer(currentShader.a_vertexColor, 4, GL_FLOAT, GL_FALSE, sizeof(SEVertex), (void *) (sizeof(GLKVector3)*2 + sizeof(GLKVector2)));
 
         // Draw primitives
-        if ([currentMaterial wireframe]) {
+        if ([currentMaterial renderStyle] == WireFrame) {
             // Draws the triangles, starting by the index 0 in the IBO.
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, [object linesIndicesBuffer]);
             glDrawElements(GL_LINES, [[object geometry] numLines] * 2, GL_UNSIGNED_SHORT, (void *) 0);
-        } else if ([currentMaterial pointCloud]) {
+        } else if ([currentMaterial renderStyle] == PointCloud) {
             glDrawArrays(GL_POINTS, 0, [[object geometry] numVertices]);
         } else {
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, [object facesIndicesBuffer]);

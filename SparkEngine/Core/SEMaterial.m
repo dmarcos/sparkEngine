@@ -14,14 +14,12 @@
 @synthesize verticesColors = _verticesColors;
 @synthesize color = _color;
 
-@synthesize wireframe = _wireframe;
-@synthesize pointCloud = _pointCloud;
+@synthesize renderStyle = _renderStyle;
 
 - (id) init {
     self = [super init];
     if (self) {
-        self.wireframe = NO;
-        self.pointCloud = NO;
+        self.renderStyle = Triangles;
         self.color = GLKVector4Make(1.0, 0.0, 0.0, 1.0); // Default color. Totally arbitrary :)
     }
     return self;

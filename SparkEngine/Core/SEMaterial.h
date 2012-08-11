@@ -12,11 +12,16 @@
 
 @interface SEMaterial : NSObject
 
+typedef enum {
+    Triangles,
+    PointCloud,
+    WireFrame
+} SERenderStyle;
+
 @property (nonatomic, strong) SETexture* texture; 
 @property (nonatomic) GLKVector4* verticesColors;
 @property (nonatomic) GLKVector4 color;
 
-@property (nonatomic) bool wireframe;
-@property (nonatomic) bool pointCloud;
+@property (nonatomic) SERenderStyle renderStyle;
 
 @end

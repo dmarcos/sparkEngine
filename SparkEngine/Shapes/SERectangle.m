@@ -21,7 +21,7 @@
 
 -(id) initWithMaterial:(SEShaderMaterial*)material
 {
-    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:4 vertices: nil numFaces:2 facesIndices: nil numLines: 6 linesIndices: nil] material: material];
+    self = [super initWithGeometry: [[SEGeometry alloc] initWithNumberOfVertices:4 vertices:nil numFaces:2 facesIndices:nil numLines:6 linesIndices:nil] material:material];
     if (self) {
         
         self->_height = 1.0;
