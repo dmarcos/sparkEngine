@@ -8,12 +8,8 @@
 
 #import "SEObject3D.h"
 
-@interface SEObject3D(){
-    bool _matrixNeedsUpdate;
-}
-
+@interface SEObject3D()
 -(void) updateMatrix;
-
 @end
 
 @implementation SEObject3D
@@ -32,7 +28,6 @@
         self->_rotation = GLKVector3Make(0,0,0);
         self->_up = GLKVector3Make(0,1,0);
         self->_matrix = GLKMatrix4Identity;
-        self->_matrixNeedsUpdate = NO;
         self->_visible = YES;
     }
     return self;
@@ -44,28 +39,19 @@
     newMatrix = GLKMatrix4RotateX(newMatrix, GLKMathDegreesToRadians(self->_rotation.x));
     newMatrix = GLKMatrix4RotateY(newMatrix, GLKMathDegreesToRadians(self->_rotation.y));
     newMatrix = GLKMatrix4RotateZ(newMatrix, GLKMathDegreesToRadians(self->_rotation.z));
-    self->_matrix = newMatrix;
-    self->_matrixNeedsUpdate = NO;
+    self.matrix = newMatrix;
 }
 
 -(void) setPosition:(GLKVector3)position
 {
     self->_position = position;
-    self->_matrixNeedsUpdate = YES;
+    [self updateMatrix];
 }
 
 -(void) setRotation:(GLKVector3)rotation
 {
     self->_rotation = rotation;
-    self->_matrixNeedsUpdate = YES;
-}
-
--(GLKMatrix4) matrix
-{
-    if(self->_matrixNeedsUpdate){
-        [self updateMatrix];
-    }
-    return self->_matrix;
+    [self updateMatrix];
 }
 
 @end

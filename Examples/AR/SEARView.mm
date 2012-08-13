@@ -9,7 +9,7 @@
 #import "SEARView.h"
 #import "SESphere.h"
 #import "SERectangle.h"
-#import "SEPerspectiveCamera.h"
+#import "SECamera.h"
 #import <QCAR/QCAR.h>
 #import <QCAR/Renderer.h>
 
@@ -29,7 +29,6 @@
         
         // Scene Setup
         SEScene* scene = [[SEScene alloc] init]; 
-        scene.rotation = GLKVector3Make(0.0, 0.0, 0.0);
         scene.position = GLKVector3Make(0.0, 0.0, -4.0);
         
         // Objects Setup

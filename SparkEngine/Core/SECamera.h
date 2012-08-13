@@ -13,7 +13,7 @@
 -(id) initWithFov:(float)fov aspect:(float)aspect near:(float)near far:(float)far;
 -(id) initWithLeft:(float)left right:(float)right bottom:(float)bottom top:(float)top near:(float)near far:(float)far;
 
-@property (nonatomic,readonly) GLKMatrix4 projectionMatrix;
+@property (nonatomic) GLKMatrix4 projectionMatrix;
 
 @property (nonatomic) float fov;
 @property (nonatomic) float aspect;

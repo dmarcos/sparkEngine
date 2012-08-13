@@ -8,7 +8,9 @@
 
 #import "SECamera.h"
 
-@interface SECamera()
+@interface SECamera(){
+    bool _projectionMatrixNeedsUpdate;
+}
 
 -(void) updateProjectionMatrix;
 -(void) updatePlanes;
@@ -55,21 +57,25 @@
         self->_far = far;
         self->_aspect = self->_right / self->_top;
         self->_fov = atan(self->_top / self->_near) * 2;
+        self->_projectionMatrixNeedsUpdate = YES;
     }
     return self;
 }
 
 -(GLKMatrix4) projectionMatrix
 {
-    [self updateProjectionMatrix];
+    if (self->_projectionMatrixNeedsUpdate) {
+        [self updateProjectionMatrix];
+    }
     return self->_projectionMatrix;
 }
 
 -(void) updateProjectionMatrix
 {
-    //self.projectionMatrix = GLKMatrix4MakePerspective(self->_fov, self->_aspect, self->_near, self->_far);
+    //GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(self->_fov, self->_aspect, self->_near, self->_far);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakeFrustum(self->_left, self->_right, self->_bottom, self->_top, self->_near, self->_far);
     self->_projectionMatrix = GLKMatrix4Multiply(projectionMatrix, self.matrix);
+    self->_projectionMatrixNeedsUpdate = NO;
 }
 
 -(void) updatePlanes
@@ -78,6 +84,7 @@
     self->_bottom = -self->_top;
     self->_right = self->_top * self->_aspect;
     self->_left = -self->_right;
+    self->_projectionMatrixNeedsUpdate = YES;
 }
 
 -(void) setFov:(float)fov
@@ -102,6 +109,12 @@
 {
     self->_far = far;
     [self updatePlanes];
+}
+
+-(void) setMatrix:(GLKMatrix4)matrix
+{
+    self->_projectionMatrixNeedsUpdate = YES;
+    [super setMatrix:matrix];
 }
 
 @end

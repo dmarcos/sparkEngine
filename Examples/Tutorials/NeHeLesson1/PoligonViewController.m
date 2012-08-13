@@ -54,6 +54,7 @@
     [self->_polygonView.scene addObject:self->_triangle];
 
     SECameraVisualization* cameraViz = [[SECameraVisualization alloc] initWithCamera: self->_polygonView.camera];
+    //cameraViz.position = GLKVector3Make(0.0, 0.0,-4.0);
     [self->_polygonView.scene addObject:cameraViz];
     
     UIPanGestureRecognizer* gestureRecognizer = [[ UIPanGestureRecognizer alloc] initWithTarget:self action:@ selector(dragging:)];
