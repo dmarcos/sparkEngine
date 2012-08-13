@@ -38,12 +38,11 @@
     view.delegate = self->_rendererController;
         
     // Camera setup
-    self->_rendererController.camera = [[SEPerspectiveCamera alloc] initWithFov:45.0 aspect: appFrame.size.width / appFrame.size.height near: 0.1 far:100.0];
+    self->_rendererController.camera = [[SECamera alloc] initWithFov:45.0 aspect: appFrame.size.width / appFrame.size.height near: 0.1 far:100.0];
     
     // Objects Setup
     SEShaderMaterial* material = [[SEShaderMaterial alloc] init];
     material.renderStyle = WireFrame;
-    material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"plainColor.fsh"];
     self->_material = material;
     self->_sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
     

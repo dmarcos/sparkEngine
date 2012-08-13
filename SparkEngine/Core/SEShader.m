@@ -9,6 +9,8 @@
 #import "SEShader.h"
 #import <OpenGLES/ES2/gl.h>
 
+static SEShader* _defaultShader = nil;
+
 @interface SEShader(){
     NSString* _vertexShaderSource;
     NSString* _fragmentShaderSource;
@@ -38,16 +40,22 @@
 
 +(SEShader*) defaultShader
 {
-    return [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"default.fsh"];
+    if (_defaultShader == nil) {
+        NSString* defaultVertexShaderSource = [NSString stringWithFormat:@"%@\%@", [SEShader vertexShaderPrefix], [SEShader defaultVertexShader]];
+        NSString* defaultFragmentShaderSource = [NSString stringWithFormat:@"%@\%@", [SEShader fragmentShaderPrefix], [SEShader defaultFragmentShader]];
+        _defaultShader = [[SEShader alloc] initWithVertexShaderSource:defaultVertexShaderSource fragmentShaderSource:defaultFragmentShaderSource];
+    }
+    //NSString* shaderSource[NSString stringWithFormat:@"%@/%@/%@", three, two, one];
+    return _defaultShader;
 }
 
 
--(id) initWithVertexShaderSource:(const char*)vertexShaderSource fragmentShaderSource:(const char*)fragmentShaderSource
+-(id) initWithVertexShaderSource:(NSString*)vertexShaderSource fragmentShaderSource:(NSString*)fragmentShaderSource
 {
     self = [super init];
     if(self){
-        self->_vertexShaderSource = [NSString stringWithCString:vertexShaderSource encoding:NSUTF8StringEncoding];
-        self->_fragmentShaderSource = [NSString stringWithCString:fragmentShaderSource encoding:NSUTF8StringEncoding];
+        self->_vertexShaderSource = vertexShaderSource;
+        self->_fragmentShaderSource = fragmentShaderSource;
         self->_programId = -1;
     }
     return self;  
@@ -204,6 +212,45 @@
     glDisableVertexAttribArray(self->_a_vertex);
     glDisableVertexAttribArray(self->_a_texCoord);
     glDisableVertexAttribArray(self->_a_vertexColor);
+}
+
++(NSString*) vertexShaderPrefix{
+    return @"\
+    precision mediump float;\
+    precision lowp int;\
+    uniform mat4			u_mvpMatrix;\
+    attribute highp vec4	a_vertex;\
+    attribute vec2			a_texCoord;\
+    varying vec2			v_texCoord;\
+    varying vec4            v_vertexColor;\
+    attribute vec4 a_vertexColor;";
+}
+
++(NSString*) fragmentShaderPrefix{
+    return @"\
+    precision mediump float;\
+    precision lowp int;\
+    uniform sampler2D		u_map;\
+    varying vec2			v_texCoord;\
+    varying vec4            v_vertexColor;";
+}
+
++(NSString*) defaultVertexShader{
+    return @"\
+    void main(void)\
+    {\
+        v_texCoord = a_texCoord;\
+        gl_Position = u_mvpMatrix * a_vertex;\
+        v_vertexColor = a_vertexColor;\
+    }";
+}
+
++(NSString*) defaultFragmentShader{
+    return @"\
+    void main (void)\
+    {\
+        gl_FragColor = v_vertexColor;\
+    }";
 }
 
 @end

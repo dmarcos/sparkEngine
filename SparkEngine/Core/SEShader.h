@@ -12,8 +12,13 @@
 @interface SEShader : NSObject
 
 +(SEShader*) defaultShader;
++(NSString*) defaultVertexShader;
++(NSString*) defaultFragmentShader;
 
--(id) initWithVertexShaderSource:(const char*)vertexShaderSource fragmentShaderSource:(const char*)fragmentShaderSource;
++(NSString*) vertexShaderPrefix;
++(NSString*) fragmentShaderPrefix;
+
+-(id) initWithVertexShaderSource:(NSString*)vertexShaderSource fragmentShaderSource:(NSString*)fragmentShaderSource;
 -(id) initWithVertexShaderFileName:(NSString*)vertexShaderFileName fragmentShaderFileName:(NSString*)fragmentShaderFileName;
 
 @property (readonly) NSDictionary* attributes;

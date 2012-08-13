@@ -11,6 +11,7 @@
 #import <SparkEngine/SECamera.h>
 #import <SparkEngine/SEScene.h>
 #import <SparkEngine/SESphere.h>
+#import <SparkEngine/SEShader.h>
 
 @interface Earth3DViewController (){
     SEView* _earth3dView;
@@ -34,7 +35,8 @@
     // Objects Setup
     SESphere* sphere = [[SESphere alloc] initWithRadius:1.0 withSteps:36];
     sphere.material.texture = [[SETexture alloc] initWithImage:[UIImage imageNamed:@"blueMarble.jpg"]];
-    
+    sphere.material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"default.fsh"];
+
     // Scene Setup
     [self->_earth3dView.scene addObject:sphere];
     self->_earth3dView.scene.position = GLKVector3Make(0.0, 0.0,-4.0);

@@ -45,7 +45,7 @@
     colors[4] = GLKVector4Make(1.0, 0.0, 1.0, 1.0);
 
     SEShaderMaterial* material = [[SEShaderMaterial alloc] init];
-    material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"plainColor.fsh"];
+    //material.shader = [[SEShader alloc] initWithVertexShaderFileName:@"default.vsh" fragmentShaderFileName:@"plainColor.fsh"];
     material.verticesColors = colors;
     self->_triangle = [[SETriangle alloc] initWithMaterial: material];
     self->_triangle.position = GLKVector3Make(0.0, 0.0,-4.0);
